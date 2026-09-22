@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DexMimic: A Generalist Dexterous Hand–Object Tracking Policy via Value-Guided Reset Allocation.">
+  <meta name="theme-color" content="#ffffff">
+  <title>DexMimic: A Generalist Dexterous Hand–Object Tracking Policy</title>
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <h1><span class="dex">Dex</span><span class="mimic">Mimic</span>: A Generalist Dexterous<br class="wide-break"> Hand–Object Tracking Policy<br> via Value-Guided Reset Allocation</h1>
+      <a class="appendix" href="static/assets/appendix.pdf" target="_blank" rel="noopener" aria-label="Read the supplemental material (PDF)"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 2h8l4 4v16H6z M14 2v5h4 M9 12h6 M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Appendix</a>
+    </header>
+    <figure class="teaser content">
+      <img src="static/assets/teaser.png" alt="DexMimic overview: human demonstrations, generalist policy learning, and dexterous hand–object manipulation results.">
+      <figcaption>DexMimic learns a generalist dexterous hand–object tracking policy from human demonstrations through Value-Guided Reset Allocation. It consistently outperforms trajectory-specific baselines in tracking success and training efficiency, with zero-shot generalization improving as co-training scales. Real-world experiments validate DexMimic’s ability to perform diverse dexterous manipulation skills.</figcaption>
+    </figure>
+    <section class="abstract" aria-labelledby="abstract-title">
+      <div class="prose">
+        <h2 id="abstract-title">Abstract</h2>
+        <p>Achieving human-like dexterous manipulation remains a central challenge in robotics. Learning from human hand–object interaction (HOI) datasets offers a promising pathway to diverse dexterous skills, yet existing physics-based approaches train specialist policies for individual trajectories, thereby limiting skill reuse at scale. We introduce <strong>DexMimic</strong>, a generalist dexterous hand–object tracking policy jointly trained across diverse HOI trajectories. Efficient joint training requires allocating each rollout to both an undertrained phase and a starting state that supports continued tracking. DexMimic realizes this insight through <strong>Value-Guided Reset Allocation</strong>, which adapts the initialization distribution online to prioritize difficult phases and select reset states with higher expected tracking returns. We further introduce a benchmark spanning training, fine-tuning, and generalization. Experiments show improved tracking success and training efficiency, faster fine-tuning, and the potential for zero-shot generalization to unseen trajectories and objects; larger training sets further improve efficiency and generalization. Finally, we validate DexMimic on a real-world dexterous manipulation platform.</p>
+      </div>
+    </section>
+    <section class="method content" aria-labelledby="method-title">
+      <h2 id="method-title">Method Overview</h2>
+      <figure>
+        <a href="static/assets/method.png" target="_blank" rel="noopener" aria-label="Open the full-resolution method overview"><img src="static/assets/method.png" alt="Value-Guided Reset Allocation: a reset map, phase and state allocation, and physics rollouts that jointly update the policy, critic, and initialization distribution." loading="lazy"></a>
+        <figcaption><strong>Value-Guided Reset Allocation.</strong> The reset map stores candidate states and their critic values for each trajectory and reference phase. As training progresses, reset phase allocation prioritizes under-learned phases, while reset state allocation favors candidates with higher expected tracking returns within each selected phase. Physics rollouts from the sampled initializations update the policy and critic, replenish the reset map, and refine phase sampling probabilities, forming an adaptive training loop.</figcaption>
+      </figure>
+    </section>
+  </main>
+</body>
+</html>
