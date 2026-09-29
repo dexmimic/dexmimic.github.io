@@ -1,0 +1,286 @@
+{
+  "rows": 7,
+  "columns": 4,
+  "units": [
+    {
+      "id": "30dbe@14",
+      "title": "Two-Handed Pour into a Beaker",
+      "description": "Both hands pour material from a test tube into a beaker.",
+      "duration": 5.767,
+      "page": "units/30dbe@14/index.html",
+      "preview": "units/30dbe@14/preview.png",
+      "backdrop": "factory",
+      "hand_count": 2
+    },
+    {
+      "id": "751fb@16",
+      "title": "Two-Handed Lamp Extinguishing",
+      "description": "Both hands extinguish an alcohol lamp with its cap.",
+      "duration": 2.267,
+      "page": "units/751fb@16/index.html",
+      "preview": "units/751fb@16/preview.png",
+      "backdrop": "home",
+      "hand_count": 2
+    },
+    {
+      "id": "7a6dd@2",
+      "title": "Two-Handed Whiteboard Writing",
+      "description": "Both hands coordinate while writing on a whiteboard with a marker.",
+      "duration": 13.233,
+      "page": "units/7a6dd@2/index.html",
+      "preview": "units/7a6dd@2/preview.png",
+      "backdrop": "lab",
+      "hand_count": 2
+    },
+    {
+      "id": "86e2a@11",
+      "title": "Two-Handed Stirring",
+      "description": "Both hands stir inside a bowl with a spoon.",
+      "duration": 6.033,
+      "page": "units/86e2a@11/index.html",
+      "preview": "units/86e2a@11/preview.png",
+      "backdrop": "courtyard",
+      "hand_count": 2
+    },
+    {
+      "id": "86e2a@9",
+      "title": "Two-Handed Scooping",
+      "description": "Both hands scoop salt from a green teacup into a bowl.",
+      "duration": 11.3,
+      "page": "units/86e2a@9/index.html",
+      "preview": "units/86e2a@9/preview.png",
+      "backdrop": "factory",
+      "hand_count": 2
+    },
+    {
+      "id": "9a028@8",
+      "title": "Writing on a Whiteboard",
+      "description": "The hand writes on a whiteboard with a marker.",
+      "duration": 16.833,
+      "page": "units/9a028@8/index.html",
+      "preview": "units/9a028@8/preview.png",
+      "backdrop": "home",
+      "hand_count": 1
+    },
+    {
+      "id": "fe8dc@0",
+      "title": "Scooping into a Bowl",
+      "description": "The hand scoops material from a gray-green porcelain bottle into a bowl.",
+      "duration": 15.967,
+      "page": "units/fe8dc@0/index.html",
+      "preview": "units/fe8dc@0/preview.png",
+      "backdrop": "lab",
+      "hand_count": 1
+    },
+    {
+      "id": "920f6@6",
+      "title": "Spreading on Bread",
+      "description": "The hand spreads ketchup and sugar on bread with a spoon.",
+      "duration": 9.083,
+      "page": "units/920f6@6/index.html",
+      "preview": "units/920f6@6/preview.png",
+      "backdrop": "courtyard",
+      "hand_count": 1
+    },
+    {
+      "id": "78c62@2",
+      "title": "Writing on Paper",
+      "description": "The hand writes on paper with a pen.",
+      "duration": 15.933,
+      "page": "units/78c62@2/index.html",
+      "preview": "units/78c62@2/preview.png",
+      "backdrop": "factory",
+      "hand_count": 1
+    },
+    {
+      "id": "f1029@7",
+      "title": "Using a Computer Mouse",
+      "description": "The hand controls a laptop with a mouse.",
+      "duration": 5.167,
+      "page": "units/f1029@7/index.html",
+      "preview": "units/f1029@7/preview.png",
+      "backdrop": "home",
+      "hand_count": 1
+    },
+    {
+      "id": "5a065@0",
+      "title": "Uncapping a Teapot",
+      "description": "The hand lifts the lid from a porcelain teapot.",
+      "duration": 5.267,
+      "page": "units/5a065@0/index.html",
+      "preview": "units/5a065@0/preview.png",
+      "backdrop": "lab",
+      "hand_count": 1
+    },
+    {
+      "id": "751fb@24",
+      "title": "Shaking a Conical Flask",
+      "description": "The hand shakes a mixture inside a conical flask.",
+      "duration": 10.2,
+      "page": "units/751fb@24/index.html",
+      "preview": "units/751fb@24/preview.png",
+      "backdrop": "courtyard",
+      "hand_count": 1
+    },
+    {
+      "id": "81a95@2",
+      "title": "Lighting an Alcohol Lamp",
+      "description": "The hand ignites an alcohol lamp.",
+      "duration": 9.8,
+      "page": "units/81a95@2/index.html",
+      "preview": "units/81a95@2/preview.png",
+      "backdrop": "factory",
+      "hand_count": 1
+    },
+    {
+      "id": "29266@0",
+      "title": "Moving a Blue Teacup",
+      "description": "The hand moves a blue teacup to a new position.",
+      "duration": 4.3,
+      "page": "units/29266@0/index.html",
+      "preview": "units/29266@0/preview.png",
+      "backdrop": "home",
+      "hand_count": 1
+    },
+    {
+      "id": "07bb1@3",
+      "title": "Taking Out a Fork",
+      "description": "The hand removes a fork from a tool rack.",
+      "duration": 6.7,
+      "page": "units/07bb1@3/index.html",
+      "preview": "units/07bb1@3/preview.png",
+      "backdrop": "lab",
+      "hand_count": 1
+    },
+    {
+      "id": "8e5df@11",
+      "title": "Heating a Beaker",
+      "description": "The hand heats a mixed substance in a beaker with an alcohol lamp.",
+      "duration": 4.367,
+      "page": "units/8e5df@11/index.html",
+      "preview": "units/8e5df@11/preview.png",
+      "backdrop": "courtyard",
+      "hand_count": 1
+    },
+    {
+      "id": "1be0e@1",
+      "title": "Shaking a Test Tube",
+      "description": "The hand shakes material inside a test tube.",
+      "duration": 8.233,
+      "page": "units/1be0e@1/index.html",
+      "preview": "units/1be0e@1/preview.png",
+      "backdrop": "factory",
+      "hand_count": 1
+    },
+    {
+      "id": "0b3d1@2",
+      "title": "Pressing a Scale Button",
+      "description": "The hand presses a button on a scale.",
+      "duration": 4.167,
+      "page": "units/0b3d1@2/index.html",
+      "preview": "units/0b3d1@2/preview.png",
+      "backdrop": "home",
+      "hand_count": 1
+    },
+    {
+      "id": "b5fa3@15",
+      "title": "Racking a Tube with a Holder",
+      "description": "The hand places a test tube into a rack using a tube holder.",
+      "duration": 4.017,
+      "page": "units/b5fa3@15/index.html",
+      "preview": "units/b5fa3@15/preview.png",
+      "backdrop": "lab",
+      "hand_count": 1
+    },
+    {
+      "id": "c2f83@3",
+      "title": "Racking a Glass Rod",
+      "description": "The hand places a glass rod onto a test-tube rack.",
+      "duration": 3.35,
+      "page": "units/c2f83@3/index.html",
+      "preview": "units/c2f83@3/preview.png",
+      "backdrop": "courtyard",
+      "hand_count": 1
+    },
+    {
+      "id": "3b1e6@14",
+      "title": "Removing a Test Tube",
+      "description": "The hand removes a test tube from a rack.",
+      "duration": 5.667,
+      "page": "units/3b1e6@14/index.html",
+      "preview": "units/3b1e6@14/preview.png",
+      "backdrop": "factory",
+      "hand_count": 1
+    },
+    {
+      "id": "9f436@1",
+      "title": "Placing a Donut on a Saucer",
+      "description": "The hand places a donut onto a saucer.",
+      "duration": 5.933,
+      "page": "units/9f436@1/index.html",
+      "preview": "units/9f436@1/preview.png",
+      "backdrop": "home",
+      "hand_count": 1
+    },
+    {
+      "id": "86fb0@1",
+      "title": "Placing a Cup on a Scale",
+      "description": "The hand places a blue teacup on a scale platform.",
+      "duration": 3.8,
+      "page": "units/86fb0@1/index.html",
+      "preview": "units/86fb0@1/preview.png",
+      "backdrop": "lab",
+      "hand_count": 1
+    },
+    {
+      "id": "f7d37@15",
+      "title": "Moving a Tripod",
+      "description": "The hand moves a tripod to a new position.",
+      "duration": 3.967,
+      "page": "units/f7d37@15/index.html",
+      "preview": "units/f7d37@15/preview.png",
+      "backdrop": "courtyard",
+      "hand_count": 1
+    },
+    {
+      "id": "590d0@3",
+      "title": "Holding a Kitchen Knife",
+      "description": "The hand grasps an orange kitchen knife and holds it steady.",
+      "duration": 7.317,
+      "page": "units/590d0@3/index.html",
+      "preview": "units/590d0@3/preview.png",
+      "backdrop": "factory",
+      "hand_count": 1
+    },
+    {
+      "id": "4b10d@1",
+      "title": "Putting Tape in a Box",
+      "description": "The hand places a roll of tape inside a box.",
+      "duration": 3.083,
+      "page": "units/4b10d@1/index.html",
+      "preview": "units/4b10d@1/preview.png",
+      "backdrop": "home",
+      "hand_count": 1
+    },
+    {
+      "id": "86fb0@8",
+      "title": "Moving a Striped Bottle",
+      "description": "The hand moves a red striped bottle to a new position.",
+      "duration": 3.683,
+      "page": "units/86fb0@8/index.html",
+      "preview": "units/86fb0@8/preview.png",
+      "backdrop": "lab",
+      "hand_count": 1
+    },
+    {
+      "id": "f9335@2",
+      "title": "Moving a Toothbrush",
+      "description": "The hand moves a toothbrush to a new position.",
+      "duration": 6.35,
+      "page": "units/f9335@2/index.html",
+      "preview": "units/f9335@2/preview.png",
+      "backdrop": "courtyard",
+      "hand_count": 1
+    }
+  ]
+}

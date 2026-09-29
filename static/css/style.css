@@ -70,3 +70,27 @@ p { margin: 0; text-align: justify; }
 }
 
 .realworld-section { padding-top: 8px; padding-bottom: 52.5px; }
+
+.trajectory-section { max-width: 1080px; padding-top: 8px; padding-bottom: 52.5px; scroll-margin-top: 28px; }
+.trajectory-intro { max-width: 622.5px; margin: -5px auto 25px; color: #4e5357; text-align: center; }
+.trajectory-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.trajectory-card { display: block; overflow: hidden; border: 1px solid #e5eaed; border-radius: 14px; color: inherit; text-decoration: none; background: #fff; box-shadow: 0 6px 22px #19374d0a; transition: transform 180ms, box-shadow 180ms; }
+.trajectory-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px #19374d1a; }
+.trajectory-preview { display: block; position: relative; aspect-ratio: 1; background: #f3f6f8; }
+.trajectory-preview img { height: 100%; object-fit: cover; }
+.trajectory-action { position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); padding: 6px 14px; border: 1px solid #ffffffb3; border-radius: 22px; background: #ffffffa6; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: 0 3px 14px #19374d14; color: #294458; font-size: 12px; font-weight: 600; white-space: nowrap; }
+.trajectory-action span { margin-left: 5px; color: #2878b5; }
+.trajectory-details { display: flex; flex-direction: column; gap: 6px; padding: 13px 14px 14px; background: linear-gradient(115deg, #2878b50d, #ffffff 55%, #d56b350d); }
+.trajectory-name { min-height: 2.8em; font-size: 14px; font-weight: 600; line-height: 1.4; }
+.trajectory-meta { color: #62717c; font-size: 11px; font-variant-numeric: tabular-nums; }
+.trajectory-frame { position: fixed; inset: 0; z-index: 100; width: 100%; height: 100%; border: 0; }
+@media (max-width: 800px) {
+  .trajectory-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+}
+@media (max-width: 380px) {
+  .trajectory-grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .trajectory-card { transition: none; }
+  .trajectory-card:hover { transform: none; }
+}
