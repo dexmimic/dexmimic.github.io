@@ -6,9 +6,9 @@
   <meta name="description" content="DexMimic: A Generalist Dexterous Hand–Object Tracking Policy via Value-Guided Reset Allocation.">
   <meta name="theme-color" content="#ffffff">
   <title>DexMimic: A Generalist Dexterous Hand–Object Tracking Policy</title>
-  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="static/css/style.css?v=20260930-loading">
   <script src="static/js/player.js" defer></script>
-  <script src="static/js/trajectories.js" defer></script>
+  <script src="static/js/trajectories.js?v=20260930-loading" defer></script>
 </head>
 <body>
   <main>
@@ -362,5 +362,19 @@
       </div>
     </section>
   </main>
+  <dialog id="trajectory-loading" aria-labelledby="trajectory-loading-title">
+    <div class="trajectory-loading-header">
+      <h3 id="trajectory-loading-title"></h3>
+      <button class="trajectory-loading-close" type="button" aria-label="Close loading preview" autofocus>×</button>
+    </div>
+    <div class="trajectory-loading-preview">
+      <img class="trajectory-loading-image" alt="">
+      <div class="trajectory-loading-status">
+        <div role="status"><span class="trajectory-spinner" aria-hidden="true"></span><span class="trajectory-loading-text">Loading...</span></div>
+        <button class="trajectory-retry" type="button" hidden>Retry</button>
+      </div>
+    </div>
+    <div class="trajectory-loading-track" aria-hidden="true"><span></span></div>
+  </dialog>
 </body>
 </html>
