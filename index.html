@@ -13,8 +13,18 @@
   <main>
     <header class="hero">
       <h1><span class="dex">Dex</span><span class="mimic">Mimic</span>: A Generalist Dexterous<br class="wide-break"> Hand–Object Tracking Policy<br> via Value-Guided Reset Allocation</h1>
-      <a class="appendix" href="static/assets/appendix.pdf" target="_blank" rel="noopener" aria-label="Read the supplemental material (PDF)"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 2h8l4 4v16H6z M14 2v5h4 M9 12h6 M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Appendix</a>
+      <div class="resource-links">
+        <a class="appendix" href="static/assets/paper.pdf" target="_blank" rel="noopener" aria-label="Read the paper and appendix (PDF)"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 2h8l4 4v16H6z M14 2v5h4 M9 12h6 M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Paper</a>
+        <a class="appendix" href="static/assets/appendix.pdf" target="_blank" rel="noopener" aria-label="Read the supplemental material (PDF)"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 2h8l4 4v16H6z M14 2v5h4 M9 12h6 M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Appendix</a>
+      </div>
     </header>
+    <section class="key-insight content" aria-labelledby="key-insight-title">
+      <div class="insight-card">
+        <h2 id="key-insight-title">Key Insight</h2>
+        <p class="insight-takeaway"><span class="dex">Dex</span><span class="mimic">Mimic</span> shifts the focus from designing rewards to shaping the experience that drives policy learning.</p>
+        <p class="insight-detail">Effective learning from large-scale human demonstrations depends on collecting useful interaction experience. <span class="dex">Dex</span><span class="mimic">Mimic</span> adapts the initialization distribution alongside policy learning, continually directing rollouts toward under-learned phases and starting states that support continued tracking.</p>
+      </div>
+    </section>
     <section class="video-section content" aria-label="Project video">
       <div class="video-player" id="overview-player" data-playing="false">
         <div class="video-stage">
@@ -47,6 +57,24 @@
         <a href="static/assets/method.png" target="_blank" rel="noopener" aria-label="Open the full-resolution method overview"><img src="static/assets/method.png" alt="Value-Guided Reset Allocation: a reset map, phase and state allocation, and physics rollouts that jointly update the policy, critic, and initialization distribution." loading="lazy"></a>
         <figcaption><strong>Value-Guided Reset Allocation.</strong> The reset map stores candidate states and their critic values for each trajectory and reference phase. As training progresses, reset phase allocation prioritizes under-learned phases, while reset state allocation favors candidates with higher expected tracking returns within each selected phase. Physics rollouts from the sampled initializations update the policy and critic, replenish the reset map, and refine phase sampling probabilities, forming an adaptive training loop.</figcaption>
       </figure>
+    </section>
+    <section class="realworld-section video-section content" aria-labelledby="realworld-title">
+      <h2 id="realworld-title">Real-world Dexterous Skills</h2>
+      <p class="section-description">Open-loop replay of successful simulation trajectories on a physical robot.</p>
+      <div class="video-player" id="realworld-player" data-playing="false">
+        <div class="video-stage">
+          <video id="realworld-video" autoplay loop muted playsinline preload="metadata" poster="static/assets/realworld_poster.jpg" aria-label="DexMimic real-world dexterous skills, silent looping video">
+            <source src="static/assets/realworld.mp4" type="video/mp4">
+          </video>
+          <button class="video-start" type="button" aria-label="Play real-world video"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z"/></svg></button>
+        </div>
+        <div class="video-controls" role="group" aria-label="Real-world video controls">
+          <button class="play-toggle" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="play-icon" d="m8 5 11 7-11 7z"/><path class="pause-icon" d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button>
+          <span class="video-time" id="realworld-time">0:00 / 0:24</span>
+          <input class="video-progress" type="range" min="0" max="1000" value="0" step="1" aria-label="Seek video" disabled>
+          <button class="fullscreen-toggle" type="button" aria-label="Enter fullscreen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+        </div>
+      </div>
     </section>
   </main>
 </body>

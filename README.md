@@ -4,10 +4,10 @@ Anonymous project page for DexMimic.
 
 ## Structure
 
-- `index.html`: title, appendix link, project video, abstract, teaser, and method overview.
-- `static/assets/`: supplemental PDF and paper figures.
+- `index.html`: title, paper and appendix links, key insight, project video, abstract, teaser, method overview, and real-world video.
+- `static/assets/`: combined paper PDF, standalone appendix, paper figures, and web videos.
 - `static/css/style.css`: responsive page and frosted video controls.
-- `static/js/player.js`: playback, seeking, mute, and fullscreen controls.
+- `static/js/player.js`: shared playback, seeking, and fullscreen controls; audio controls for the narrated overview only.
 
 ## Preview
 
