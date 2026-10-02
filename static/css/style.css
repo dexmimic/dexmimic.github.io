@@ -22,7 +22,7 @@ p { margin: 0; text-align: justify; }
 .method figure { margin-top: 24px; }
 .key-insight { padding-bottom: 30px; }
 .insight-card { padding: 26px 30px; border: 1px solid #ffffffd9; border-radius: 18px; background: linear-gradient(115deg, #2878b510, #ffffffb3 50%, #d56b3510); box-shadow: 0 6px 24px #19374d0a, inset 0 0 0 1px #ffffff66; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
-.insight-card h2 { margin-bottom: 12px; color: #52616b; font-size: 11px; font-weight: 650; letter-spacing: 1.5px; text-align: left; text-transform: uppercase; }
+.insight-card h2 { margin-bottom: 12px; color: #46545e; font-size: 14px; font-weight: 400; letter-spacing: 0.2px; text-align: left; }
 .insight-takeaway { font-size: clamp(18px, 1.9vw, 21px); line-height: 1.4; font-weight: 600; letter-spacing: -0.35px; text-align: left; }
 .insight-detail { margin-top: 15px; color: #4e5357; line-height: 1.75; text-align: left; }
 @media (max-width: 640px) {
