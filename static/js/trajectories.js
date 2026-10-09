@@ -88,3 +88,13 @@ document.addEventListener('keydown', (event) => {
     closeTrajectory();
   }
 });
+
+const simulationExpand = document.getElementById('expand-simulation');
+const simulationGrid = document.getElementById('simulation-grid');
+simulationExpand.addEventListener('click', () => {
+  const expanded = simulationExpand.getAttribute('aria-expanded') !== 'true';
+  simulationExpand.setAttribute('aria-expanded', String(expanded));
+  simulationGrid.dataset.expanded = String(expanded);
+  simulationExpand.textContent = expanded ? 'Collapse' : 'Expand';
+  if (!expanded) document.getElementById('method-title').scrollIntoView({ behavior: 'instant', block: 'start' });
+});

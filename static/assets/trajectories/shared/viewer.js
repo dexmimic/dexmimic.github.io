@@ -1,6 +1,8 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+import { motionBounds, frameMotion } from "./framing.js";
 
 const viewport = document.createElement("div");
 viewport.className = "scene-viewport";
@@ -9,6 +11,9 @@ const shell = document.getElementById("viewer-shell");
 const loader = new GLTFLoader();
 const asset = (name) => new URL(name, import.meta.url).href;
 const unitAsset = (name) => new URL(name, document.baseURI).href;
+const backdrop =
+  new URLSearchParams(location.search).get("backdrop") || document.body.dataset.backdrop || "studio";
+const studio = backdrop === "studio";
 const [data, handAsset, objectAsset] = await Promise.all([
   fetch(unitAsset("trajectory.json")).then((response) => response.json()),
   loader.loadAsync(unitAsset(document.body.dataset.handAsset)),
@@ -16,18 +21,27 @@ const [data, handAsset, objectAsset] = await Promise.all([
 ]);
 
 const scene = new THREE.Scene();
-scene.background = null;
+scene.background = studio ? new THREE.Color("#ffffff") : null;
 const camera = new THREE.PerspectiveCamera(38, 1, 0.01, 20);
 camera.up.set(0, 0, 1);
-camera.position.set(0.99, -1.06, 0.8);
+camera.position.set(0.85, -1.15, 1.05);
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.25;
+renderer.toneMappingExposure = 0.95;
+renderer.transmissionResolutionScale = 0.5;
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 viewport.appendChild(renderer.domElement);
+
+const room = new RoomEnvironment();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(room, 0.04).texture;
+scene.environmentIntensity = 0.45;
+scene.environmentRotation.x = Math.PI / 2;
+room.dispose();
+pmrem.dispose();
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.target.set(0, 0, 0.28);
@@ -37,8 +51,8 @@ controls.maxDistance = 2.4;
 controls.enabled = false;
 controls.update();
 
-scene.add(new THREE.HemisphereLight("#ffffff", "#b5c2cc", 1.8));
-const keyLight = new THREE.DirectionalLight("#ffffff", 2.2);
+scene.add(new THREE.HemisphereLight("#ffffff", "#c0c4ce", 0.25));
+const keyLight = new THREE.DirectionalLight("#fffaf4", 1.2);
 keyLight.position.set(-0.55, -0.55, 1.4);
 keyLight.castShadow = true;
 keyLight.shadow.mapSize.set(1024, 1024);
@@ -48,9 +62,13 @@ keyLight.shadow.camera.top = 1;
 keyLight.shadow.camera.bottom = -1;
 keyLight.shadow.bias = -0.0002;
 scene.add(keyLight);
-const fillLight = new THREE.DirectionalLight("#deedf8", 0.8);
+const fillLight = new THREE.DirectionalLight("#f2f5fa", 0.3);
 fillLight.position.set(0.6, 0.55, 0.9);
 scene.add(fillLight);
+
+const furniture = new THREE.Group();
+furniture.visible = !studio;
+scene.add(furniture);
 
 const floor = new THREE.Mesh(
   new THREE.PlaneGeometry(10, 10),
@@ -58,7 +76,7 @@ const floor = new THREE.Mesh(
 );
 floor.position.z = -0.005;
 floor.receiveShadow = true;
-scene.add(floor);
+furniture.add(floor);
 
 const tableTop = new THREE.Mesh(
   new THREE.BoxGeometry(0.4, 0.6, 0.03),
@@ -71,7 +89,7 @@ const tableTop = new THREE.Mesh(
 tableTop.position.z = 0.4;
 tableTop.castShadow = true;
 tableTop.receiveShadow = true;
-scene.add(tableTop);
+furniture.add(tableTop);
 const legGeometry = new THREE.BoxGeometry(0.021, 0.021, 0.385);
 const legMaterial = new THREE.MeshStandardMaterial({
   color: "#89949a",
@@ -83,15 +101,10 @@ for (const x of [-0.17, 0.17]) {
     const leg = new THREE.Mesh(legGeometry, legMaterial);
     leg.position.set(x, y, 0.193);
     leg.castShadow = true;
-    scene.add(leg);
+    furniture.add(leg);
   }
 }
 
-const handMaterial = new THREE.MeshStandardMaterial({
-  color: "#8fc1e6",
-  roughness: 0.46,
-  metalness: 0.1,
-});
 const referenceHandMaterial = new THREE.MeshStandardMaterial({
   color: "#b66cc8",
   transparent: true,
@@ -99,13 +112,6 @@ const referenceHandMaterial = new THREE.MeshStandardMaterial({
   roughness: 0.35,
   depthWrite: false,
   side: THREE.DoubleSide,
-});
-const objectMaterial = new THREE.MeshPhysicalMaterial({
-  color: "#9ed9af",
-  roughness: 0.38,
-  metalness: 0.03,
-  clearcoat: 0.28,
-  clearcoatRoughness: 0.22,
 });
 const referenceObjectMaterial = new THREE.MeshStandardMaterial({
   color: "#efa06a",
@@ -119,21 +125,21 @@ const referenceObjectMaterial = new THREE.MeshStandardMaterial({
 function styleModel(root, material) {
   root.traverse((node) => {
     if (node.isMesh) {
-      node.material = material;
-      node.castShadow = !material.transparent;
-      node.receiveShadow = !material.transparent;
+      if (material) node.material = material;
+      node.castShadow = !node.material.transparent && !(node.material.transmission > 0);
+      node.receiveShadow = !node.material.transparent;
     }
   });
   scene.add(root);
   return root;
 }
 
-const hand = styleModel(handAsset.scene, handMaterial);
+const hand = styleModel(handAsset.scene);
 const referenceHand = styleModel(
   handAsset.scene.clone(true),
   referenceHandMaterial,
 );
-const object = styleModel(objectAsset.scene, objectMaterial);
+const object = styleModel(objectAsset.scene);
 const referenceObject = styleModel(
   objectAsset.scene.clone(true),
   referenceObjectMaterial,
@@ -149,6 +155,7 @@ const referenceObjectLinks = data.object_links
 if (handLinks.some((node) => !node) || referenceLinks.some((node) => !node)) {
   throw new Error("Hand GLB link names do not match trajectory.json");
 }
+const bounds = studio ? motionBounds(data, handLinks, objectLinks) : null;
 
 function makePath(points, color, opacity) {
   const curve = new THREE.CatmullRomCurve3(
@@ -196,8 +203,6 @@ document.querySelectorAll("[data-layer]").forEach((input) => {
   });
 });
 
-const backdrop =
-  new URLSearchParams(location.search).get("backdrop") || document.body.dataset.backdrop || "home";
 viewport.style.backgroundImage =
   backdrop === "studio"
     ? "none"
@@ -291,6 +296,7 @@ function resize() {
     renderer.setSize(width, height, false);
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
+    if (studio) frameMotion(camera, controls, bounds);
   }
 }
 new ResizeObserver(resize).observe(viewport);

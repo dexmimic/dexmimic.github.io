@@ -6,9 +6,13 @@
   <meta name="description" content="DexMimic: A Generalist Dexterous Hand–Object Tracking Policy via Value-Guided Reset Allocation.">
   <meta name="theme-color" content="#ffffff">
   <title>DexMimic: A Generalist Dexterous Hand–Object Tracking Policy</title>
-  <link rel="stylesheet" href="static/css/style.css?v=20261002-insight">
+  <link rel="stylesheet" href="static/css/style.css?v=20261009-pale">
+  <script type="module" src="static/js/method.js?v=20261009-method-once"></script>
+  <link rel="stylesheet" href="static/css/results.css?v=20261009-widths">
+  <link rel="stylesheet" href="static/css/layout.css?v=20261009-expand">
+  <script src="static/js/results.js?v=20261009-results" type="module"></script>
   <script src="static/js/player.js" defer></script>
-  <script src="static/js/trajectories.js?v=20260930-loading" defer></script>
+  <script src="static/js/trajectories.js?v=20261009-collapse-position" defer></script>
 </head>
 <body>
   <main>
@@ -19,14 +23,15 @@
         <a class="appendix" href="static/assets/appendix.pdf?v=20260929-navigation" target="_blank" rel="noopener" aria-label="Read the supplemental material (PDF)"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 2h8l4 4v16H6z M14 2v5h4 M9 12h6 M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Appendix</a>
       </div>
     </header>
-    <section class="key-insight content" aria-labelledby="key-insight-title">
-      <div class="insight-card">
-        <h2 id="key-insight-title">key insight</h2>
-        <p class="insight-takeaway"><span class="dex">Dex</span><span class="mimic">Mimic</span> shifts the focus from designing rewards to shaping the experience that drives policy learning.</p>
-        <p class="insight-detail">Effective learning from large-scale human demonstrations depends on collecting useful interaction experience. <span class="dex">Dex</span><span class="mimic">Mimic</span> adapts the initialization distribution alongside policy learning, continually directing rollouts toward under-learned phases and starting states that support continued tracking.</p>
+    <aside class="tldr content" aria-labelledby="tldr-title">
+      <div class="summary-card">
+        <h2 id="tldr-title" class="summary-label">TL;DR</h2>
+        <p class="tldr-summary"><strong>DexMimic learns one generalist policy for diverse dexterous hand–object tracking.</strong></p>
+        <p class="tldr-summary">Learned interaction priors improve tracking success and training efficiency, and transfer to unseen trajectories and objects.</p>
       </div>
-    </section>
+    </aside>
     <section class="video-section content" aria-label="Project video">
+      <h2 id="overview-title">Video</h2>
       <div class="video-player" id="overview-player" data-playing="false">
         <div class="video-stage">
           <video id="overview-video" playsinline preload="metadata" poster="static/assets/overview_poster.jpg" aria-label="DexMimic narrated project video">
@@ -43,309 +48,337 @@
         </div>
       </div>
     </section>
-    <section class="abstract" aria-labelledby="abstract-title">
-      <div class="prose">
-        <h2 id="abstract-title">Abstract</h2>
-        <p>Achieving human-like dexterous manipulation remains a central challenge in robotics. Learning from human hand–object interaction (HOI) datasets offers a promising pathway to diverse dexterous skills, yet existing physics-based approaches train specialist policies for individual trajectories, thereby limiting skill reuse at scale. We introduce <strong><span class="dex">Dex</span><span class="mimic">Mimic</span></strong>, a generalist dexterous hand–object tracking policy jointly trained across diverse HOI trajectories. Efficient joint training requires allocating each rollout to both an undertrained phase and a starting state that supports continued tracking. DexMimic realizes this insight through <strong>Value-Guided Reset Allocation</strong>, which adapts the initialization distribution online to prioritize difficult phases and select reset states with higher expected tracking returns.</p>
+    <div class="section-band">
+      <section class="trajectory-section content" id="interactive-skills" aria-labelledby="trajectory-title">
+        <h2 id="trajectory-title">Simulation</h2>
+        <div class="trajectory-grid" id="simulation-grid" data-expanded="false">
+          <a class="trajectory-card" href="static/assets/trajectories/units/30dbe@14/index.html?backdrop=studio" aria-label="View Pour into a Beaker in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/30dbe@14/preview.png" alt="Both hands pour material from a test tube into a beaker." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Pour into a Beaker</span>
+              <span class="trajectory-meta">5.8s · 01 · 30dbe@14</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/751fb@16/index.html?backdrop=studio" aria-label="View Lamp Extinguishing in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/751fb@16/preview.png" alt="Both hands extinguish an alcohol lamp with its cap." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Lamp Extinguishing</span>
+              <span class="trajectory-meta">2.3s · 02 · 751fb@16</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/7a6dd@2/index.html?backdrop=studio" aria-label="View Whiteboard Writing in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/7a6dd@2/preview.png" alt="Both hands coordinate while writing on a whiteboard with a marker." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Whiteboard Writing</span>
+              <span class="trajectory-meta">13.2s · 03 · 7a6dd@2</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/86e2a@11/index.html?backdrop=studio" aria-label="View Stirring in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/86e2a@11/preview.png" alt="Both hands stir inside a bowl with a spoon." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Stirring</span>
+              <span class="trajectory-meta">6.0s · 04 · 86e2a@11</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/86e2a@9/index.html?backdrop=studio" aria-label="View Scooping in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/86e2a@9/preview.png" alt="Both hands scoop salt from a green teacup into a bowl." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Scooping</span>
+              <span class="trajectory-meta">11.3s · 05 · 86e2a@9</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/9a028@8/index.html?backdrop=studio" aria-label="View Writing on a Whiteboard in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/9a028@8/preview.png" alt="The hand writes on a whiteboard with a marker." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Writing on a Whiteboard</span>
+              <span class="trajectory-meta">16.8s · 06 · 9a028@8</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/fe8dc@0/index.html?backdrop=studio" aria-label="View Scooping into a Bowl in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/fe8dc@0/preview.png" alt="The hand scoops material from a gray-green porcelain bottle into a bowl." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Scooping into a Bowl</span>
+              <span class="trajectory-meta">16.0s · 07 · fe8dc@0</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/920f6@6/index.html?backdrop=studio" aria-label="View Spreading on Bread in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/920f6@6/preview.png" alt="The hand spreads ketchup and sugar on bread with a spoon." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Spreading on Bread</span>
+              <span class="trajectory-meta">9.1s · 08 · 920f6@6</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/78c62@2/index.html?backdrop=studio" aria-label="View Writing on Paper in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/78c62@2/preview.png" alt="The hand writes on paper with a pen." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Writing on Paper</span>
+              <span class="trajectory-meta">15.9s · 09 · 78c62@2</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/f1029@7/index.html?backdrop=studio" aria-label="View Using a Computer Mouse in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/f1029@7/preview.png" alt="The hand controls a laptop with a mouse." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Using a Computer Mouse</span>
+              <span class="trajectory-meta">5.2s · 10 · f1029@7</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/5a065@0/index.html?backdrop=studio" aria-label="View Uncapping a Teapot in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/5a065@0/preview.png" alt="The hand lifts the lid from a porcelain teapot." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Uncapping a Teapot</span>
+              <span class="trajectory-meta">5.3s · 11 · 5a065@0</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/751fb@24/index.html?backdrop=studio" aria-label="View Shaking a Conical Flask in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/751fb@24/preview.png" alt="The hand shakes a mixture inside a conical flask." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Shaking a Conical Flask</span>
+              <span class="trajectory-meta">10.2s · 12 · 751fb@24</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/81a95@2/index.html?backdrop=studio" aria-label="View Lighting an Alcohol Lamp in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/81a95@2/preview.png" alt="The hand ignites an alcohol lamp." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Lighting an Alcohol Lamp</span>
+              <span class="trajectory-meta">9.8s · 13 · 81a95@2</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/29266@0/index.html?backdrop=studio" aria-label="View Moving a Blue Teacup in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/29266@0/preview.png" alt="The hand moves a blue teacup to a new position." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Moving a Blue Teacup</span>
+              <span class="trajectory-meta">4.3s · 14 · 29266@0</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/07bb1@3/index.html?backdrop=studio" aria-label="View Taking Out a Fork in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/07bb1@3/preview.png" alt="The hand removes a fork from a tool rack." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Taking Out a Fork</span>
+              <span class="trajectory-meta">6.7s · 15 · 07bb1@3</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/8e5df@11/index.html?backdrop=studio" aria-label="View Heating a Beaker in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/8e5df@11/preview.png" alt="The hand heats a mixed substance in a beaker with an alcohol lamp." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Heating a Beaker</span>
+              <span class="trajectory-meta">4.4s · 16 · 8e5df@11</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/1be0e@1/index.html?backdrop=studio" aria-label="View Shaking a Test Tube in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/1be0e@1/preview.png" alt="The hand shakes material inside a test tube." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Shaking a Test Tube</span>
+              <span class="trajectory-meta">8.2s · 17 · 1be0e@1</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/0b3d1@2/index.html?backdrop=studio" aria-label="View Pressing a Scale Button in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/0b3d1@2/preview.png" alt="The hand presses a button on a scale." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Pressing a Scale Button</span>
+              <span class="trajectory-meta">4.2s · 18 · 0b3d1@2</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/b5fa3@15/index.html?backdrop=studio" aria-label="View Racking a Tube with a Holder in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/b5fa3@15/preview.png" alt="The hand places a test tube into a rack using a tube holder." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Racking a Tube with a Holder</span>
+              <span class="trajectory-meta">4.0s · 19 · b5fa3@15</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/c2f83@3/index.html?backdrop=studio" aria-label="View Racking a Glass Rod in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/c2f83@3/preview.png" alt="The hand places a glass rod onto a test-tube rack." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Racking a Glass Rod</span>
+              <span class="trajectory-meta">3.4s · 20 · c2f83@3</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/3b1e6@14/index.html?backdrop=studio" aria-label="View Removing a Test Tube in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/3b1e6@14/preview.png" alt="The hand removes a test tube from a rack." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Removing a Test Tube</span>
+              <span class="trajectory-meta">5.7s · 21 · 3b1e6@14</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/9f436@1/index.html?backdrop=studio" aria-label="View Placing a Donut on a Saucer in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/9f436@1/preview.png" alt="The hand places a donut onto a saucer." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Placing a Donut on a Saucer</span>
+              <span class="trajectory-meta">5.9s · 22 · 9f436@1</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/86fb0@1/index.html?backdrop=studio" aria-label="View Placing a Cup on a Scale in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/86fb0@1/preview.png" alt="The hand places a blue teacup on a scale platform." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Placing a Cup on a Scale</span>
+              <span class="trajectory-meta">3.8s · 23 · 86fb0@1</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/f7d37@15/index.html?backdrop=studio" aria-label="View Moving a Tripod in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/f7d37@15/preview.png" alt="The hand moves a tripod to a new position." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Moving a Tripod</span>
+              <span class="trajectory-meta">4.0s · 24 · f7d37@15</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/590d0@3/index.html?backdrop=studio" aria-label="View Holding a Kitchen Knife in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/590d0@3/preview.png" alt="The hand grasps an orange kitchen knife and holds it steady." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Holding a Kitchen Knife</span>
+              <span class="trajectory-meta">7.3s · 25 · 590d0@3</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/4b10d@1/index.html?backdrop=studio" aria-label="View Putting Tape in a Box in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/4b10d@1/preview.png" alt="The hand places a roll of tape inside a box." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Putting Tape in a Box</span>
+              <span class="trajectory-meta">3.1s · 26 · 4b10d@1</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/86fb0@8/index.html?backdrop=studio" aria-label="View Moving a Striped Bottle in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/86fb0@8/preview.png" alt="The hand moves a red striped bottle to a new position." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Moving a Striped Bottle</span>
+              <span class="trajectory-meta">3.7s · 27 · 86fb0@8</span>
+            </span>
+          </a>
+          <a class="trajectory-card" href="static/assets/trajectories/units/f9335@2/index.html?backdrop=studio" aria-label="View Moving a Toothbrush in 3D">
+            <span class="trajectory-preview">
+              <img src="static/assets/trajectories/units/f9335@2/preview.png" alt="The hand moves a toothbrush to a new position." width="640" height="640" loading="lazy" decoding="async">
+              <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
+            </span>
+            <span class="trajectory-details">
+              <span class="trajectory-name">Moving a Toothbrush</span>
+              <span class="trajectory-meta">6.3s · 28 · f9335@2</span>
+            </span>
+          </a>
+        </div>
+        <button class="simulation-expand" id="expand-simulation" type="button" aria-expanded="false" aria-controls="simulation-grid">Expand</button>
+      </section>
+    </div>
+    <!-- TODO: Add the Pipeline section when its content is ready. -->
+    <div class="section-band">
+      <section class="method content" aria-labelledby="method-title">
+        <h2 id="method-title">Method</h2>
+        <p><strong>Key insight.</strong> The bottleneck in training a generalist dexterous policy is collecting useful interaction experience. DexMimic shifts the focus beyond reward design: Value-Guided Reset Allocation shapes this experience by adapting the initialization distribution alongside policy learning.</p>
+        <figure>
+          <a href="static/assets/method.webp?v=20261009-once" target="_blank" rel="noopener" aria-label="Open the method animation">
+            <picture>
+              <source media="(prefers-reduced-motion: reduce)" srcset="static/assets/method.png">
+              <img id="method-animation" src="static/assets/method.png" data-src="static/assets/method.webp?v=20261009-once" width="1920" height="1080" alt="Value-Guided Reset Allocation: reset allocation adapts across Early, Middle, and Late training, followed by rollouts and feedback updates.">
+            </picture>
+          </a>
+        </figure>
+      </section>
+    </div>
+    <section class="results-section content" aria-labelledby="results-title">
+      <h2 id="results-title">Results</h2>
+      <p class="results-intro">One generalist policy achieves higher tracking success and lower average training cost than trajectory-specific methods. Scaling co-training strengthens transfer to unseen motions and objects.</p>
+      <div id="benchmark-results">
+        <div class="metric-cards" id="metric-cards"></div>
+        <div class="table-scroll" id="benchmark-table"></div>
+        <p class="result-caption">50 challenging bimanual trajectories from OakInk-V2 and HOT3D. Time is the average training or optimization time per trajectory; DexMimic's joint-training time is divided by 50. All methods share the evaluation initial states, rollout counts and success criteria. Green cells indicate the best value in each column.</p>
+      </div>
+      <div class="charts-row">
+        <article class="chart-panel" id="scaling-panel">
+          <div class="chart-heading"><h3>Scaling &amp; Generalization</h3></div>
+          <p class="chart-description">More training trajectories improve zero-shot transfer. Hover over a bar to see its exact success rate.</p>
+          <div class="chart-legend"><span style="--series-color:#5B8FF9"><i></i>L1 · Similar motions</span><span style="--series-color:#2FA7A0"><i></i>L2 · Unseen motions</span><span style="--series-color:#9B82C4"><i></i>L3 · Unseen objects</span></div>
+          <div id="scaling-chart"></div>
+          <p class="result-caption">L1: similar trajectories with seen objects. L2: unseen trajectories with seen objects. L3: trajectories with unseen objects. Policies are frozen during evaluation.</p>
+        </article>
+        <article class="chart-panel" id="adaptation-panel">
+          <div class="chart-heading"><h3>Fast Adaptation</h3></div>
+          <p class="chart-description">Fine-tuning compared with training from scratch on an unseen trajectory.</p>
+          <div class="chart-legend"><span style="--series-color:#2FA7A0"><i></i>Fine-tuning</span><span class="scratch"><i></i>From scratch</span></div>
+          <div id="adaptation-chart"></div>
+          <div class="adaptation-summary"><strong>5.3×</strong><span>faster to reach 80% Training SR<br>0.24 h vs. 1.27 h</span></div>
+        </article>
       </div>
     </section>
-    <figure class="teaser content">
-      <img src="static/assets/teaser.png" alt="DexMimic overview: human demonstrations, generalist policy learning, and dexterous hand–object manipulation results.">
-    </figure>
-    <section class="method content" aria-labelledby="method-title">
-      <h2 id="method-title">Method Overview</h2>
-      <figure>
-        <a href="static/assets/method.png" target="_blank" rel="noopener" aria-label="Open the full-resolution method overview"><img src="static/assets/method.png" alt="Value-Guided Reset Allocation: a reset map, phase and state allocation, and physics rollouts that jointly update the policy, critic, and initialization distribution." loading="lazy"></a>
-        <figcaption><strong>Value-Guided Reset Allocation.</strong> The reset map stores candidate states and their critic values for each trajectory and reference phase. As training progresses, reset phase allocation prioritizes under-learned phases, while reset state allocation favors candidates with higher expected tracking returns within each selected phase. Physics rollouts from the sampled initializations update the policy and critic, replenish the reset map, and refine phase sampling probabilities, forming an adaptive training loop.</figcaption>
-      </figure>
-    </section>
-    <section class="trajectory-section content" id="interactive-skills" aria-labelledby="trajectory-title">
-      <h2 id="trajectory-title">Simulation Visualization</h2>
-      <div class="trajectory-grid">
-        <a class="trajectory-card" href="static/assets/trajectories/units/30dbe@14/index.html?backdrop=factory" aria-label="View Pour into a Beaker in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/30dbe@14/preview.png" alt="Both hands pour material from a test tube into a beaker." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Pour into a Beaker</span>
-            <span class="trajectory-meta">5.8s · 01 · 30dbe@14</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/751fb@16/index.html?backdrop=home" aria-label="View Lamp Extinguishing in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/751fb@16/preview.png" alt="Both hands extinguish an alcohol lamp with its cap." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Lamp Extinguishing</span>
-            <span class="trajectory-meta">2.3s · 02 · 751fb@16</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/7a6dd@2/index.html?backdrop=lab" aria-label="View Whiteboard Writing in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/7a6dd@2/preview.png" alt="Both hands coordinate while writing on a whiteboard with a marker." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Whiteboard Writing</span>
-            <span class="trajectory-meta">13.2s · 03 · 7a6dd@2</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/86e2a@11/index.html?backdrop=courtyard" aria-label="View Stirring in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/86e2a@11/preview.png" alt="Both hands stir inside a bowl with a spoon." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Stirring</span>
-            <span class="trajectory-meta">6.0s · 04 · 86e2a@11</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/86e2a@9/index.html?backdrop=factory" aria-label="View Scooping in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/86e2a@9/preview.png" alt="Both hands scoop salt from a green teacup into a bowl." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Scooping</span>
-            <span class="trajectory-meta">11.3s · 05 · 86e2a@9</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/9a028@8/index.html?backdrop=home" aria-label="View Writing on a Whiteboard in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/9a028@8/preview.png" alt="The hand writes on a whiteboard with a marker." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Writing on a Whiteboard</span>
-            <span class="trajectory-meta">16.8s · 06 · 9a028@8</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/fe8dc@0/index.html?backdrop=lab" aria-label="View Scooping into a Bowl in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/fe8dc@0/preview.png" alt="The hand scoops material from a gray-green porcelain bottle into a bowl." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Scooping into a Bowl</span>
-            <span class="trajectory-meta">16.0s · 07 · fe8dc@0</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/920f6@6/index.html?backdrop=courtyard" aria-label="View Spreading on Bread in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/920f6@6/preview.png" alt="The hand spreads ketchup and sugar on bread with a spoon." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Spreading on Bread</span>
-            <span class="trajectory-meta">9.1s · 08 · 920f6@6</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/78c62@2/index.html?backdrop=factory" aria-label="View Writing on Paper in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/78c62@2/preview.png" alt="The hand writes on paper with a pen." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Writing on Paper</span>
-            <span class="trajectory-meta">15.9s · 09 · 78c62@2</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/f1029@7/index.html?backdrop=home" aria-label="View Using a Computer Mouse in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/f1029@7/preview.png" alt="The hand controls a laptop with a mouse." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Using a Computer Mouse</span>
-            <span class="trajectory-meta">5.2s · 10 · f1029@7</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/5a065@0/index.html?backdrop=lab" aria-label="View Uncapping a Teapot in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/5a065@0/preview.png" alt="The hand lifts the lid from a porcelain teapot." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Uncapping a Teapot</span>
-            <span class="trajectory-meta">5.3s · 11 · 5a065@0</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/751fb@24/index.html?backdrop=courtyard" aria-label="View Shaking a Conical Flask in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/751fb@24/preview.png" alt="The hand shakes a mixture inside a conical flask." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Shaking a Conical Flask</span>
-            <span class="trajectory-meta">10.2s · 12 · 751fb@24</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/81a95@2/index.html?backdrop=factory" aria-label="View Lighting an Alcohol Lamp in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/81a95@2/preview.png" alt="The hand ignites an alcohol lamp." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Lighting an Alcohol Lamp</span>
-            <span class="trajectory-meta">9.8s · 13 · 81a95@2</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/29266@0/index.html?backdrop=home" aria-label="View Moving a Blue Teacup in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/29266@0/preview.png" alt="The hand moves a blue teacup to a new position." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Moving a Blue Teacup</span>
-            <span class="trajectory-meta">4.3s · 14 · 29266@0</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/07bb1@3/index.html?backdrop=lab" aria-label="View Taking Out a Fork in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/07bb1@3/preview.png" alt="The hand removes a fork from a tool rack." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Taking Out a Fork</span>
-            <span class="trajectory-meta">6.7s · 15 · 07bb1@3</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/8e5df@11/index.html?backdrop=courtyard" aria-label="View Heating a Beaker in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/8e5df@11/preview.png" alt="The hand heats a mixed substance in a beaker with an alcohol lamp." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Heating a Beaker</span>
-            <span class="trajectory-meta">4.4s · 16 · 8e5df@11</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/1be0e@1/index.html?backdrop=factory" aria-label="View Shaking a Test Tube in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/1be0e@1/preview.png" alt="The hand shakes material inside a test tube." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Shaking a Test Tube</span>
-            <span class="trajectory-meta">8.2s · 17 · 1be0e@1</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/0b3d1@2/index.html?backdrop=home" aria-label="View Pressing a Scale Button in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/0b3d1@2/preview.png" alt="The hand presses a button on a scale." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Pressing a Scale Button</span>
-            <span class="trajectory-meta">4.2s · 18 · 0b3d1@2</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/b5fa3@15/index.html?backdrop=lab" aria-label="View Racking a Tube with a Holder in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/b5fa3@15/preview.png" alt="The hand places a test tube into a rack using a tube holder." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Racking a Tube with a Holder</span>
-            <span class="trajectory-meta">4.0s · 19 · b5fa3@15</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/c2f83@3/index.html?backdrop=courtyard" aria-label="View Racking a Glass Rod in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/c2f83@3/preview.png" alt="The hand places a glass rod onto a test-tube rack." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Racking a Glass Rod</span>
-            <span class="trajectory-meta">3.4s · 20 · c2f83@3</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/3b1e6@14/index.html?backdrop=factory" aria-label="View Removing a Test Tube in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/3b1e6@14/preview.png" alt="The hand removes a test tube from a rack." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Removing a Test Tube</span>
-            <span class="trajectory-meta">5.7s · 21 · 3b1e6@14</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/9f436@1/index.html?backdrop=home" aria-label="View Placing a Donut on a Saucer in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/9f436@1/preview.png" alt="The hand places a donut onto a saucer." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Placing a Donut on a Saucer</span>
-            <span class="trajectory-meta">5.9s · 22 · 9f436@1</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/86fb0@1/index.html?backdrop=lab" aria-label="View Placing a Cup on a Scale in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/86fb0@1/preview.png" alt="The hand places a blue teacup on a scale platform." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Placing a Cup on a Scale</span>
-            <span class="trajectory-meta">3.8s · 23 · 86fb0@1</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/f7d37@15/index.html?backdrop=courtyard" aria-label="View Moving a Tripod in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/f7d37@15/preview.png" alt="The hand moves a tripod to a new position." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Moving a Tripod</span>
-            <span class="trajectory-meta">4.0s · 24 · f7d37@15</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/590d0@3/index.html?backdrop=factory" aria-label="View Holding a Kitchen Knife in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/590d0@3/preview.png" alt="The hand grasps an orange kitchen knife and holds it steady." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Holding a Kitchen Knife</span>
-            <span class="trajectory-meta">7.3s · 25 · 590d0@3</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/4b10d@1/index.html?backdrop=home" aria-label="View Putting Tape in a Box in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/4b10d@1/preview.png" alt="The hand places a roll of tape inside a box." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Putting Tape in a Box</span>
-            <span class="trajectory-meta">3.1s · 26 · 4b10d@1</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/86fb0@8/index.html?backdrop=lab" aria-label="View Moving a Striped Bottle in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/86fb0@8/preview.png" alt="The hand moves a red striped bottle to a new position." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Moving a Striped Bottle</span>
-            <span class="trajectory-meta">3.7s · 27 · 86fb0@8</span>
-          </span>
-        </a>
-        <a class="trajectory-card" href="static/assets/trajectories/units/f9335@2/index.html?backdrop=courtyard" aria-label="View Moving a Toothbrush in 3D">
-          <span class="trajectory-preview">
-            <img src="static/assets/trajectories/units/f9335@2/preview.png" alt="The hand moves a toothbrush to a new position." width="640" height="640" loading="lazy" decoding="async">
-            <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
-          </span>
-          <span class="trajectory-details">
-            <span class="trajectory-name">Moving a Toothbrush</span>
-            <span class="trajectory-meta">6.3s · 28 · f9335@2</span>
-          </span>
-        </a>
-      </div>
-    </section>
+
     <section class="realworld-section video-section content" aria-labelledby="realworld-title">
-      <h2 id="realworld-title">Real-world Dexterous Skills</h2>
+      <h2 id="realworld-title">Realworld</h2>
       <div class="video-player" id="realworld-player" data-playing="false">
         <div class="video-stage">
           <video id="realworld-video" autoplay loop muted playsinline preload="metadata" poster="static/assets/realworld_poster.jpg" aria-label="DexMimic real-world dexterous skills, silent looping video">
@@ -361,6 +394,15 @@
         </div>
       </div>
     </section>
+    <div class="section-band">
+      <section class="abstract content" aria-labelledby="abstract-title">
+        <h2 id="abstract-title">Abstract</h2>
+        <p>Achieving human-like dexterous manipulation remains a central challenge in robotics. Learning from human hand–object interaction (HOI) datasets offers a promising pathway to diverse dexterous skills, yet existing physics-based approaches train specialist policies for individual trajectories, thereby limiting skill reuse at scale. We introduce <strong><span class="dex">Dex</span><span class="mimic">Mimic</span></strong>, a generalist dexterous hand–object tracking policy jointly trained across diverse HOI trajectories. Efficient joint training requires allocating each rollout to both an undertrained phase and a starting state that supports continued tracking. DexMimic realizes this insight through <strong>Value-Guided Reset Allocation</strong>, which adapts the initialization distribution online to prioritize difficult phases and select reset states with higher expected tracking returns.</p>
+        <figure class="teaser">
+          <img src="static/assets/teaser.png" alt="DexMimic overview: human demonstrations, generalist policy learning, and dexterous hand–object manipulation results.">
+        </figure>
+      </section>
+    </div>
   </main>
   <dialog id="trajectory-loading" aria-labelledby="trajectory-loading-title">
     <div class="trajectory-loading-header">

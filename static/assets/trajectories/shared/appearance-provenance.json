@@ -1,0 +1,1331 @@
+{
+  "hand": {
+    "model": "Wuji Hand 1",
+    "upstream": "https://github.com/wuji-technology/wuji-description",
+    "commit": "c2cd7f8d1ef8b6dc8cb907c17daa5a88b4442d95",
+    "training_commit": "aee64892ebcf8e3237bedc30231bb09476cbc71d",
+    "product_reference": "https://wuji.tech/en/hand",
+    "photo_reference": "https://wuji.tech/assets/posters/hand_video_cover.webp",
+    "appearance": "Manually tuned satin silver fingers, matte dark palm, darker joint housings and dark fingertip pads based on the official product photograph.",
+    "geometry": "Original link-local positions, indices, hierarchy and trajectory unchanged. Added crease-aware normals at 40 degrees.",
+    "license": "MIT; see hands/license.txt",
+    "materials": [
+      {
+        "name": "satin silver fingers",
+        "base_color_linear": [
+          0.5,
+          0.53,
+          0.57,
+          1
+        ],
+        "metalness": 0.72,
+        "roughness": 0.58
+      },
+      {
+        "name": "matte dark palm",
+        "base_color_linear": [
+          0.018,
+          0.022,
+          0.027,
+          1
+        ],
+        "metalness": 0.05,
+        "roughness": 0.72
+      },
+      {
+        "name": "satin joint housing",
+        "base_color_linear": [
+          0.24,
+          0.27,
+          0.31,
+          1
+        ],
+        "metalness": 0.65,
+        "roughness": 0.64
+      },
+      {
+        "name": "dark fingertip pads",
+        "base_color_linear": [
+          0.022,
+          0.027,
+          0.033,
+          1
+        ],
+        "metalness": 0.0,
+        "roughness": 0.76
+      }
+    ]
+  },
+  "objects": [
+    {
+      "id": "30dbe@14",
+      "source_sha256": "342c8b0676a7a3672d53ab3229ccca60136962ad23d875d2a8811493fd8247e2",
+      "appearance_sha256": "7c78aeb1e768aeceb53ec9b814d2f3caec557feea0600e96c73d56e5f26e940e",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "O02@0202@00002",
+          "semantics": "test tube",
+          "surface_source": "manually-authored",
+          "pbr_source": "manually-tuned",
+          "authored_color": {
+            "method": "manually-authored semantic base color",
+            "color_srgb": "#BED4D8"
+          },
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              0.5149176653765214,
+              0.6583748172794485,
+              0.6866853124353135,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.22,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {
+            "KHR_materials_transmission": {
+              "transmissionFactor": 0.6
+            },
+            "KHR_materials_ior": {
+              "ior": 1.45
+            }
+          }
+        },
+        {
+          "mesh": 1,
+          "source_object_id": "O02@0011@00003",
+          "semantics": "beaker",
+          "surface_source": "manually-authored",
+          "pbr_source": "manually-tuned",
+          "authored_color": {
+            "method": "manually-authored semantic base color",
+            "color_srgb": "#BED4D8"
+          },
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              0.5149176653765214,
+              0.6583748172794485,
+              0.6866853124353135,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.22,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {
+            "KHR_materials_transmission": {
+              "transmissionFactor": 0.6
+            },
+            "KHR_materials_ior": {
+              "ior": 1.45
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "751fb@16",
+      "source_sha256": "2126889a6f22bff0d516f150b6520c3d5291fa1ec53ed914736c2a7e5c577bd5",
+      "appearance_sha256": "b30967a174159e92492ea325ca6e2c56a08e4565646d098a9223d86e603b4374",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "O02@0206@00001",
+          "semantics": "alcohol lamp cap",
+          "surface_source": "manually-authored",
+          "pbr_source": "manually-tuned",
+          "authored_color": {
+            "method": "manually-authored semantic base color",
+            "color_srgb": "#BED4D8"
+          },
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              0.5149176653765214,
+              0.6583748172794485,
+              0.6866853124353135,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.22,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {
+            "KHR_materials_transmission": {
+              "transmissionFactor": 0.6
+            },
+            "KHR_materials_ior": {
+              "ior": 1.45
+            }
+          }
+        },
+        {
+          "mesh": 1,
+          "source_object_id": "O02@0206@00002",
+          "semantics": "alcohol lamp body",
+          "surface_source": "manually-authored",
+          "pbr_source": "manually-tuned",
+          "authored_color": {
+            "method": "manually-authored semantic base color",
+            "color_srgb": "#BED4D8"
+          },
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              0.5149176653765214,
+              0.6583748172794485,
+              0.6866853124353135,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.22,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {
+            "KHR_materials_transmission": {
+              "transmissionFactor": 0.6
+            },
+            "KHR_materials_ior": {
+              "ior": 1.45
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "7a6dd@2",
+      "source_sha256": "f2a13757f2e8515ea1f0e93c2ad2c7d5f105e3696ae48b5c8934cca62d89f7d1",
+      "appearance_sha256": "c146872d5f58f166d2a8128d0612319806e03c602efed52fabc8f25e5a64aadf",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "O02@0029@00011",
+          "semantics": "whiteboard marker",
+          "surface_source": "manually-authored",
+          "pbr_source": "manually-tuned",
+          "authored_color": {
+            "method": "manually-authored semantic vertex palette in linear RGB",
+            "regions": [
+              {
+                "region": "body",
+                "color_srgb": "#607B91"
+              },
+              {
+                "region": "cap",
+                "color_srgb": "#223A59",
+                "vertices": 306
+              },
+              {
+                "region": "tip",
+                "color_srgb": "#20242B",
+                "vertices": 121
+              }
+            ]
+          },
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.5,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {}
+        },
+        {
+          "mesh": 1,
+          "source_object_id": "O02@0054@00001",
+          "semantics": "whiteboard",
+          "surface_source": "original-asset",
+          "pbr_source": "manually-tuned",
+          "authored_color": null,
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.6,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {}
+        }
+      ]
+    },
+    {
+      "id": "86e2a@11",
+      "source_sha256": "03db795f28e57fe83e1c009509957b39bf36364f8647f9cc63947e5f6b6cf573",
+      "appearance_sha256": "aa49d026bd730676809485a2a79bdd6775f0867fbf9dd71f76ff1577df2bea39",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "O02@0030@00002",
+          "semantics": "wooden spoon",
+          "surface_source": "original-asset",
+          "pbr_source": "manually-tuned",
+          "authored_color": null,
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.65,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {}
+        },
+        {
+          "mesh": 1,
+          "source_object_id": "C12001",
+          "semantics": "bowl",
+          "surface_source": "manually-authored",
+          "pbr_source": "manually-tuned",
+          "authored_color": {
+            "method": "manually-authored semantic base color",
+            "color_srgb": "#A86647"
+          },
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              0.39157247774972326,
+              0.13286832155381798,
+              0.06301001765316767,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.5,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {}
+        }
+      ]
+    },
+    {
+      "id": "86e2a@9",
+      "source_sha256": "54588cbb152492ec7559faaedfd2f212f9481b4d496d77504b63766d74707b9c",
+      "appearance_sha256": "60035b65adef4110fabbc79a7ff41e7c78ea1b0f259cc8448a0f6f9bc60e1242",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "O02@0030@00002",
+          "semantics": "wooden spoon",
+          "surface_source": "original-asset",
+          "pbr_source": "manually-tuned",
+          "authored_color": null,
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.65,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {}
+        },
+        {
+          "mesh": 1,
+          "source_object_id": "O02@0011@00001",
+          "semantics": "green teacup",
+          "surface_source": "manually-authored",
+          "pbr_source": "manually-tuned",
+          "authored_color": {
+            "method": "manually-authored semantic base color",
+            "color_srgb": "#548D7F"
+          },
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              0.08865558628577294,
+              0.26635560480286247,
+              0.21223075741405523,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.34,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {}
+        }
+      ]
+    },
+    {
+      "id": "9a028@8",
+      "source_sha256": "c5d9881add7c59f0bb223d7142e52744bda4ee5734a99b98cbc745659282bc2f",
+      "appearance_sha256": "70230a5a8d391110154dd157197c3a3a5c529d5617cae0c8943a74b9784f5baf",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "O02@0029@00011",
+          "semantics": "whiteboard marker",
+          "surface_source": "manually-authored",
+          "pbr_source": "manually-tuned",
+          "authored_color": {
+            "method": "manually-authored semantic vertex palette in linear RGB",
+            "regions": [
+              {
+                "region": "body",
+                "color_srgb": "#607B91"
+              },
+              {
+                "region": "cap",
+                "color_srgb": "#223A59",
+                "vertices": 306
+              },
+              {
+                "region": "tip",
+                "color_srgb": "#20242B",
+                "vertices": 121
+              }
+            ]
+          },
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.5,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {}
+        }
+      ]
+    },
+    {
+      "id": "fe8dc@0",
+      "source_sha256": "e9ebc8073c5a0829ee8be2000df4317cb1fdc585b07bb3f5e05e13e1b1d7365b",
+      "appearance_sha256": "b67b0e8031bc40200e77371026b8cc033351820dd49820fd282320a3b316b263",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "O02@0030@00002",
+          "semantics": "wooden spoon",
+          "surface_source": "original-asset",
+          "pbr_source": "manually-tuned",
+          "authored_color": null,
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.65,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {}
+        }
+      ]
+    },
+    {
+      "id": "920f6@6",
+      "source_sha256": "e9ebc8073c5a0829ee8be2000df4317cb1fdc585b07bb3f5e05e13e1b1d7365b",
+      "appearance_sha256": "b67b0e8031bc40200e77371026b8cc033351820dd49820fd282320a3b316b263",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "O02@0030@00002",
+          "semantics": "wooden spoon",
+          "surface_source": "original-asset",
+          "pbr_source": "manually-tuned",
+          "authored_color": null,
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.65,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {}
+        }
+      ]
+    },
+    {
+      "id": "78c62@2",
+      "source_sha256": "e7d9b1453fb72cb3426b554614c4df0664c3e1405bfadf7d78ba199d0943059c",
+      "appearance_sha256": "120db7afeee8b138fb0a520d0238ee033e3bafd4c77d1defd2fdbc465f88ddb2",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "O02@0029@00001",
+          "semantics": "pen",
+          "surface_source": "manually-authored",
+          "pbr_source": "manually-tuned",
+          "authored_color": {
+            "method": "manually-authored semantic vertex palette in linear RGB",
+            "regions": [
+              {
+                "region": "body",
+                "color_srgb": "#31515A"
+              },
+              {
+                "region": "tip",
+                "color_srgb": "#25292C",
+                "vertices": 241
+              }
+            ]
+          },
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.46,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {}
+        }
+      ]
+    },
+    {
+      "id": "f1029@7",
+      "source_sha256": "9ebdbf655e1897f4bae32d9256db49eb84a3c7d9dd53fcee9659b5f51dc6252d",
+      "appearance_sha256": "a72194657c044613dd0928c436daba7e9b4503f055065ad4295b20d466480ef7",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "C51001",
+          "semantics": "computer mouse",
+          "surface_source": "manually-authored",
+          "pbr_source": "manually-tuned",
+          "authored_color": {
+            "method": "manually-authored semantic base color",
+            "color_srgb": "#35393F"
+          },
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              0.03560131487502034,
+              0.04091519690685319,
+              0.04970656598412723,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.58,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {}
+        }
+      ]
+    },
+    {
+      "id": "5a065@0",
+      "source_sha256": "7cf990d3ba104e2de213fa3e05dc46a5ab5677e46c94ff88aba39771ae16a780",
+      "appearance_sha256": "dce50c684eacc595ea6f893cc53e7304e21666b8fa77902891655fbaaf0bc10f",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "O02@0013@00004",
+          "semantics": "porcelain teapot lid",
+          "surface_source": "original-asset",
+          "pbr_source": "manually-tuned",
+          "authored_color": null,
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.34,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {}
+        }
+      ]
+    },
+    {
+      "id": "751fb@24",
+      "source_sha256": "6f3a71ee9368b5dd7d963c4bb8e247fbeb44c75f1ee68b85eb86572db880f086",
+      "appearance_sha256": "7b8e63487f367b131245b345884e43473c97f56de18fb0a10df6970f3aa2f3f2",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "O02@0011@00002",
+          "semantics": "conical flask",
+          "surface_source": "manually-authored",
+          "pbr_source": "manually-tuned",
+          "authored_color": {
+            "method": "manually-authored semantic base color",
+            "color_srgb": "#BED4D8"
+          },
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              0.5149176653765214,
+              0.6583748172794485,
+              0.6866853124353135,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.22,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {
+            "KHR_materials_transmission": {
+              "transmissionFactor": 0.6
+            },
+            "KHR_materials_ior": {
+              "ior": 1.45
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "81a95@2",
+      "source_sha256": "feb60c34116855f0910828336252f4bdf209d6bec0d2bc00eaed47820377c5e0",
+      "appearance_sha256": "7f5c1cecb6982fb25c503c4e0e0dc201eb39ee4a5150616d8d5129836df05606",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "O02@0200@00001",
+          "semantics": "long-neck lighter",
+          "surface_source": "original-asset",
+          "pbr_source": "manually-tuned",
+          "authored_color": null,
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.6,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {}
+        }
+      ]
+    },
+    {
+      "id": "29266@0",
+      "source_sha256": "028a252e3c52a9a50b6b37e8c61ca357c27374c6d27f9e5a6a32db97ed32f51f",
+      "appearance_sha256": "b91e9b44dbc14a2902e6c0e0f0c48e10cba3d3fa481cfb711ccef652f9a10718",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "C11001",
+          "semantics": "blue teacup",
+          "surface_source": "manually-authored",
+          "pbr_source": "manually-tuned",
+          "authored_color": {
+            "method": "manually-authored semantic base color",
+            "color_srgb": "#397FAA"
+          },
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              0.04091519690685319,
+              0.21223075741405523,
+              0.4019777798321958,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.32,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {}
+        }
+      ]
+    },
+    {
+      "id": "07bb1@3",
+      "source_sha256": "a6c1693557f627b97383ef6b25c4bb6443b3b907d0fdb6bf245ada263f8e7d5d",
+      "appearance_sha256": "1bec935c5d889930d910f552ea78cea71f3e7fd89ca4d6e3995e44a6d70a589b",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "O02@0031@00002",
+          "semantics": "wooden fork",
+          "surface_source": "original-asset",
+          "pbr_source": "manually-tuned",
+          "authored_color": null,
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.65,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {}
+        }
+      ]
+    },
+    {
+      "id": "8e5df@11",
+      "source_sha256": "fd7dd6eea83e22e7813974e32e64e6034e689fda6da7c066a36039a432bc1df5",
+      "appearance_sha256": "1c168ba5d4f9af31503a22dd445cfb52c885ce79c44df879d9ac6208613d227a",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "O02@0011@00003",
+          "semantics": "beaker",
+          "surface_source": "manually-authored",
+          "pbr_source": "manually-tuned",
+          "authored_color": {
+            "method": "manually-authored semantic base color",
+            "color_srgb": "#BED4D8"
+          },
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              0.5149176653765214,
+              0.6583748172794485,
+              0.6866853124353135,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.22,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {
+            "KHR_materials_transmission": {
+              "transmissionFactor": 0.6
+            },
+            "KHR_materials_ior": {
+              "ior": 1.45
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "1be0e@1",
+      "source_sha256": "1c008bcdd2137c8ee2738f34a61a174d68d4b86136652419660d652dc8b0ccd0",
+      "appearance_sha256": "565485b63775b63f774ec4680020a02c88d92b033c2929cf4ec60875d743beca",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "O02@0202@00001",
+          "semantics": "test tube",
+          "surface_source": "manually-authored",
+          "pbr_source": "manually-tuned",
+          "authored_color": {
+            "method": "manually-authored semantic base color",
+            "color_srgb": "#BED4D8"
+          },
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              0.5149176653765214,
+              0.6583748172794485,
+              0.6866853124353135,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.22,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {
+            "KHR_materials_transmission": {
+              "transmissionFactor": 0.6
+            },
+            "KHR_materials_ior": {
+              "ior": 1.45
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "0b3d1@2",
+      "source_sha256": "4703ba9472ad61298743cdd584e0cdbf3dd39240c20bf0cc0796882f34ab65ee",
+      "appearance_sha256": "57359dd74e7c7744f4e35a190a9f0dc6cc07c124cca3d3cd9715297a5164846a",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "O02@0038@00001",
+          "semantics": "scale",
+          "surface_source": "manually-authored",
+          "pbr_source": "manually-tuned",
+          "authored_color": {
+            "method": "manually-authored semantic vertex palette in linear RGB",
+            "regions": [
+              {
+                "region": "body",
+                "color_srgb": "#8B969D"
+              },
+              {
+                "region": "original dark display details",
+                "color_srgb": "#2F3A42",
+                "vertices": 39
+              }
+            ]
+          },
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 0.25,
+            "roughnessFactor": 0.55,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {}
+        }
+      ]
+    },
+    {
+      "id": "b5fa3@15",
+      "source_sha256": "1c008bcdd2137c8ee2738f34a61a174d68d4b86136652419660d652dc8b0ccd0",
+      "appearance_sha256": "565485b63775b63f774ec4680020a02c88d92b033c2929cf4ec60875d743beca",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "O02@0202@00001",
+          "semantics": "test tube",
+          "surface_source": "manually-authored",
+          "pbr_source": "manually-tuned",
+          "authored_color": {
+            "method": "manually-authored semantic base color",
+            "color_srgb": "#BED4D8"
+          },
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              0.5149176653765214,
+              0.6583748172794485,
+              0.6866853124353135,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.22,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {
+            "KHR_materials_transmission": {
+              "transmissionFactor": 0.6
+            },
+            "KHR_materials_ior": {
+              "ior": 1.45
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2f83@3",
+      "source_sha256": "e9f57c1eda9dbe687880fbd726f7d08a6a050e8dafd38ae57a368b8b1816830f",
+      "appearance_sha256": "455e02d098ea8bb0a393d36ce5377b88ec316f13d2c7d4e09a5657349f740223",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "O02@0033@00002",
+          "semantics": "glass rod",
+          "surface_source": "manually-authored",
+          "pbr_source": "manually-tuned",
+          "authored_color": {
+            "method": "manually-authored semantic base color",
+            "color_srgb": "#BED4D8"
+          },
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              0.5149176653765214,
+              0.6583748172794485,
+              0.6866853124353135,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.22,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {
+            "KHR_materials_transmission": {
+              "transmissionFactor": 0.6
+            },
+            "KHR_materials_ior": {
+              "ior": 1.45
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "3b1e6@14",
+      "source_sha256": "1c008bcdd2137c8ee2738f34a61a174d68d4b86136652419660d652dc8b0ccd0",
+      "appearance_sha256": "565485b63775b63f774ec4680020a02c88d92b033c2929cf4ec60875d743beca",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "O02@0202@00001",
+          "semantics": "test tube",
+          "surface_source": "manually-authored",
+          "pbr_source": "manually-tuned",
+          "authored_color": {
+            "method": "manually-authored semantic base color",
+            "color_srgb": "#BED4D8"
+          },
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              0.5149176653765214,
+              0.6583748172794485,
+              0.6866853124353135,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.22,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {
+            "KHR_materials_transmission": {
+              "transmissionFactor": 0.6
+            },
+            "KHR_materials_ior": {
+              "ior": 1.45
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "9f436@1",
+      "source_sha256": "59b9774b7d8da09ff5284d054783871161db00285da77eb653582ed6219f9e9a",
+      "appearance_sha256": "4dbc44e61d6f5971f2e4ebe6a8674fd8694894d2443aba7b1ec14accc7c20bee",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "O93001",
+          "semantics": "donut",
+          "surface_source": "original-asset",
+          "pbr_source": "manually-tuned",
+          "authored_color": null,
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.78,
+            "baseColorTexture": {
+              "extensions": {},
+              "extras": {},
+              "index": 0,
+              "texCoord": 0
+            },
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {}
+        }
+      ]
+    },
+    {
+      "id": "86fb0@1",
+      "source_sha256": "028a252e3c52a9a50b6b37e8c61ca357c27374c6d27f9e5a6a32db97ed32f51f",
+      "appearance_sha256": "b91e9b44dbc14a2902e6c0e0f0c48e10cba3d3fa481cfb711ccef652f9a10718",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "C11001",
+          "semantics": "blue teacup",
+          "surface_source": "manually-authored",
+          "pbr_source": "manually-tuned",
+          "authored_color": {
+            "method": "manually-authored semantic base color",
+            "color_srgb": "#397FAA"
+          },
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              0.04091519690685319,
+              0.21223075741405523,
+              0.4019777798321958,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.32,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {}
+        }
+      ]
+    },
+    {
+      "id": "f7d37@15",
+      "source_sha256": "581c555f9e4e4531f40e75cedf6d853a09751210856fd3207e66c4adcad30958",
+      "appearance_sha256": "010d1a6768b6b45994c01dc35db26695e256db3112d7187b9836966a5f550a73",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "O02@0201@00001",
+          "semantics": "tripod",
+          "surface_source": "original-asset",
+          "pbr_source": "manually-tuned",
+          "authored_color": null,
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 0.25,
+            "roughnessFactor": 0.4,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {}
+        }
+      ]
+    },
+    {
+      "id": "590d0@3",
+      "source_sha256": "5f867288acd97158cad1ded0f9cc800c6b62cb56ba6395f3c00ade3494c51da0",
+      "appearance_sha256": "3a0c3e8440026595b8780fd2ed9ae76ff9142468252660c70fe982120680c5d6",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "S20005",
+          "semantics": "orange kitchen knife",
+          "surface_source": "manually-authored",
+          "pbr_source": "manually-tuned",
+          "authored_color": {
+            "method": "semantic materials on disjoint original triangles",
+            "boundary": "triangle centroid local z < -0.032 m",
+            "regions": [
+              {
+                "region": "handle",
+                "color_srgb": "#D97B38",
+                "triangle_count": 944,
+                "material": {
+                  "extensions": {},
+                  "extras": {},
+                  "pbrMetallicRoughness": {
+                    "extensions": {},
+                    "extras": {},
+                    "baseColorFactor": [
+                      0.6938717612919899,
+                      0.19806931955994886,
+                      0.03954623527673284,
+                      1
+                    ],
+                    "metallicFactor": 0,
+                    "roughnessFactor": 0.56,
+                    "baseColorTexture": null,
+                    "metallicRoughnessTexture": null
+                  },
+                  "normalTexture": null,
+                  "occlusionTexture": null,
+                  "emissiveFactor": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "emissiveTexture": null,
+                  "alphaMode": "OPAQUE",
+                  "alphaCutoff": null,
+                  "doubleSided": true,
+                  "name": "kitchen knife handle"
+                }
+              },
+              {
+                "region": "blade",
+                "color_srgb": "#B8BDC1",
+                "triangle_count": 1712,
+                "material": {
+                  "extensions": {},
+                  "extras": {},
+                  "pbrMetallicRoughness": {
+                    "extensions": {},
+                    "extras": {},
+                    "baseColorFactor": [
+                      0.4793201831008268,
+                      0.5088813208549338,
+                      0.5332764040105052,
+                      1
+                    ],
+                    "metallicFactor": 0.8,
+                    "roughnessFactor": 0.43,
+                    "baseColorTexture": null,
+                    "metallicRoughnessTexture": null
+                  },
+                  "normalTexture": null,
+                  "occlusionTexture": null,
+                  "emissiveFactor": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "emissiveTexture": null,
+                  "alphaMode": "OPAQUE",
+                  "alphaCutoff": null,
+                  "doubleSided": true,
+                  "name": "kitchen knife blade"
+                }
+              }
+            ]
+          },
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              0.6938717612919899,
+              0.19806931955994886,
+              0.03954623527673284,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.56,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {}
+        }
+      ]
+    },
+    {
+      "id": "4b10d@1",
+      "source_sha256": "b07310677f769b463b0c61e7ced15ac746381003b57280c6cdd2bb4940348ffa",
+      "appearance_sha256": "e915de81003a62a66f43513d1a5b09b43b10db18f72c5b2f59b3f7f9bbeb490e",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "O02@0049@00001",
+          "semantics": "tape roll",
+          "surface_source": "original-asset",
+          "pbr_source": "manually-tuned",
+          "authored_color": null,
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.5,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {}
+        }
+      ]
+    },
+    {
+      "id": "86fb0@8",
+      "source_sha256": "ea88f93b1e1a8715c90bd65b047792e928117406f8eb97670d27b0000b1ca38e",
+      "appearance_sha256": "55fe33bc2dad3249537244300f340a7971243518254afebbdfd0e61ba36d9f89",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "O02@0015@00014",
+          "semantics": "red striped bottle",
+          "surface_source": "original-asset",
+          "pbr_source": "manually-tuned",
+          "authored_color": null,
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.34,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {}
+        }
+      ]
+    },
+    {
+      "id": "f9335@2",
+      "source_sha256": "4cef417409e0b5de1b258df64269f34444b15e54b77e5bc8c189f191f6d65b0d",
+      "appearance_sha256": "a7198f69ba65a781f94b3a17bcf7c8f555bd956bfe8d865eeaa368de74a0a231",
+      "meshes": [
+        {
+          "mesh": 0,
+          "source_object_id": "O02@0025@00001",
+          "semantics": "toothbrush",
+          "surface_source": "manually-authored",
+          "pbr_source": "manually-tuned",
+          "authored_color": {
+            "method": "manually-authored semantic vertex palette in linear RGB",
+            "regions": [
+              {
+                "region": "body",
+                "color_srgb": "#4F8F93"
+              },
+              {
+                "region": "brush head",
+                "color_srgb": "#E6DEC9",
+                "vertices": 497
+              }
+            ]
+          },
+          "double_sided": true,
+          "pbr": {
+            "extensions": {},
+            "extras": {},
+            "baseColorFactor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "metallicFactor": 0,
+            "roughnessFactor": 0.55,
+            "baseColorTexture": null,
+            "metallicRoughnessTexture": null
+          },
+          "extensions": {}
+        }
+      ]
+    }
+  ],
+  "object_policy": "Prefer original image textures and recognizable scanned colors. Replace placeholder surfaces with everyday semantic materials. Geometry, UVs, embedded images and source trajectory remain unchanged. Selected rounded surfaces receive missing smooth normals; blue cups retain native face shading.",
+  "lighting": {
+    "environment": "RoomEnvironment / PMREM",
+    "environment_intensity": 0.45,
+    "key_intensity": 1.2,
+    "key_color": "#fffaf4",
+    "fill_intensity": 0.3,
+    "fill_color": "#f2f5fa",
+    "exposure": 0.95,
+    "transmission_resolution_scale": 0.5,
+    "basis": "https://huy-ha.github.io/assets/presenting_your_research.pdf#page=91"
+  }
+}
