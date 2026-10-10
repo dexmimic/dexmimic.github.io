@@ -3,6 +3,7 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 import { motionBounds, frameMotion } from "./framing.js";
+import { createComparison } from "./comparison.js";
 
 const viewport = document.createElement("div");
 viewport.className = "scene-viewport";
@@ -67,6 +68,7 @@ fillLight.position.set(0.6, 0.55, 0.9);
 scene.add(fillLight);
 
 const furniture = new THREE.Group();
+furniture.name = "furniture";
 furniture.visible = !studio;
 scene.add(furniture);
 
@@ -196,12 +198,14 @@ const layers = {
   referenceHandPath: makePaths(data.reference_hand_paths ?? [data.reference_hand_path], "#a354bb", 0.82),
   referenceObjectPath: makePaths(data.reference_object_paths ?? [data.reference_object_path], "#ce7540", 0.86),
 };
-document.querySelectorAll("[data-layer]").forEach((input) => {
-  layers[input.dataset.layer].visible = input.checked;
-  input.addEventListener("change", () => {
-    layers[input.dataset.layer].visible = input.checked;
+let comparing = true;
+function syncLayers() {
+  document.querySelectorAll("[data-layer]").forEach((input) => {
+    const key = input.dataset.layer;
+    layers[key].visible = comparing ? key === "hand" || key === "object" : input.checked;
   });
-});
+}
+document.querySelectorAll("[data-layer]").forEach((input) => input.addEventListener("change", syncLayers));
 
 viewport.style.backgroundImage =
   backdrop === "studio"
@@ -230,6 +234,13 @@ function updateObject(node, a, b, alpha) {
   node.quaternion.copy(quaternionA).slerp(quaternionB, alpha);
 }
 
+const comparison = await createComparison({
+  scene, renderer, camera, viewport, shell, object, objectLinks, updateObject,
+  onModeChange: (value) => { comparing = value; syncLayers(); },
+  onDrag: (dragging) => { controls.enabled = open && !dragging; },
+});
+if (studio) bounds.union(comparison.bounds);
+
 const rewards = data.reward;
 const rewardMin = Math.min(...rewards) - 0.5;
 const rewardRange = Math.max(...rewards) - rewardMin + 0.5;
@@ -256,7 +267,7 @@ let time = 0;
 let playing = false;
 let open = false;
 
-function setTime(seconds) {
+export function setTime(seconds) {
   time = Math.min(Math.max(seconds, 0), data.duration);
   const index = Math.min(Math.floor(time * data.fps), data.frame_count - 2);
   const first = data.frames[index];
@@ -281,12 +292,18 @@ function setTime(seconds) {
       alpha,
     );
   }
+  comparison.setFrame(index, alpha);
   timeline.value = Math.round((1000 * time) / data.duration);
   timeText.textContent = `${time.toFixed(1)}s`;
   rewardValue.textContent = rewards[index].toFixed(2);
   const cursorX = ((index + alpha) * 600) / (data.frame_count - 1);
   rewardCursor.setAttribute("x1", cursorX);
   rewardCursor.setAttribute("x2", cursorX);
+}
+
+export function renderTime(seconds, side = "compare") {
+  setTime(seconds);
+  comparison.render(side);
 }
 
 function resize() {
@@ -351,7 +368,7 @@ timeline.addEventListener("input", () =>
 );
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && open) closeViewer();
-  if (event.code === "Space" && open && event.target.tagName !== "INPUT") {
+  if (event.code === "Space" && open && !event.target.closest('input, select, button, [role="slider"]')) {
     event.preventDefault();
     togglePlayback(!playing);
   }
@@ -369,5 +386,5 @@ function animate() {
   if (playing && open)
     setTime((time + delta * Number(speedSelect.value)) % data.duration);
   controls.update();
-  renderer.render(scene, camera);
+  comparison.render();
 }

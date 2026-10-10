@@ -1,0 +1,154 @@
+.scene-viewport {
+  position: relative;
+  overflow: hidden;
+}
+.curtain-divider {
+  position: absolute;
+  z-index: 2;
+  inset-block: 0;
+  left: var(--cut, 50%);
+  width: 44px;
+  transform: translateX(-50%);
+  cursor: ew-resize;
+  touch-action: none;
+  user-select: none;
+}
+.curtain-divider::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  left: 50%;
+  width: 2px;
+  background: #ffffff;
+  box-shadow: 0 0 3px #3c668b7a;
+}
+.curtain-grip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  transform: translate(-50%, -50%);
+  border: 1px solid #d4e2eb;
+  border-radius: 50%;
+  background: #ffffffed;
+  color: #2e6283;
+  font-size: 23px;
+  box-shadow: 0 2px 12px #26496524;
+}
+.curtain-divider:focus-visible {
+  outline: none;
+}
+.curtain-divider:focus-visible .curtain-grip {
+  outline: 3px solid #73b2db;
+  outline-offset: 3px;
+}
+.comparison-labels {
+  position: absolute;
+  inset: 14px 16px auto;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  color: #486779;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+}
+.comparison-labels span {
+  padding: 5px 9px;
+  border-radius: 6px;
+  background: #ffffffd9;
+}
+.comparison-toolbar {
+  min-height: 44px;
+  padding: 7px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-bottom: 1px solid #edf1f3;
+  background: #fbfcfd;
+}
+.comparison-toolbar p {
+  margin: 0;
+  color: #778b98;
+  font-size: 11px;
+}
+.comparison-modes {
+  display: flex;
+  gap: 7px;
+}
+.comparison-modes button {
+  border: 1px solid #ffffffed;
+  border-radius: 8px;
+  padding: 6px 11px;
+  color: var(--mode-color);
+  background: var(--mode-glass);
+  backdrop-filter: blur(16px) saturate(135%);
+  -webkit-backdrop-filter: blur(16px) saturate(135%);
+  box-shadow: 0 1px 7px var(--mode-shadow);
+  font: inherit;
+  font-size: 11px;
+  white-space: nowrap;
+  cursor: pointer;
+  animation: mode-breathe 3.8s ease-in-out infinite;
+}
+.comparison-modes button[data-mode="compare"] {
+  --mode-color: #25628c;
+  --mode-glass: #dceef8ba;
+  --mode-shadow: #2878b52e;
+  --mode-glow: #2878b55c;
+  --mode-border: #8cbcdc;
+}
+.comparison-modes button[data-mode="simulation"] {
+  --mode-color: #a7542b;
+  --mode-glass: #f6e4d8bf;
+  --mode-shadow: #b9653a2b;
+  --mode-glow: #b9653a57;
+  --mode-border: #d6a183;
+  animation-delay: 1.9s;
+}
+.comparison-modes button[aria-pressed="true"] {
+  border-color: var(--mode-border);
+  font-weight: 650;
+}
+.comparison-modes button:focus-visible {
+  outline: 2px solid var(--mode-color);
+  outline-offset: 3px;
+}
+@keyframes mode-breathe {
+  0%, 100% {
+    opacity: 0.86;
+    box-shadow: 0 1px 7px var(--mode-shadow);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 2px 13px var(--mode-glow);
+  }
+}
+.viewer-shell.comparing .layers,
+.viewer-shell.comparing .reward-panel {
+  display: none;
+}
+.scene-viewport:not(.comparing) .curtain-divider,
+.scene-viewport:not(.comparing) .comparison-labels {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .comparison-modes button {
+    animation: none;
+  }
+}
+@media (max-width: 600px) {
+  .comparison-toolbar {
+    gap: 6px;
+    padding-inline: 8px;
+  }
+  .comparison-toolbar p {
+    font-size: 10px;
+  }
+  .comparison-labels {
+    inset-inline: 8px;
+  }
+}

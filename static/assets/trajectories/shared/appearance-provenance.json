@@ -6,7 +6,7 @@
     "training_commit": "aee64892ebcf8e3237bedc30231bb09476cbc71d",
     "product_reference": "https://wuji.tech/en/hand",
     "photo_reference": "https://wuji.tech/assets/posters/hand_video_cover.webp",
-    "appearance": "Manually tuned satin silver fingers, matte dark palm, darker joint housings and dark fingertip pads based on the official product photograph.",
+    "appearance": "Manually tuned satin silver fingers, matte dark palm, darker joint housings and soft off-white fingertip pads. Fingertip color follows the author-provided reference image.",
     "geometry": "Original link-local positions, indices, hierarchy and trajectory unchanged. Added crease-aware normals at 40 degrees.",
     "license": "MIT; see hands/license.txt",
     "materials": [
@@ -44,17 +44,18 @@
         "roughness": 0.64
       },
       {
-        "name": "dark fingertip pads",
+        "name": "off-white fingertip pads",
         "base_color_linear": [
-          0.022,
-          0.027,
-          0.033,
+          0.768151147247507,
+          0.7605245046752924,
+          0.7379104087727308,
           1
         ],
         "metalness": 0.0,
         "roughness": 0.76
       }
-    ]
+    ],
+    "fingertip_reference": "Author-provided Wuji hand image, 2026-10-10."
   },
   "objects": [
     {

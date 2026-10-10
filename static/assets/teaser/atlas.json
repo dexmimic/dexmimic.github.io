@@ -1,0 +1,127 @@
+{
+  "schema": "teaser_comparison_atlas_v1",
+  "columns": 7,
+  "rows": 4,
+  "tile_size": 384,
+  "width": 2688,
+  "height": 3072,
+  "layout": "vertical",
+  "human_y": 0,
+  "simulation_y": 1536,
+  "fps": 24,
+  "duration": 18,
+  "units": [
+    {
+      "id": "30dbe@14",
+      "title": "Two-Handed Pour into a Beaker"
+    },
+    {
+      "id": "751fb@16",
+      "title": "Two-Handed Lamp Extinguishing"
+    },
+    {
+      "id": "7a6dd@2",
+      "title": "Two-Handed Whiteboard Writing"
+    },
+    {
+      "id": "86e2a@11",
+      "title": "Two-Handed Stirring"
+    },
+    {
+      "id": "86e2a@9",
+      "title": "Two-Handed Scooping"
+    },
+    {
+      "id": "9a028@8",
+      "title": "Writing on a Whiteboard"
+    },
+    {
+      "id": "fe8dc@0",
+      "title": "Scooping into a Bowl"
+    },
+    {
+      "id": "920f6@6",
+      "title": "Spreading on Bread"
+    },
+    {
+      "id": "78c62@2",
+      "title": "Writing on Paper"
+    },
+    {
+      "id": "f1029@7",
+      "title": "Using a Computer Mouse"
+    },
+    {
+      "id": "5a065@0",
+      "title": "Uncapping a Teapot"
+    },
+    {
+      "id": "751fb@24",
+      "title": "Shaking a Conical Flask"
+    },
+    {
+      "id": "81a95@2",
+      "title": "Lighting an Alcohol Lamp"
+    },
+    {
+      "id": "29266@0",
+      "title": "Moving a Blue Teacup"
+    },
+    {
+      "id": "07bb1@3",
+      "title": "Taking Out a Fork"
+    },
+    {
+      "id": "8e5df@11",
+      "title": "Heating a Beaker"
+    },
+    {
+      "id": "1be0e@1",
+      "title": "Shaking a Test Tube"
+    },
+    {
+      "id": "0b3d1@2",
+      "title": "Pressing a Scale Button"
+    },
+    {
+      "id": "b5fa3@15",
+      "title": "Racking a Tube with a Holder"
+    },
+    {
+      "id": "c2f83@3",
+      "title": "Racking a Glass Rod"
+    },
+    {
+      "id": "3b1e6@14",
+      "title": "Removing a Test Tube"
+    },
+    {
+      "id": "9f436@1",
+      "title": "Placing a Donut on a Saucer"
+    },
+    {
+      "id": "86fb0@1",
+      "title": "Placing a Cup on a Scale"
+    },
+    {
+      "id": "f7d37@15",
+      "title": "Moving a Tripod"
+    },
+    {
+      "id": "590d0@3",
+      "title": "Holding a Kitchen Knife"
+    },
+    {
+      "id": "4b10d@1",
+      "title": "Putting Tape in a Box"
+    },
+    {
+      "id": "86fb0@8",
+      "title": "Moving a Striped Bottle"
+    },
+    {
+      "id": "f9335@2",
+      "title": "Moving a Toothbrush"
+    }
+  ]
+}

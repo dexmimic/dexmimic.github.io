@@ -10,7 +10,7 @@ card.addEventListener("click", async () => {
   card.classList.add("loading");
   let viewer;
   try {
-    viewer = await import("./viewer.js");
+    viewer = await import("./viewer.js?v=20261011-curtain");
   } catch (error) {
     if (parameters.has("embed")) {
       window.parent.postMessage("trajectory-viewer-error", location.origin);

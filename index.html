@@ -6,55 +6,80 @@
   <meta name="description" content="DexMimic: A Generalist Dexterous Hand–Object Tracking Policy via Value-Guided Reset Allocation.">
   <meta name="theme-color" content="#ffffff">
   <title>DexMimic: A Generalist Dexterous Hand–Object Tracking Policy</title>
-  <link rel="stylesheet" href="static/css/style.css?v=20261009-pale">
-  <script type="module" src="static/js/method.js?v=20261009-method-once"></script>
+  <link rel="stylesheet" href="static/css/style.css?v=20261011-mono">
+  <script type="module" src="static/js/method.js?v=20261010-white-tips"></script>
   <link rel="stylesheet" href="static/css/results.css?v=20261009-widths">
-  <link rel="stylesheet" href="static/css/layout.css?v=20261009-expand">
+  <link rel="stylesheet" href="static/css/layout.css?v=20261011-introduction">
+  <link rel="stylesheet" href="static/css/curtain-previews.css?v=20261011-inset-grip">
+  <link rel="stylesheet" href="static/css/teaser.css?v=20261011-clear-hero">
   <script src="static/js/results.js?v=20261009-results" type="module"></script>
   <script src="static/js/player.js" defer></script>
-  <script src="static/js/trajectories.js?v=20261009-collapse-position" defer></script>
+  <script src="static/js/trajectories.js?v=20261011-guided-hero" defer></script>
+  <script type="module" src="static/js/curtain-previews.js?v=20261011-smooth-cues"></script>
+  <script type="module" src="static/js/teaser.js?v=20261011-smooth-cues"></script>
 </head>
 <body>
   <main>
-    <header class="hero">
-      <h1><span class="dex">Dex</span><span class="mimic">Mimic</span>: A Generalist Dexterous<br class="wide-break"> Hand–Object Tracking Policy<br> via Value-Guided Reset Allocation</h1>
-      <div class="resource-links">
-        <a class="appendix" href="static/assets/paper.pdf?v=20260929-navigation" target="_blank" rel="noopener" aria-label="Read the paper and appendix (PDF)"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 2h8l4 4v16H6z M14 2v5h4 M9 12h6 M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Paper</a>
+    <header class="hero teaser" id="teaser" aria-labelledby="teaser-title">
+      <div class="teaser-media" aria-hidden="true">
+        <canvas class="teaser-matrix"></canvas>
+        <video class="teaser-video" loop muted playsinline preload="none"></video>
+      </div>
+      <div class="resource-links teaser-resource-links">
+        <a class="appendix" href="static/assets/paper.pdf?v=20260929-navigation" target="_blank" rel="noopener" aria-label="Read the paper (PDF)"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 2h8l4 4v16H6z M14 2v5h4 M9 12h6 M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Paper</a>
         <a class="appendix" href="static/assets/appendix.pdf?v=20260929-navigation" target="_blank" rel="noopener" aria-label="Read the supplemental material (PDF)"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 2h8l4 4v16H6z M14 2v5h4 M9 12h6 M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Appendix</a>
       </div>
+      <div class="teaser-copy">
+        <h1 id="teaser-title"><span class="teaser-name"><span class="dex">Dex</span><span class="mimic">Mimic</span></span><span class="teaser-subtitle">A Generalist Dexterous Hand–Object Tracking Policy<br> via Value-Guided Reset Allocation</span></h1>
+        <p class="hero-authors">Anonymous Authors</p>
+        <p class="teaser-review">For ICRA 2027 review</p>
+      </div>
+      <nav class="teaser-nav" aria-label="Project sections">
+        <a href="#pipeline-title">Pipeline</a>
+        <a href="#trajectory-title">Simulation</a>
+        <a href="#method-title">Method</a>
+        <a href="#results-title">Results</a>
+        <a href="#realworld-title">Realworld</a>
+        <a href="#introduction-title">Introduction</a>
+      </nav>
     </header>
     <aside class="tldr content" aria-labelledby="tldr-title">
+      <h2 class="research-promise"><span class="dex">single policy,</span> <em class="mimic">many trajectories.</em></h2>
       <div class="summary-card">
         <h2 id="tldr-title" class="summary-label">TL;DR</h2>
         <p class="tldr-summary"><strong>DexMimic learns one generalist policy for diverse dexterous hand–object tracking.</strong></p>
         <p class="tldr-summary">Learned interaction priors improve tracking success and training efficiency, and transfer to unseen trajectories and objects.</p>
       </div>
     </aside>
-    <section class="video-section content" aria-label="Project video">
-      <h2 id="overview-title">Video</h2>
-      <div class="video-player" id="overview-player" data-playing="false">
-        <div class="video-stage">
-          <video id="overview-video" playsinline preload="metadata" poster="static/assets/overview_poster.jpg" aria-label="DexMimic narrated project video">
-            <source src="static/assets/overview.mp4" type="video/mp4">
-          </video>
-          <button class="video-start" type="button" aria-label="Play project video"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z"/></svg></button>
+    <section class="pipeline-section content" aria-labelledby="pipeline-title">
+      <h2 id="pipeline-title">Pipeline</h2>
+      <p class="pipeline-summary">Human hand–object motion guides robot tracking in simulation. The resulting robot motion is then replayed on hardware.</p>
+      <article class="motion-triplet pipeline-triplet" data-instance="a15ff@2">
+        <div class="triplet-grid">
+          <figure class="triplet-panel">
+            <video class="triplet-video" data-src="static/assets/pipeline/a15ff@2/mano.mp4" poster="static/assets/pipeline/a15ff@2/mano.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Spoon manipulation: MANO"></video>
+            <figcaption>MANO</figcaption>
+          </figure>
+          <figure class="triplet-panel">
+            <video class="triplet-video" data-src="static/assets/pipeline/a15ff@2/sim.mp4" poster="static/assets/pipeline/a15ff@2/sim.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Spoon manipulation: Simulation"></video>
+            <figcaption>Simulation</figcaption>
+          </figure>
+          <figure class="triplet-panel">
+            <video class="triplet-video" data-src="static/assets/pipeline/a15ff@2/real.mp4" poster="static/assets/pipeline/a15ff@2/real.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Spoon manipulation: Real robot"></video>
+            <figcaption>Real robot</figcaption>
+          </figure>
         </div>
-        <div class="video-controls" role="group" aria-label="Video controls">
-          <button class="play-toggle" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="play-icon" d="m8 5 11 7-11 7z"/><path class="pause-icon" d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button>
-          <span class="video-time" id="video-time">0:00 / 2:52</span>
-          <input class="video-progress" type="range" min="0" max="1000" value="0" step="1" aria-label="Seek video" disabled>
-          <button class="mute-toggle" type="button" aria-label="Mute" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3z"/><path class="sound-waves" d="M16 8q5 4 0 8M19 4q9 8 0 16" fill="none" stroke="currentColor" stroke-width="1.6"/><path class="muted-cross" d="m16 9 6 6m0-6-6 6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
-          <button class="fullscreen-toggle" type="button" aria-label="Enter fullscreen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
-        </div>
-      </div>
+      </article>
     </section>
     <div class="section-band">
       <section class="trajectory-section content" id="interactive-skills" aria-labelledby="trajectory-title">
         <h2 id="trajectory-title">Simulation</h2>
+        <p class="comparison-intro">Drag the divider to compare MANO and Wuji; select View 3D to explore.</p>
         <div class="trajectory-grid" id="simulation-grid" data-expanded="false">
           <a class="trajectory-card" href="static/assets/trajectories/units/30dbe@14/index.html?backdrop=studio" aria-label="View Pour into a Beaker in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/30dbe@14/preview.png" alt="Both hands pour material from a test tube into a beaker." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:145.7859%;--preview-left:-20.9317%;--preview-top:-31.9517%">
+              <img src="static/assets/trajectories/units/30dbe@14/preview.png?v=20261010-white-tips" alt="Both hands pour material from a test tube into a beaker." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/30dbe@14/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/30dbe@14/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -63,8 +88,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/751fb@16/index.html?backdrop=studio" aria-label="View Lamp Extinguishing in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/751fb@16/preview.png" alt="Both hands extinguish an alcohol lamp with its cap." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:154.9637%;--preview-left:-23.8560%;--preview-top:-35.7043%">
+              <img src="static/assets/trajectories/units/751fb@16/preview.png?v=20261010-white-tips" alt="Both hands extinguish an alcohol lamp with its cap." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/751fb@16/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/751fb@16/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -73,8 +99,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/7a6dd@2/index.html?backdrop=studio" aria-label="View Whiteboard Writing in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/7a6dd@2/preview.png" alt="Both hands coordinate while writing on a whiteboard with a marker." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:143.8202%;--preview-left:-19.9836%;--preview-top:-24.0694%">
+              <img src="static/assets/trajectories/units/7a6dd@2/preview.png?v=20261010-white-tips" alt="Both hands coordinate while writing on a whiteboard with a marker." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/7a6dd@2/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/7a6dd@2/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -83,8 +110,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/86e2a@11/index.html?backdrop=studio" aria-label="View Stirring in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/86e2a@11/preview.png" alt="Both hands stir inside a bowl with a spoon." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:178.2730%;--preview-left:-39.2629%;--preview-top:-58.1292%">
+              <img src="static/assets/trajectories/units/86e2a@11/preview.png?v=20261010-white-tips" alt="Both hands stir inside a bowl with a spoon." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/86e2a@11/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/86e2a@11/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -93,8 +121,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/86e2a@9/index.html?backdrop=studio" aria-label="View Scooping in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/86e2a@9/preview.png" alt="Both hands scoop salt from a green teacup into a bowl." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:158.4158%;--preview-left:-32.8629%;--preview-top:-39.5453%">
+              <img src="static/assets/trajectories/units/86e2a@9/preview.png?v=20261010-white-tips" alt="Both hands scoop salt from a green teacup into a bowl." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/86e2a@9/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/86e2a@9/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -103,8 +132,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/9a028@8/index.html?backdrop=studio" aria-label="View Writing on a Whiteboard in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/9a028@8/preview.png" alt="The hand writes on a whiteboard with a marker." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:136.4606%;--preview-left:-25.2154%;--preview-top:-24.2088%">
+              <img src="static/assets/trajectories/units/9a028@8/preview.png?v=20261010-white-tips" alt="The hand writes on a whiteboard with a marker." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/9a028@8/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/9a028@8/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -113,8 +143,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/fe8dc@0/index.html?backdrop=studio" aria-label="View Scooping into a Bowl in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/fe8dc@0/preview.png" alt="The hand scoops material from a gray-green porcelain bottle into a bowl." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:163.6829%;--preview-left:-37.9175%;--preview-top:-50.6997%">
+              <img src="static/assets/trajectories/units/fe8dc@0/preview.png?v=20261010-white-tips" alt="The hand scoops material from a gray-green porcelain bottle into a bowl." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/fe8dc@0/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/fe8dc@0/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -123,8 +154,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/920f6@6/index.html?backdrop=studio" aria-label="View Spreading on Bread in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/920f6@6/preview.png" alt="The hand spreads ketchup and sugar on bread with a spoon." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:133.6117%;--preview-left:-8.6178%;--preview-top:-25.5650%">
+              <img src="static/assets/trajectories/units/920f6@6/preview.png?v=20261010-white-tips" alt="The hand spreads ketchup and sugar on bread with a spoon." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/920f6@6/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/920f6@6/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -133,8 +165,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/78c62@2/index.html?backdrop=studio" aria-label="View Writing on Paper in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/78c62@2/preview.png" alt="The hand writes on paper with a pen." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:148.4919%;--preview-left:-25.0447%;--preview-top:-27.2284%">
+              <img src="static/assets/trajectories/units/78c62@2/preview.png?v=20261010-white-tips" alt="The hand writes on paper with a pen." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/78c62@2/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/78c62@2/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -143,8 +176,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/f1029@7/index.html?backdrop=studio" aria-label="View Using a Computer Mouse in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/f1029@7/preview.png" alt="The hand controls a laptop with a mouse." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:124.0310%;--preview-left:-14.9245%;--preview-top:-24.0310%">
+              <img src="static/assets/trajectories/units/f1029@7/preview.png?v=20261010-white-tips" alt="The hand controls a laptop with a mouse." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/f1029@7/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/f1029@7/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -153,8 +187,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/5a065@0/index.html?backdrop=studio" aria-label="View Uncapping a Teapot in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/5a065@0/preview.png" alt="The hand lifts the lid from a porcelain teapot." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:150.9434%;--preview-left:-27.0940%;--preview-top:-38.9844%">
+              <img src="static/assets/trajectories/units/5a065@0/preview.png?v=20261010-white-tips" alt="The hand lifts the lid from a porcelain teapot." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/5a065@0/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/5a065@0/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -163,8 +198,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/751fb@24/index.html?backdrop=studio" aria-label="View Shaking a Conical Flask in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/751fb@24/preview.png" alt="The hand shakes a mixture inside a conical flask." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:140.6593%;--preview-left:-20.2989%;--preview-top:-27.3778%">
+              <img src="static/assets/trajectories/units/751fb@24/preview.png?v=20261010-white-tips" alt="The hand shakes a mixture inside a conical flask." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/751fb@24/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/751fb@24/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -173,8 +209,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/81a95@2/index.html?backdrop=studio" aria-label="View Lighting an Alcohol Lamp in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/81a95@2/preview.png" alt="The hand ignites an alcohol lamp." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:167.9790%;--preview-left:-31.6445%;--preview-top:-53.6466%">
+              <img src="static/assets/trajectories/units/81a95@2/preview.png?v=20261010-white-tips" alt="The hand ignites an alcohol lamp." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/81a95@2/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/81a95@2/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -183,8 +220,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/29266@0/index.html?backdrop=studio" aria-label="View Moving a Blue Teacup in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/29266@0/preview.png" alt="The hand moves a blue teacup to a new position." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:132.5052%;--preview-left:-21.4191%;--preview-top:-26.9518%">
+              <img src="static/assets/trajectories/units/29266@0/preview.png?v=20261010-white-tips" alt="The hand moves a blue teacup to a new position." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/29266@0/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/29266@0/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -193,8 +231,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/07bb1@3/index.html?backdrop=studio" aria-label="View Taking Out a Fork in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/07bb1@3/preview.png" alt="The hand removes a fork from a tool rack." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:149.1841%;--preview-left:-30.5049%;--preview-top:-28.6873%">
+              <img src="static/assets/trajectories/units/07bb1@3/preview.png?v=20261010-white-tips" alt="The hand removes a fork from a tool rack." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/07bb1@3/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/07bb1@3/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -203,8 +242,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/8e5df@11/index.html?backdrop=studio" aria-label="View Heating a Beaker in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/8e5df@11/preview.png" alt="The hand heats a mixed substance in a beaker with an alcohol lamp." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:132.2314%;--preview-left:-14.7852%;--preview-top:-28.4192%">
+              <img src="static/assets/trajectories/units/8e5df@11/preview.png?v=20261010-white-tips" alt="The hand heats a mixed substance in a beaker with an alcohol lamp." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/8e5df@11/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/8e5df@11/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -213,8 +253,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/1be0e@1/index.html?backdrop=studio" aria-label="View Shaking a Test Tube in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/1be0e@1/preview.png" alt="The hand shakes material inside a test tube." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:136.4606%;--preview-left:-17.8846%;--preview-top:-25.0289%">
+              <img src="static/assets/trajectories/units/1be0e@1/preview.png?v=20261010-white-tips" alt="The hand shakes material inside a test tube." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/1be0e@1/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/1be0e@1/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -223,8 +264,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/0b3d1@2/index.html?backdrop=studio" aria-label="View Pressing a Scale Button in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/0b3d1@2/preview.png" alt="The hand presses a button on a scale." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:115.1079%;--preview-left:-10.6645%;--preview-top:-15.1079%">
+              <img src="static/assets/trajectories/units/0b3d1@2/preview.png?v=20261010-white-tips" alt="The hand presses a button on a scale." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/0b3d1@2/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/0b3d1@2/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -233,8 +275,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/b5fa3@15/index.html?backdrop=studio" aria-label="View Racking a Tube with a Holder in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/b5fa3@15/preview.png" alt="The hand places a test tube into a rack using a tube holder." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:131.1475%;--preview-left:-20.1735%;--preview-top:-25.5182%">
+              <img src="static/assets/trajectories/units/b5fa3@15/preview.png?v=20261010-white-tips" alt="The hand places a test tube into a rack using a tube holder." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/b5fa3@15/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/b5fa3@15/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -243,8 +286,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/c2f83@3/index.html?backdrop=studio" aria-label="View Racking a Glass Rod in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/c2f83@3/preview.png" alt="The hand places a glass rod onto a test-tube rack." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:168.4211%;--preview-left:-33.5245%;--preview-top:-31.9621%">
+              <img src="static/assets/trajectories/units/c2f83@3/preview.png?v=20261010-white-tips" alt="The hand places a glass rod onto a test-tube rack." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/c2f83@3/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/c2f83@3/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -253,8 +297,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/3b1e6@14/index.html?backdrop=studio" aria-label="View Removing a Test Tube in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/3b1e6@14/preview.png" alt="The hand removes a test tube from a rack." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:140.3509%;--preview-left:-19.9257%;--preview-top:-36.9267%">
+              <img src="static/assets/trajectories/units/3b1e6@14/preview.png?v=20261010-white-tips" alt="The hand removes a test tube from a rack." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/3b1e6@14/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/3b1e6@14/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -263,8 +308,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/9f436@1/index.html?backdrop=studio" aria-label="View Placing a Donut on a Saucer in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/9f436@1/preview.png" alt="The hand places a donut onto a saucer." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:174.3869%;--preview-left:-34.6916%;--preview-top:-52.9892%">
+              <img src="static/assets/trajectories/units/9f436@1/preview.png?v=20261010-white-tips" alt="The hand places a donut onto a saucer." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/9f436@1/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/9f436@1/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -273,8 +319,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/86fb0@1/index.html?backdrop=studio" aria-label="View Placing a Cup on a Scale in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/86fb0@1/preview.png" alt="The hand places a blue teacup on a scale platform." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:144.7964%;--preview-left:-23.1473%;--preview-top:-39.2773%">
+              <img src="static/assets/trajectories/units/86fb0@1/preview.png?v=20261010-white-tips" alt="The hand places a blue teacup on a scale platform." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/86fb0@1/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/86fb0@1/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -283,8 +330,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/f7d37@15/index.html?backdrop=studio" aria-label="View Moving a Tripod in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/f7d37@15/preview.png" alt="The hand moves a tripod to a new position." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:138.2289%;--preview-left:-24.3545%;--preview-top:-30.8092%">
+              <img src="static/assets/trajectories/units/f7d37@15/preview.png?v=20261010-white-tips" alt="The hand moves a tripod to a new position." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/f7d37@15/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/f7d37@15/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -293,8 +341,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/590d0@3/index.html?backdrop=studio" aria-label="View Holding a Kitchen Knife in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/590d0@3/preview.png" alt="The hand grasps an orange kitchen knife and holds it steady." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:137.0450%;--preview-left:-27.4609%;--preview-top:-21.3613%">
+              <img src="static/assets/trajectories/units/590d0@3/preview.png?v=20261010-white-tips" alt="The hand grasps an orange kitchen knife and holds it steady." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/590d0@3/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/590d0@3/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -303,8 +352,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/4b10d@1/index.html?backdrop=studio" aria-label="View Putting Tape in a Box in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/4b10d@1/preview.png" alt="The hand places a roll of tape inside a box." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:152.7446%;--preview-left:-20.4313%;--preview-top:-40.7045%">
+              <img src="static/assets/trajectories/units/4b10d@1/preview.png?v=20261010-white-tips" alt="The hand places a roll of tape inside a box." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/4b10d@1/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/4b10d@1/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -313,8 +363,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/86fb0@8/index.html?backdrop=studio" aria-label="View Moving a Striped Bottle in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/86fb0@8/preview.png" alt="The hand moves a red striped bottle to a new position." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:107.5630%;--preview-left:-3.5920%;--preview-top:-7.5630%">
+              <img src="static/assets/trajectories/units/86fb0@8/preview.png?v=20261010-white-tips" alt="The hand moves a red striped bottle to a new position." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/86fb0@8/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/86fb0@8/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -323,8 +374,9 @@
             </span>
           </a>
           <a class="trajectory-card" href="static/assets/trajectories/units/f9335@2/index.html?backdrop=studio" aria-label="View Moving a Toothbrush in 3D">
-            <span class="trajectory-preview">
-              <img src="static/assets/trajectories/units/f9335@2/preview.png" alt="The hand moves a toothbrush to a new position." width="640" height="640" loading="lazy" decoding="async">
+            <span class="trajectory-preview" style="--preview-size:131.1475%;--preview-left:-14.9835%;--preview-top:-24.3843%">
+              <img src="static/assets/trajectories/units/f9335@2/preview.png?v=20261010-white-tips" alt="The hand moves a toothbrush to a new position." width="640" height="640" loading="lazy" decoding="async">
+              <video data-src="static/assets/trajectories/units/f9335@2/preview.mp4?v=20261010-white-tips" poster="static/assets/trajectories/units/f9335@2/preview.png?v=20261010-white-tips" width="640" height="640" muted loop playsinline preload="none" aria-hidden="true"></video>
               <span class="trajectory-action" aria-hidden="true">View 3D <span>↗</span></span>
             </span>
             <span class="trajectory-details">
@@ -337,18 +389,18 @@
       </section>
     </div>
     <!-- TODO: Add the Pipeline section when its content is ready. -->
-    <div class="section-band">
+    <div class="section-band method-band">
       <section class="method content" aria-labelledby="method-title">
         <h2 id="method-title">Method</h2>
-        <p><strong>Key insight.</strong> The bottleneck in training a generalist dexterous policy is collecting useful interaction experience. DexMimic shifts the focus beyond reward design: Value-Guided Reset Allocation shapes this experience by adapting the initialization distribution alongside policy learning.</p>
         <figure>
-          <a href="static/assets/method.webp?v=20261009-once" target="_blank" rel="noopener" aria-label="Open the method animation">
+          <a href="static/assets/method.webp?v=20261011-speed-15" target="_blank" rel="noopener" aria-label="Open the method animation">
             <picture>
-              <source media="(prefers-reduced-motion: reduce)" srcset="static/assets/method.png">
-              <img id="method-animation" src="static/assets/method.png" data-src="static/assets/method.webp?v=20261009-once" width="1920" height="1080" alt="Value-Guided Reset Allocation: reset allocation adapts across Early, Middle, and Late training, followed by rollouts and feedback updates.">
+              <source media="(prefers-reduced-motion: reduce)" srcset="static/assets/method.png?v=20261010-white-tips">
+              <img id="method-animation" src="static/assets/method.png?v=20261010-white-tips" data-src="static/assets/method.webp?v=20261011-speed-15" width="1900" height="1000" alt="Value-Guided Reset Allocation: reset allocation adapts across Early, Middle, and Late training, followed by rollouts and feedback updates.">
             </picture>
           </a>
         </figure>
+        <p><strong>Key insight.</strong> The bottleneck in training a generalist dexterous policy is collecting useful interaction experience. DexMimic shifts the focus beyond reward design: Value-Guided Reset Allocation shapes this experience by adapting the initialization distribution alongside policy learning.</p>
       </section>
     </div>
     <section class="results-section content" aria-labelledby="results-title">
@@ -377,30 +429,131 @@
       </div>
     </section>
 
-    <section class="realworld-section video-section content" aria-labelledby="realworld-title">
+    <section class="realworld-section content" aria-labelledby="realworld-title">
       <h2 id="realworld-title">Realworld</h2>
-      <div class="video-player" id="realworld-player" data-playing="false">
-        <div class="video-stage">
-          <video id="realworld-video" autoplay loop muted playsinline preload="metadata" poster="static/assets/realworld_poster.jpg" aria-label="DexMimic real-world dexterous skills, silent looping video">
-            <source src="static/assets/realworld.mp4" type="video/mp4">
-          </video>
-          <button class="video-start" type="button" aria-label="Play real-world video"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z"/></svg></button>
-        </div>
-        <div class="video-controls" role="group" aria-label="Real-world video controls">
-          <button class="play-toggle" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="play-icon" d="m8 5 11 7-11 7z"/><path class="pause-icon" d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button>
-          <span class="video-time" id="realworld-time">0:00 / 0:24</span>
-          <input class="video-progress" type="range" min="0" max="1000" value="0" step="1" aria-label="Seek video" disabled>
-          <button class="fullscreen-toggle" type="button" aria-label="Enter fullscreen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
-        </div>
+      <p class="realworld-summary">Real-robot clips are trimmed and time-scaled to match the simulation.</p>
+      <div class="triplet-column-labels" aria-hidden="true"><span>MANO</span><span>Simulation</span><span>Real robot</span></div>
+      <div id="realworld-list" data-expanded="false">
+        <article class="motion-triplet" data-instance="78810@6">
+          <div class="triplet-heading"><h3>Mouse manipulation</h3></div>
+          <div class="triplet-grid">
+            <figure class="triplet-panel">
+              <video class="triplet-video" data-src="static/assets/pipeline/78810@6/mano.mp4" poster="static/assets/pipeline/78810@6/mano.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Mouse manipulation: MANO"></video>
+            </figure>
+            <figure class="triplet-panel">
+              <video class="triplet-video" data-src="static/assets/pipeline/78810@6/sim.mp4" poster="static/assets/pipeline/78810@6/sim.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Mouse manipulation: Simulation"></video>
+            </figure>
+            <figure class="triplet-panel">
+              <video class="triplet-video" data-src="static/assets/pipeline/78810@6/real.mp4" poster="static/assets/pipeline/78810@6/real.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Mouse manipulation: Real robot"></video>
+            </figure>
+          </div>
+        </article>
+        <article class="motion-triplet" data-instance="a15ff@2">
+          <div class="triplet-heading"><h3>Spoon manipulation</h3></div>
+          <div class="triplet-grid">
+            <figure class="triplet-panel">
+              <video class="triplet-video" data-src="static/assets/pipeline/a15ff@2/mano.mp4" poster="static/assets/pipeline/a15ff@2/mano.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Spoon manipulation: MANO"></video>
+            </figure>
+            <figure class="triplet-panel">
+              <video class="triplet-video" data-src="static/assets/pipeline/a15ff@2/sim.mp4" poster="static/assets/pipeline/a15ff@2/sim.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Spoon manipulation: Simulation"></video>
+            </figure>
+            <figure class="triplet-panel">
+              <video class="triplet-video" data-src="static/assets/pipeline/a15ff@2/real.mp4" poster="static/assets/pipeline/a15ff@2/real.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Spoon manipulation: Real robot"></video>
+            </figure>
+          </div>
+        </article>
+        <article class="motion-triplet" data-instance="4b10d@1">
+          <div class="triplet-heading"><h3>Roll manipulation</h3></div>
+          <div class="triplet-grid">
+            <figure class="triplet-panel">
+              <video class="triplet-video" data-src="static/assets/pipeline/4b10d@1/mano.mp4" poster="static/assets/pipeline/4b10d@1/mano.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Roll manipulation: MANO"></video>
+            </figure>
+            <figure class="triplet-panel">
+              <video class="triplet-video" data-src="static/assets/pipeline/4b10d@1/sim.mp4" poster="static/assets/pipeline/4b10d@1/sim.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Roll manipulation: Simulation"></video>
+            </figure>
+            <figure class="triplet-panel">
+              <video class="triplet-video" data-src="static/assets/pipeline/4b10d@1/real.mp4" poster="static/assets/pipeline/4b10d@1/real.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Roll manipulation: Real robot"></video>
+            </figure>
+          </div>
+        </article>
+        <article class="motion-triplet" data-instance="1c5d6@0">
+          <div class="triplet-heading"><h3>Beaker shaking</h3></div>
+          <div class="triplet-grid">
+            <figure class="triplet-panel">
+              <video class="triplet-video" data-src="static/assets/pipeline/1c5d6@0/mano.mp4" poster="static/assets/pipeline/1c5d6@0/mano.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Beaker shaking: MANO"></video>
+            </figure>
+            <figure class="triplet-panel">
+              <video class="triplet-video" data-src="static/assets/pipeline/1c5d6@0/sim.mp4" poster="static/assets/pipeline/1c5d6@0/sim.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Beaker shaking: Simulation"></video>
+            </figure>
+            <figure class="triplet-panel">
+              <video class="triplet-video" data-src="static/assets/pipeline/1c5d6@0/real.mp4" poster="static/assets/pipeline/1c5d6@0/real.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Beaker shaking: Real robot"></video>
+            </figure>
+          </div>
+        </article>
+        <article class="motion-triplet" data-instance="278a6@7">
+          <div class="triplet-heading"><h3>Test-tube pouring</h3></div>
+          <div class="triplet-grid">
+            <figure class="triplet-panel">
+              <video class="triplet-video" data-src="static/assets/pipeline/278a6@7/mano.mp4" poster="static/assets/pipeline/278a6@7/mano.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Test-tube pouring: MANO"></video>
+            </figure>
+            <figure class="triplet-panel">
+              <video class="triplet-video" data-src="static/assets/pipeline/278a6@7/sim.mp4" poster="static/assets/pipeline/278a6@7/sim.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Test-tube pouring: Simulation"></video>
+            </figure>
+            <figure class="triplet-panel">
+              <video class="triplet-video" data-src="static/assets/pipeline/278a6@7/real.mp4" poster="static/assets/pipeline/278a6@7/real.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Test-tube pouring: Real robot"></video>
+            </figure>
+          </div>
+        </article>
+        <article class="motion-triplet" data-instance="5fde1@3">
+          <div class="triplet-heading"><h3>Test-tube shaking</h3></div>
+          <div class="triplet-grid">
+            <figure class="triplet-panel">
+              <video class="triplet-video" data-src="static/assets/pipeline/5fde1@3/mano.mp4" poster="static/assets/pipeline/5fde1@3/mano.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Test-tube shaking: MANO"></video>
+            </figure>
+            <figure class="triplet-panel">
+              <video class="triplet-video" data-src="static/assets/pipeline/5fde1@3/sim.mp4" poster="static/assets/pipeline/5fde1@3/sim.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Test-tube shaking: Simulation"></video>
+            </figure>
+            <figure class="triplet-panel">
+              <video class="triplet-video" data-src="static/assets/pipeline/5fde1@3/real.mp4" poster="static/assets/pipeline/5fde1@3/real.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Test-tube shaking: Real robot"></video>
+            </figure>
+          </div>
+        </article>
+        <article class="motion-triplet" data-instance="60694@2">
+          <div class="triplet-heading"><h3>Flask shaking</h3></div>
+          <div class="triplet-grid">
+            <figure class="triplet-panel">
+              <video class="triplet-video" data-src="static/assets/pipeline/60694@2/mano.mp4" poster="static/assets/pipeline/60694@2/mano.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Flask shaking: MANO"></video>
+            </figure>
+            <figure class="triplet-panel">
+              <video class="triplet-video" data-src="static/assets/pipeline/60694@2/sim.mp4" poster="static/assets/pipeline/60694@2/sim.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Flask shaking: Simulation"></video>
+            </figure>
+            <figure class="triplet-panel">
+              <video class="triplet-video" data-src="static/assets/pipeline/60694@2/real.mp4" poster="static/assets/pipeline/60694@2/real.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Flask shaking: Real robot"></video>
+            </figure>
+          </div>
+        </article>
       </div>
+      <button class="simulation-expand" id="expand-realworld" type="button" aria-expanded="false" aria-controls="realworld-list">Expand</button>
     </section>
     <div class="section-band">
-      <section class="abstract content" aria-labelledby="abstract-title">
-        <h2 id="abstract-title">Abstract</h2>
+      <section class="introduction abstract content" id="abstract-title" aria-labelledby="introduction-title">
+        <h2 id="introduction-title">Introduction</h2>
         <p>Achieving human-like dexterous manipulation remains a central challenge in robotics. Learning from human hand–object interaction (HOI) datasets offers a promising pathway to diverse dexterous skills, yet existing physics-based approaches train specialist policies for individual trajectories, thereby limiting skill reuse at scale. We introduce <strong><span class="dex">Dex</span><span class="mimic">Mimic</span></strong>, a generalist dexterous hand–object tracking policy jointly trained across diverse HOI trajectories. Efficient joint training requires allocating each rollout to both an undertrained phase and a starting state that supports continued tracking. DexMimic realizes this insight through <strong>Value-Guided Reset Allocation</strong>, which adapts the initialization distribution online to prioritize difficult phases and select reset states with higher expected tracking returns.</p>
-        <figure class="teaser">
-          <img src="static/assets/teaser.png" alt="DexMimic overview: human demonstrations, generalist policy learning, and dexterous hand–object manipulation results.">
-        </figure>
+        <div class="video-player" id="overview-player" data-playing="false">
+          <div class="video-stage" id="overview-title">
+            <video id="overview-video" loop playsinline preload="metadata" poster="static/assets/overview_poster.jpg" aria-label="DexMimic narrated project video">
+              <source src="static/assets/overview.mp4" type="video/mp4">
+            </video>
+            <button class="video-start" type="button" aria-label="Play project video"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z"/></svg></button>
+          </div>
+          <div class="video-controls" role="group" aria-label="Video controls">
+            <button class="play-toggle" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="play-icon" d="m8 5 11 7-11 7z"/><path class="pause-icon" d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button>
+            <span class="video-time" id="video-time">0:00 / 2:52</span>
+            <input class="video-progress" type="range" min="0" max="1000" value="0" step="1" aria-label="Seek video" disabled>
+            <button class="mute-toggle" type="button" aria-label="Mute" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3z"/><path class="sound-waves" d="M16 8q5 4 0 8M19 4q9 8 0 16" fill="none" stroke="currentColor" stroke-width="1.6"/><path class="muted-cross" d="m16 9 6 6m0-6-6 6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+            <button class="fullscreen-toggle" type="button" aria-label="Enter fullscreen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+          </div>
+        </div>
       </section>
     </div>
   </main>
