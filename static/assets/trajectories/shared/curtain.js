@@ -6,11 +6,11 @@ function createCue(setFraction, restingFraction) {
     cancelAnimationFrame(frame);
     frame = 0;
   };
-  const play = (startedAt = performance.now()) => {
-    if (dismissed || performance.now() - startedAt >= 2500) return;
+  const play = (startedAt = performance.now(), duration = 2500) => {
+    if (dismissed || performance.now() - startedAt >= duration) return;
     cancel();
     const step = (now) => {
-      const distance = Math.min((now - startedAt) / 2500, 1) * (2 + restingFraction);
+      const distance = Math.min((now - startedAt) / duration, 1) * (2 + restingFraction);
       setFraction(distance <= 1 ? distance : distance <= 2 ? 2 - distance : distance - 2);
       if (distance < 2 + restingFraction) frame = requestAnimationFrame(step);
       else frame = 0;

@@ -1,4 +1,4 @@
-import { createCurtain } from "../assets/trajectories/shared/curtain.js?v=20261011-smooth-cues";
+import { createCurtain } from "../assets/trajectories/shared/curtain.js?v=20261011-per-card-cues";
 
 const hero = document.querySelector(".teaser");
 const video = hero.querySelector(".teaser-video");

@@ -1,31 +1,23 @@
-import { createCurtain } from "../assets/trajectories/shared/curtain.js?v=20261011-smooth-cues";
+import { createCurtain } from "../assets/trajectories/shared/curtain.js?v=20261011-per-card-cues";
 
 const cards = [...document.querySelectorAll(".trajectory-card")];
 const previews = new Map();
 const preparing = new Map();
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-let cueSeen = false;
-let cueInterrupted = false;
-let galleryVisible = false;
+const cuedCards = new Set();
+const cueEligible = new Set();
 
-function interruptGalleryCue() {
-  if (!cueSeen) return;
-  cueInterrupted = true;
+function interruptPreviewCues() {
   previews.forEach((curtain) => curtain.cancelCue(true));
 }
 
-async function startGalleryCue() {
-  if (cueSeen || !galleryVisible || document.hidden) return;
-  cueSeen = true;
-  if (reducedMotion.matches) cueInterrupted = true;
-  const visibleCards = cards.filter((card) => {
-    const bounds = card.getBoundingClientRect();
-    return bounds.width && bounds.top < window.innerHeight && bounds.bottom > 0;
-  });
-  const curtains = await Promise.all(visibleCards.map(preparePreview));
-  if (cueInterrupted || !galleryVisible || document.hidden || reducedMotion.matches) return;
-  const startedAt = performance.now();
-  curtains.forEach((curtain) => curtain.playCue(startedAt));
+async function startPreviewCue(card) {
+  const curtain = await preparePreview(card);
+  if (cuedCards.has(card) || !cueEligible.has(card) || document.hidden) return;
+  cuedCards.add(card);
+  cueEligible.delete(card);
+  cueObserver.unobserve(card.querySelector(".trajectory-preview"));
+  if (!reducedMotion.matches) curtain.playCue(performance.now(), 3500);
 }
 
 function preparePreview(card) {
@@ -105,16 +97,28 @@ const observer = new IntersectionObserver((entries) => {
 }, { rootMargin: "120px 0px" });
 cards.forEach((card) => observer.observe(card));
 
-const galleryObserver = new IntersectionObserver(([entry]) => {
-  galleryVisible = entry.isIntersecting && entry.intersectionRatio >= 0.1;
-  if (galleryVisible) startGalleryCue();
-  else interruptGalleryCue();
-}, { threshold: 0.1 });
-galleryObserver.observe(document.getElementById("simulation-grid"));
+function createCueObserver() {
+  return new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      const card = entry.target.closest(".trajectory-card");
+      if (entry.isIntersecting && entry.intersectionRatio >= 1) {
+        cueEligible.add(card);
+        startPreviewCue(card);
+      } else {
+        cueEligible.delete(card);
+      }
+    }
+  }, { threshold: 1 });
+}
+
+const cueObserver = createCueObserver();
+cards.forEach((card) => {
+  cueObserver.observe(card.querySelector(".trajectory-preview"));
+});
 document.addEventListener("visibilitychange", () => {
-  if (document.hidden) interruptGalleryCue();
-  else startGalleryCue();
+  if (document.hidden) interruptPreviewCues();
+  else cueEligible.forEach(startPreviewCue);
 });
 reducedMotion.addEventListener("change", () => {
-  if (reducedMotion.matches) interruptGalleryCue();
+  if (reducedMotion.matches) interruptPreviewCues();
 });

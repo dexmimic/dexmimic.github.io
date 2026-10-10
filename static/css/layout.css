@@ -96,13 +96,13 @@ h2[id], article[id] { scroll-margin-top: 32px; }
   .triplet-heading h3 { font-size: 15px; }
   .motion-triplet + .motion-triplet { margin-top: 18px; }
 }
-.trajectory-grid[data-expanded="false"] > :nth-child(n+9) { display: none; }
+.trajectory-grid[data-expanded="false"] > :nth-child(n+13) { display: none; }
 @media (max-width: 1000px) {
-  .trajectory-grid[data-expanded="false"] > :nth-child(n+7) { display: none; }
+  .trajectory-grid[data-expanded="false"] > :nth-child(n+10) { display: none; }
 }
 @media (max-width: 760px) {
-  .trajectory-grid[data-expanded="false"] > :nth-child(n+5) { display: none; }
+  .trajectory-grid[data-expanded="false"] > :nth-child(n+7) { display: none; }
 }
 @media (max-width: 360px) {
-  .trajectory-grid[data-expanded="false"] > :nth-child(n+3) { display: none; }
+  .trajectory-grid[data-expanded="false"] > :nth-child(n+4) { display: none; }
 }
