@@ -1,4 +1,4 @@
-import { createCurtain } from "../assets/trajectories/shared/curtain.js?v=20261011-per-card-cues";
+import { createCurtain } from "../assets/trajectories/shared/curtain.js?v=20261011-title-boundary";
 
 const hero = document.querySelector(".teaser");
 const video = hero.querySelector(".teaser-video");
@@ -7,6 +7,11 @@ const assets = new URL("../assets/teaser/", import.meta.url);
 let visible = false;
 let preparation;
 let updatePlayback = () => {};
+
+function titleBoundaryFraction() {
+  const bounds = hero.getBoundingClientRect();
+  return (hero.querySelector(".teaser-name .mimic").getBoundingClientRect().left - bounds.left) / bounds.width;
+}
 
 function matrixLayout(count) {
   const { width, height } = hero.getBoundingClientRect();
@@ -89,7 +94,7 @@ async function prepareTeaser() {
   const canvas = hero.querySelector(".teaser-matrix");
   const context = canvas.getContext("2d");
   let source = poster;
-  let fraction = 0.5;
+  let fraction = titleBoundaryFraction();
   let layout;
   const draw = () => drawComparison(context, source, atlas, layout, fraction);
   const resize = () => {
@@ -103,8 +108,11 @@ async function prepareTeaser() {
     draw();
   };
   resize();
-  new ResizeObserver(resize).observe(hero);
-  const curtain = createCurtain(hero, () => {}, (value) => { fraction = value; draw(); });
+  const curtain = createCurtain(hero, () => {}, (value) => { fraction = value; draw(); }, fraction);
+  new ResizeObserver(() => {
+    resize();
+    curtain.setRestingFraction(titleBoundaryFraction());
+  }).observe(hero);
   const setSource = (value) => { source = motion.matches ? poster : value; };
   connectVideo(draw, setSource);
   updatePlayback = makePlayback(poster, draw, setSource, curtain);
