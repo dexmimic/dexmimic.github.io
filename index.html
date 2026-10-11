@@ -9,11 +9,11 @@
   <link rel="icon" type="image/svg+xml" sizes="any" href="static/assets/favicon.svg?v=20261011-robot">
   <link rel="stylesheet" href="static/css/style.css?v=20261011-mono">
   <script type="module" src="static/js/method.js?v=20261010-white-tips"></script>
-  <link rel="stylesheet" href="static/css/results.css?v=20261009-widths">
-  <link rel="stylesheet" href="static/css/layout.css?v=20261011-realworld-compact">
+  <link rel="stylesheet" href="static/css/results.css?v=20261011-review">
+  <link rel="stylesheet" href="static/css/layout.css?v=20261011-pipeline-labels">
   <link rel="stylesheet" href="static/css/curtain-previews.css?v=20261011-inset-grip">
   <link rel="stylesheet" href="static/css/teaser.css?v=20261011-clear-hero">
-  <script src="static/js/results.js?v=20261009-results" type="module"></script>
+  <script src="static/js/results.js?v=20261011-review" type="module"></script>
   <script src="static/js/player.js" defer></script>
   <script src="static/js/trajectories.js?v=20261011-guided-hero" defer></script>
   <script type="module" src="static/js/curtain-previews.js?v=20261011-full-visible-cues"></script>
@@ -44,34 +44,36 @@
         <a href="#introduction-title">Introduction</a>
       </nav>
     </header>
-    <aside class="tldr content" aria-labelledby="tldr-title">
-      <h2 class="research-promise"><span class="dex">single policy,</span> <em class="mimic">many trajectories.</em></h2>
-      <div class="summary-card">
-        <h2 id="tldr-title" class="summary-label">TL;DR</h2>
-        <p class="tldr-summary"><strong>DexMimic learns one generalist policy for diverse dexterous hand–object tracking.</strong></p>
-        <p class="tldr-summary">Learned interaction priors improve tracking success and training efficiency, and transfer to unseen trajectories and objects.</p>
-      </div>
-    </aside>
-    <section class="pipeline-section content" aria-labelledby="pipeline-title">
-      <h2 id="pipeline-title">Pipeline</h2>
-      <p class="pipeline-summary">Human hand–object motion guides robot tracking in simulation. The resulting robot motion is then replayed on hardware.</p>
-      <article class="motion-triplet pipeline-triplet" data-instance="a15ff@2">
-        <div class="triplet-grid">
-          <figure class="triplet-panel">
-            <video class="triplet-video" data-src="static/assets/pipeline/a15ff@2/mano.mp4" poster="static/assets/pipeline/a15ff@2/mano.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Spoon manipulation: MANO"></video>
-            <figcaption>MANO</figcaption>
-          </figure>
-          <figure class="triplet-panel">
-            <video class="triplet-video" data-src="static/assets/pipeline/a15ff@2/sim.mp4" poster="static/assets/pipeline/a15ff@2/sim.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Spoon manipulation: Simulation"></video>
-            <figcaption>Simulation</figcaption>
-          </figure>
-          <figure class="triplet-panel">
-            <video class="triplet-video" data-src="static/assets/pipeline/a15ff@2/real.mp4?v=20261011-sdr" poster="static/assets/pipeline/a15ff@2/real.png?v=20261011-sdr" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Spoon manipulation: Real robot"></video>
-            <figcaption>Real robot</figcaption>
-          </figure>
+    <div class="section-band section-band-light opening-band">
+      <aside class="tldr content" aria-labelledby="tldr-title">
+        <h2 class="research-promise"><span class="dex">single policy,</span> <em class="mimic">many trajectories.</em></h2>
+        <div class="summary-card">
+          <h2 id="tldr-title" class="summary-label">TL;DR</h2>
+          <p class="tldr-summary"><strong>DexMimic learns one generalist policy for diverse dexterous hand–object tracking.</strong></p>
+          <p class="tldr-summary">Learned interaction priors improve tracking success and training efficiency, and transfer to unseen trajectories and objects.</p>
         </div>
-      </article>
-    </section>
+      </aside>
+      <section class="pipeline-section content" aria-labelledby="pipeline-title">
+        <h2 id="pipeline-title">Pipeline</h2>
+        <p class="pipeline-summary">Human hand–object motion guides robot tracking in simulation. The resulting robot motion is then replayed on hardware.</p>
+        <article class="motion-triplet pipeline-triplet" data-instance="a15ff@2">
+          <div class="triplet-grid">
+            <figure class="triplet-panel">
+              <figcaption><span>Motion Capture</span></figcaption>
+              <video class="triplet-video" data-src="static/assets/pipeline/a15ff@2/mano.mp4" poster="static/assets/pipeline/a15ff@2/mano.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Spoon manipulation: MANO"></video>
+            </figure>
+            <figure class="triplet-panel">
+              <figcaption><span><span class="dex">Dex</span><span class="mimic">Mimic</span> Policy</span></figcaption>
+              <video class="triplet-video" data-src="static/assets/pipeline/a15ff@2/sim.mp4" poster="static/assets/pipeline/a15ff@2/sim.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Spoon manipulation: Simulation"></video>
+            </figure>
+            <figure class="triplet-panel">
+              <figcaption><span>Deployment</span></figcaption>
+              <video class="triplet-video" data-src="static/assets/pipeline/a15ff@2/real.mp4?v=20261011-sdr" poster="static/assets/pipeline/a15ff@2/real.png?v=20261011-sdr" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Spoon manipulation: Real robot"></video>
+            </figure>
+          </div>
+        </article>
+      </section>
+    </div>
     <div class="section-band">
       <section class="trajectory-section content" id="interactive-skills" aria-labelledby="trajectory-title">
         <h2 id="trajectory-title">Simulation</h2>
@@ -389,8 +391,7 @@
         <button class="simulation-expand" id="expand-simulation" type="button" aria-expanded="false" aria-controls="simulation-grid">Expand</button>
       </section>
     </div>
-    <!-- TODO: Add the Pipeline section when its content is ready. -->
-    <div class="section-band method-band">
+    <div class="section-band section-band-light method-band">
       <section class="method content" aria-labelledby="method-title">
         <h2 id="method-title">Method</h2>
         <figure>
@@ -404,138 +405,142 @@
         <p><strong>Key insight.</strong> The bottleneck in training a generalist dexterous policy is collecting useful interaction experience. DexMimic shifts the focus beyond reward design: Value-Guided Reset Allocation shapes this experience by adapting the initialization distribution alongside policy learning.</p>
       </section>
     </div>
-    <section class="results-section content" aria-labelledby="results-title">
-      <h2 id="results-title">Results</h2>
-      <p class="results-intro">One generalist policy achieves higher tracking success and lower average training cost than trajectory-specific methods. Scaling co-training strengthens transfer to unseen motions and objects.</p>
-      <div id="benchmark-results">
-        <div class="metric-cards" id="metric-cards"></div>
-        <div class="table-scroll" id="benchmark-table"></div>
-        <p class="result-caption">50 challenging bimanual trajectories from OakInk-V2 and HOT3D. Time is the average training or optimization time per trajectory; DexMimic's joint-training time is divided by 50. All methods share the evaluation initial states, rollout counts and success criteria. Green cells indicate the best value in each column.</p>
-      </div>
-      <div class="charts-row">
-        <article class="chart-panel" id="scaling-panel">
-          <div class="chart-heading"><h3>Scaling &amp; Generalization</h3></div>
-          <p class="chart-description">More training trajectories improve zero-shot transfer. Hover over a bar to see its exact success rate.</p>
-          <div class="chart-legend"><span style="--series-color:#5B8FF9"><i></i>L1 · Similar motions</span><span style="--series-color:#2FA7A0"><i></i>L2 · Unseen motions</span><span style="--series-color:#9B82C4"><i></i>L3 · Unseen objects</span></div>
-          <div id="scaling-chart"></div>
-          <p class="result-caption">L1: similar trajectories with seen objects. L2: unseen trajectories with seen objects. L3: trajectories with unseen objects. Policies are frozen during evaluation.</p>
-        </article>
-        <article class="chart-panel" id="adaptation-panel">
-          <div class="chart-heading"><h3>Fast Adaptation</h3></div>
-          <p class="chart-description">Fine-tuning compared with training from scratch on an unseen trajectory.</p>
-          <div class="chart-legend"><span style="--series-color:#2FA7A0"><i></i>Fine-tuning</span><span class="scratch"><i></i>From scratch</span></div>
-          <div id="adaptation-chart"></div>
-          <div class="adaptation-summary"><strong>5.3×</strong><span>faster to reach 80% Training SR<br>0.24 h vs. 1.27 h</span></div>
-        </article>
-      </div>
-    </section>
+    <div class="section-band results-band">
+      <section class="results-section content" aria-labelledby="results-title">
+        <h2 id="results-title">Results</h2>
+        <p class="results-intro">One generalist policy achieves higher tracking success and lower average training cost than trajectory-specific methods. Scaling co-training strengthens transfer to unseen motions and objects.</p>
+        <div id="benchmark-results">
+          <div class="metric-cards" id="metric-cards"></div>
+          <div class="table-scroll" id="benchmark-table"></div>
+          <p class="result-caption">50 challenging bimanual trajectories from OakInk-V2 and HOT3D. Time is the average training or optimization time per trajectory; DexMimic's joint-training time is divided by 50. All methods share the evaluation initial states, rollout counts and success criteria. Green cells indicate the best value in each column.</p>
+        </div>
+        <div class="charts-row">
+          <article class="chart-panel" id="scaling-panel">
+            <div class="chart-heading"><h3>Scaling &amp; Generalization</h3></div>
+            <p class="chart-description">More training trajectories improve zero-shot transfer. Hover over a bar to see its exact success rate.</p>
+            <div class="chart-legend"><span style="--series-color:#5B8FF9"><i></i>L1 · Similar motions</span><span style="--series-color:#2FA7A0"><i></i>L2 · Unseen motions</span><span style="--series-color:#9B82C4"><i></i>L3 · Unseen objects</span></div>
+            <div id="scaling-chart"></div>
+            <p class="result-caption">L1: similar trajectories with seen objects. L2: unseen trajectories with seen objects. L3: trajectories with unseen objects. Policies are frozen during evaluation.</p>
+          </article>
+          <article class="chart-panel" id="adaptation-panel">
+            <div class="chart-heading"><h3>Fast Adaptation</h3></div>
+            <p class="chart-description">Fine-tuning compared with training from scratch on an unseen trajectory.</p>
+            <div class="chart-legend"><span style="--series-color:#2FA7A0"><i></i>Fine-tuning</span><span class="scratch"><i></i>From scratch</span></div>
+            <div id="adaptation-chart"></div>
+            <div class="adaptation-summary"><strong>5.3×</strong><span>faster to reach 80% Training SR<br>0.24 h vs. 1.27 h</span></div>
+          </article>
+        </div>
+      </section>
 
-    <section class="realworld-section content" aria-labelledby="realworld-title">
-      <h2 id="realworld-title">Realworld</h2>
-      <p class="realworld-summary">Real-robot clips are trimmed and time-scaled to match the simulation.</p>
-      <div class="triplet-column-labels" aria-hidden="true"><span>MANO</span><span>Simulation</span><span>Real robot</span></div>
-      <div id="realworld-list" data-expanded="false">
-        <article class="motion-triplet" data-instance="78810@6">
-          <div class="triplet-heading"><h3>Mouse manipulation</h3></div>
-          <div class="triplet-grid">
-            <figure class="triplet-panel">
-              <video class="triplet-video" data-src="static/assets/pipeline/78810@6/mano.mp4" poster="static/assets/pipeline/78810@6/mano.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Mouse manipulation: MANO"></video>
-            </figure>
-            <figure class="triplet-panel">
-              <video class="triplet-video" data-src="static/assets/pipeline/78810@6/sim.mp4" poster="static/assets/pipeline/78810@6/sim.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Mouse manipulation: Simulation"></video>
-            </figure>
-            <figure class="triplet-panel">
-              <video class="triplet-video" data-src="static/assets/pipeline/78810@6/real.mp4" poster="static/assets/pipeline/78810@6/real.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Mouse manipulation: Real robot"></video>
-            </figure>
-          </div>
-        </article>
-        <article class="motion-triplet" data-instance="a15ff@2">
-          <div class="triplet-heading"><h3>Spoon manipulation</h3></div>
-          <div class="triplet-grid">
-            <figure class="triplet-panel">
-              <video class="triplet-video" data-src="static/assets/pipeline/a15ff@2/mano.mp4" poster="static/assets/pipeline/a15ff@2/mano.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Spoon manipulation: MANO"></video>
-            </figure>
-            <figure class="triplet-panel">
-              <video class="triplet-video" data-src="static/assets/pipeline/a15ff@2/sim.mp4" poster="static/assets/pipeline/a15ff@2/sim.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Spoon manipulation: Simulation"></video>
-            </figure>
-            <figure class="triplet-panel">
-              <video class="triplet-video" data-src="static/assets/pipeline/a15ff@2/real.mp4?v=20261011-sdr" poster="static/assets/pipeline/a15ff@2/real.png?v=20261011-sdr" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Spoon manipulation: Real robot"></video>
-            </figure>
-          </div>
-        </article>
-        <article class="motion-triplet" data-instance="4b10d@1">
-          <div class="triplet-heading"><h3>Roll manipulation</h3></div>
-          <div class="triplet-grid">
-            <figure class="triplet-panel">
-              <video class="triplet-video" data-src="static/assets/pipeline/4b10d@1/mano.mp4" poster="static/assets/pipeline/4b10d@1/mano.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Roll manipulation: MANO"></video>
-            </figure>
-            <figure class="triplet-panel">
-              <video class="triplet-video" data-src="static/assets/pipeline/4b10d@1/sim.mp4" poster="static/assets/pipeline/4b10d@1/sim.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Roll manipulation: Simulation"></video>
-            </figure>
-            <figure class="triplet-panel">
-              <video class="triplet-video" data-src="static/assets/pipeline/4b10d@1/real.mp4?v=20261011-sdr" poster="static/assets/pipeline/4b10d@1/real.png?v=20261011-sdr" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Roll manipulation: Real robot"></video>
-            </figure>
-          </div>
-        </article>
-        <article class="motion-triplet" data-instance="1c5d6@0">
-          <div class="triplet-heading"><h3>Beaker shaking</h3></div>
-          <div class="triplet-grid">
-            <figure class="triplet-panel">
-              <video class="triplet-video" data-src="static/assets/pipeline/1c5d6@0/mano.mp4" poster="static/assets/pipeline/1c5d6@0/mano.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Beaker shaking: MANO"></video>
-            </figure>
-            <figure class="triplet-panel">
-              <video class="triplet-video" data-src="static/assets/pipeline/1c5d6@0/sim.mp4" poster="static/assets/pipeline/1c5d6@0/sim.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Beaker shaking: Simulation"></video>
-            </figure>
-            <figure class="triplet-panel">
-              <video class="triplet-video" data-src="static/assets/pipeline/1c5d6@0/real.mp4?v=20261011-sdr" poster="static/assets/pipeline/1c5d6@0/real.png?v=20261011-sdr" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Beaker shaking: Real robot"></video>
-            </figure>
-          </div>
-        </article>
-        <article class="motion-triplet" data-instance="278a6@7">
-          <div class="triplet-heading"><h3>Test-tube pouring</h3></div>
-          <div class="triplet-grid">
-            <figure class="triplet-panel">
-              <video class="triplet-video" data-src="static/assets/pipeline/278a6@7/mano.mp4" poster="static/assets/pipeline/278a6@7/mano.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Test-tube pouring: MANO"></video>
-            </figure>
-            <figure class="triplet-panel">
-              <video class="triplet-video" data-src="static/assets/pipeline/278a6@7/sim.mp4" poster="static/assets/pipeline/278a6@7/sim.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Test-tube pouring: Simulation"></video>
-            </figure>
-            <figure class="triplet-panel">
-              <video class="triplet-video" data-src="static/assets/pipeline/278a6@7/real.mp4?v=20261011-sdr" poster="static/assets/pipeline/278a6@7/real.png?v=20261011-sdr" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Test-tube pouring: Real robot"></video>
-            </figure>
-          </div>
-        </article>
-        <article class="motion-triplet" data-instance="5fde1@3">
-          <div class="triplet-heading"><h3>Test-tube shaking</h3></div>
-          <div class="triplet-grid">
-            <figure class="triplet-panel">
-              <video class="triplet-video" data-src="static/assets/pipeline/5fde1@3/mano.mp4" poster="static/assets/pipeline/5fde1@3/mano.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Test-tube shaking: MANO"></video>
-            </figure>
-            <figure class="triplet-panel">
-              <video class="triplet-video" data-src="static/assets/pipeline/5fde1@3/sim.mp4" poster="static/assets/pipeline/5fde1@3/sim.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Test-tube shaking: Simulation"></video>
-            </figure>
-            <figure class="triplet-panel">
-              <video class="triplet-video" data-src="static/assets/pipeline/5fde1@3/real.mp4?v=20261011-sdr" poster="static/assets/pipeline/5fde1@3/real.png?v=20261011-sdr" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Test-tube shaking: Real robot"></video>
-            </figure>
-          </div>
-        </article>
-        <article class="motion-triplet" data-instance="60694@2">
-          <div class="triplet-heading"><h3>Flask shaking</h3></div>
-          <div class="triplet-grid">
-            <figure class="triplet-panel">
-              <video class="triplet-video" data-src="static/assets/pipeline/60694@2/mano.mp4" poster="static/assets/pipeline/60694@2/mano.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Flask shaking: MANO"></video>
-            </figure>
-            <figure class="triplet-panel">
-              <video class="triplet-video" data-src="static/assets/pipeline/60694@2/sim.mp4" poster="static/assets/pipeline/60694@2/sim.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Flask shaking: Simulation"></video>
-            </figure>
-            <figure class="triplet-panel">
-              <video class="triplet-video" data-src="static/assets/pipeline/60694@2/real.mp4?v=20261011-sdr" poster="static/assets/pipeline/60694@2/real.png?v=20261011-sdr" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Flask shaking: Real robot"></video>
-            </figure>
-          </div>
-        </article>
-      </div>
-      <button class="simulation-expand" id="expand-realworld" type="button" aria-expanded="false" aria-controls="realworld-list">Expand</button>
-    </section>
+    </div>
+    <div class="section-band section-band-light">
+      <section class="realworld-section content" aria-labelledby="realworld-title">
+        <h2 id="realworld-title">Realworld</h2>
+        <p class="realworld-summary">Real-robot clips are trimmed and time-scaled to match the simulation.</p>
+        <div class="triplet-column-labels" aria-hidden="true"><span>MANO</span><span>Simulation</span><span>Real robot</span></div>
+        <div id="realworld-list" data-expanded="false">
+          <article class="motion-triplet" data-instance="78810@6">
+            <div class="triplet-heading"><h3>Mouse manipulation</h3></div>
+            <div class="triplet-grid">
+              <figure class="triplet-panel">
+                <video class="triplet-video" data-src="static/assets/pipeline/78810@6/mano.mp4" poster="static/assets/pipeline/78810@6/mano.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Mouse manipulation: MANO"></video>
+              </figure>
+              <figure class="triplet-panel">
+                <video class="triplet-video" data-src="static/assets/pipeline/78810@6/sim.mp4" poster="static/assets/pipeline/78810@6/sim.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Mouse manipulation: Simulation"></video>
+              </figure>
+              <figure class="triplet-panel">
+                <video class="triplet-video" data-src="static/assets/pipeline/78810@6/real.mp4" poster="static/assets/pipeline/78810@6/real.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Mouse manipulation: Real robot"></video>
+              </figure>
+            </div>
+          </article>
+          <article class="motion-triplet" data-instance="a15ff@2">
+            <div class="triplet-heading"><h3>Spoon manipulation</h3></div>
+            <div class="triplet-grid">
+              <figure class="triplet-panel">
+                <video class="triplet-video" data-src="static/assets/pipeline/a15ff@2/mano.mp4" poster="static/assets/pipeline/a15ff@2/mano.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Spoon manipulation: MANO"></video>
+              </figure>
+              <figure class="triplet-panel">
+                <video class="triplet-video" data-src="static/assets/pipeline/a15ff@2/sim.mp4" poster="static/assets/pipeline/a15ff@2/sim.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Spoon manipulation: Simulation"></video>
+              </figure>
+              <figure class="triplet-panel">
+                <video class="triplet-video" data-src="static/assets/pipeline/a15ff@2/real.mp4?v=20261011-sdr" poster="static/assets/pipeline/a15ff@2/real.png?v=20261011-sdr" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Spoon manipulation: Real robot"></video>
+              </figure>
+            </div>
+          </article>
+          <article class="motion-triplet" data-instance="4b10d@1">
+            <div class="triplet-heading"><h3>Roll manipulation</h3></div>
+            <div class="triplet-grid">
+              <figure class="triplet-panel">
+                <video class="triplet-video" data-src="static/assets/pipeline/4b10d@1/mano.mp4" poster="static/assets/pipeline/4b10d@1/mano.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Roll manipulation: MANO"></video>
+              </figure>
+              <figure class="triplet-panel">
+                <video class="triplet-video" data-src="static/assets/pipeline/4b10d@1/sim.mp4" poster="static/assets/pipeline/4b10d@1/sim.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Roll manipulation: Simulation"></video>
+              </figure>
+              <figure class="triplet-panel">
+                <video class="triplet-video" data-src="static/assets/pipeline/4b10d@1/real.mp4?v=20261011-sdr" poster="static/assets/pipeline/4b10d@1/real.png?v=20261011-sdr" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Roll manipulation: Real robot"></video>
+              </figure>
+            </div>
+          </article>
+          <article class="motion-triplet" data-instance="1c5d6@0">
+            <div class="triplet-heading"><h3>Beaker shaking</h3></div>
+            <div class="triplet-grid">
+              <figure class="triplet-panel">
+                <video class="triplet-video" data-src="static/assets/pipeline/1c5d6@0/mano.mp4" poster="static/assets/pipeline/1c5d6@0/mano.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Beaker shaking: MANO"></video>
+              </figure>
+              <figure class="triplet-panel">
+                <video class="triplet-video" data-src="static/assets/pipeline/1c5d6@0/sim.mp4" poster="static/assets/pipeline/1c5d6@0/sim.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Beaker shaking: Simulation"></video>
+              </figure>
+              <figure class="triplet-panel">
+                <video class="triplet-video" data-src="static/assets/pipeline/1c5d6@0/real.mp4?v=20261011-sdr" poster="static/assets/pipeline/1c5d6@0/real.png?v=20261011-sdr" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Beaker shaking: Real robot"></video>
+              </figure>
+            </div>
+          </article>
+          <article class="motion-triplet" data-instance="278a6@7">
+            <div class="triplet-heading"><h3>Test-tube pouring</h3></div>
+            <div class="triplet-grid">
+              <figure class="triplet-panel">
+                <video class="triplet-video" data-src="static/assets/pipeline/278a6@7/mano.mp4" poster="static/assets/pipeline/278a6@7/mano.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Test-tube pouring: MANO"></video>
+              </figure>
+              <figure class="triplet-panel">
+                <video class="triplet-video" data-src="static/assets/pipeline/278a6@7/sim.mp4" poster="static/assets/pipeline/278a6@7/sim.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Test-tube pouring: Simulation"></video>
+              </figure>
+              <figure class="triplet-panel">
+                <video class="triplet-video" data-src="static/assets/pipeline/278a6@7/real.mp4?v=20261011-sdr" poster="static/assets/pipeline/278a6@7/real.png?v=20261011-sdr" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Test-tube pouring: Real robot"></video>
+              </figure>
+            </div>
+          </article>
+          <article class="motion-triplet" data-instance="5fde1@3">
+            <div class="triplet-heading"><h3>Test-tube shaking</h3></div>
+            <div class="triplet-grid">
+              <figure class="triplet-panel">
+                <video class="triplet-video" data-src="static/assets/pipeline/5fde1@3/mano.mp4" poster="static/assets/pipeline/5fde1@3/mano.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Test-tube shaking: MANO"></video>
+              </figure>
+              <figure class="triplet-panel">
+                <video class="triplet-video" data-src="static/assets/pipeline/5fde1@3/sim.mp4" poster="static/assets/pipeline/5fde1@3/sim.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Test-tube shaking: Simulation"></video>
+              </figure>
+              <figure class="triplet-panel">
+                <video class="triplet-video" data-src="static/assets/pipeline/5fde1@3/real.mp4?v=20261011-sdr" poster="static/assets/pipeline/5fde1@3/real.png?v=20261011-sdr" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Test-tube shaking: Real robot"></video>
+              </figure>
+            </div>
+          </article>
+          <article class="motion-triplet" data-instance="60694@2">
+            <div class="triplet-heading"><h3>Flask shaking</h3></div>
+            <div class="triplet-grid">
+              <figure class="triplet-panel">
+                <video class="triplet-video" data-src="static/assets/pipeline/60694@2/mano.mp4" poster="static/assets/pipeline/60694@2/mano.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Flask shaking: MANO"></video>
+              </figure>
+              <figure class="triplet-panel">
+                <video class="triplet-video" data-src="static/assets/pipeline/60694@2/sim.mp4" poster="static/assets/pipeline/60694@2/sim.png" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Flask shaking: Simulation"></video>
+              </figure>
+              <figure class="triplet-panel">
+                <video class="triplet-video" data-src="static/assets/pipeline/60694@2/real.mp4?v=20261011-sdr" poster="static/assets/pipeline/60694@2/real.png?v=20261011-sdr" width="640" height="640" autoplay loop muted playsinline preload="none" aria-label="Flask shaking: Real robot"></video>
+              </figure>
+            </div>
+          </article>
+        </div>
+        <button class="simulation-expand" id="expand-realworld" type="button" aria-expanded="false" aria-controls="realworld-list">Expand</button>
+      </section>
+    </div>
     <div class="section-band">
       <section class="introduction abstract content" id="abstract-title" aria-labelledby="introduction-title">
         <h2 id="introduction-title">Introduction</h2>

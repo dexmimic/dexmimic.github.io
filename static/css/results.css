@@ -36,8 +36,17 @@
 .experiment-chart .axis-label { font-size: 18px; fill: #526574; }
 .bar-grow { transform-box: fill-box; transform-origin: center bottom; transform: scaleY(var(--reveal, 0)); outline: none; cursor: help; }
 .bar-grow:hover, .bar-grow:focus-visible { stroke: #47515c; stroke-width: 2; }
-#scaling-chart { position: relative; }
+#scaling-chart, #adaptation-chart { position: relative; }
 .chart-tooltip { position: absolute; z-index: 2; padding: 7px 10px; border-radius: 7px; background: #303746; color: white; font-size: 12px; pointer-events: none; white-space: nowrap; box-shadow: 0 4px 12px #0002; }
+.adaptation-tooltip { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; max-width: 100%; box-sizing: border-box; font-variant-numeric: tabular-nums; }
+.adaptation-tooltip[hidden] { display: none; }
+.probe-target { grid-column: 1 / -1; padding-bottom: 2px; }
+.probe-time { text-align: right; font-weight: 500; }
+.adaptation-probe { pointer-events: none; }
+.probe-threshold { stroke: #546675; stroke-width: 1.5; stroke-dasharray: 5 4; }
+.probe-point { stroke: #fff; stroke-width: 2; }
+.adaptation-hitbox { cursor: crosshair; }
+.adaptation-hitbox:focus-visible { outline: 2px solid #2878b5; outline-offset: 3px; }
 .curve-line { fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
 .curve-threshold { stroke: #aebbc6; stroke-dasharray: 5 5; }
 .crossing-mark { stroke-width: 1.5; stroke-dasharray: 3 5; }
