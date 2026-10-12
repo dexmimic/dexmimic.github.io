@@ -18,11 +18,15 @@ function createCue(setFraction, restingFraction) {
     step(performance.now());
   };
   const dismiss = () => { dismissed = true; cancel(); };
+  const prepareReplay = () => {
+    dismissed = false;
+    return play;
+  };
   const setRestingFraction = (value) => {
     restingFraction = value;
     if (!frame && !dismissed) setFraction(restingFraction);
   };
-  return { play, cancel, dismiss, setRestingFraction };
+  return { play, prepareReplay, cancel, dismiss, setRestingFraction };
 }
 
 export function createCurtain(container, onChange = () => {}, onInput = () => {}, restingFraction = 0.5) {
@@ -80,5 +84,5 @@ export function createCurtain(container, onChange = () => {}, onInput = () => {}
     setFraction(values[event.key]);
   });
   setFraction(restingFraction);
-  return { divider, get fraction() { return fraction; }, setFraction, setRestingFraction: cue.setRestingFraction, playCue: cue.play, cancelCue: cue.cancel };
+  return { divider, get fraction() { return fraction; }, setFraction, setRestingFraction: cue.setRestingFraction, playCue: cue.play, prepareReplay: cue.prepareReplay, cancelCue: cue.cancel };
 }

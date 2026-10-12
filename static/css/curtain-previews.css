@@ -1,5 +1,34 @@
 @import url("../assets/trajectories/shared/curtain.css?v=20261011-guided-hero");
 
+.simulation-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.simulation-heading > h2 { margin: 0; }
+.simulation-replay {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border: 1px solid #ffffffdc;
+  border-radius: 999px;
+  background: #f3f8fbc7;
+  color: #2878b5;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  backdrop-filter: blur(18px) saturate(135%);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+  box-shadow: 0 2px 12px #284d6a1a;
+  cursor: pointer;
+}
+.simulation-replay svg { width: 14px; height: 14px; fill: currentColor; }
+.simulation-replay:hover { background: #dceff9e0; border-color: #add5ed; }
+.simulation-replay:focus-visible { outline: 2px solid #2878b5; outline-offset: 3px; }
 .comparison-intro {
   margin: 0 0 12px;
   color: #536a7c;

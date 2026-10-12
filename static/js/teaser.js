@@ -54,7 +54,7 @@ function drawComparison(context, source, atlas, layout, fraction) {
 }
 
 function connectVideo(draw, setSource) {
-  video.addEventListener("loadeddata", () => { setSource(video); draw(); });
+  video.addEventListener("loadeddata", () => { setSource(video); draw(); updatePlayback(); });
   function frame() {
     setSource(video);
     draw();
@@ -78,8 +78,11 @@ function makePlayback(poster, draw, setSource, curtain) {
     });
     else video.pause();
     if (motion.matches) { setSource(poster); draw(); }
+    const ready = motion.matches || video.readyState >= 2;
+    hero.querySelector(".teaser-loading").hidden = ready;
+    hero.setAttribute("aria-busy", String(!ready));
     if (!playing) curtain.cancelCue(true);
-    if (playing && !cueShown) {
+    if (playing && ready && !cueShown) {
       cueShown = true;
       curtain.playCue();
     }

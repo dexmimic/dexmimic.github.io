@@ -1,4 +1,4 @@
-import { createCurtain } from "../assets/trajectories/shared/curtain.js?v=20261011-per-card-cues";
+import { createCurtain } from "../assets/trajectories/shared/curtain.js?v=20261011-replay";
 
 const cards = [...document.querySelectorAll(".trajectory-card")];
 const previews = new Map();
@@ -6,18 +6,40 @@ const preparing = new Map();
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const cuedCards = new Set();
 const cueEligible = new Set();
+let replayRequest = 0;
 
 function interruptPreviewCues() {
+  replayRequest += 1;
   previews.forEach((curtain) => curtain.cancelCue(true));
 }
 
 async function startPreviewCue(card) {
   const curtain = await preparePreview(card);
   if (cuedCards.has(card) || !cueEligible.has(card) || document.hidden) return;
+  markPreviewCued(card);
+  if (!reducedMotion.matches) curtain.playCue(performance.now(), 3500);
+}
+
+function markPreviewCued(card) {
   cuedCards.add(card);
   cueEligible.delete(card);
   cueObserver.unobserve(card.querySelector(".trajectory-preview"));
-  if (!reducedMotion.matches) curtain.playCue(performance.now(), 3500);
+}
+
+async function replayDisplayedPreviews() {
+  const request = ++replayRequest;
+  const displayed = cards.filter((card) => {
+    const bounds = card.querySelector(".trajectory-preview").getBoundingClientRect();
+    return bounds.width > 0 && bounds.height > 0;
+  });
+  displayed.forEach(markPreviewCued);
+  const playbacks = await Promise.all(displayed.map(async (card) => {
+    const curtain = await preparePreview(card);
+    return curtain.prepareReplay();
+  }));
+  if (request !== replayRequest || document.hidden) return;
+  const startedAt = performance.now();
+  playbacks.forEach((play) => play(startedAt, 3500));
 }
 
 function preparePreview(card) {
@@ -115,6 +137,7 @@ const cueObserver = createCueObserver();
 cards.forEach((card) => {
   cueObserver.observe(card.querySelector(".trajectory-preview"));
 });
+document.querySelector("#replay-simulation").addEventListener("click", replayDisplayedPreviews);
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) interruptPreviewCues();
   else cueEligible.forEach(startPreviewCue);

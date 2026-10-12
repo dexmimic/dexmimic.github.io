@@ -28,6 +28,8 @@ npx http-server . -p 8766 -a 127.0.0.1 -c-1
 
 Open http://127.0.0.1:8766. The preview server supports byte-range requests for video seeking. Review changes locally before publishing. GitHub Pages serves the `main` branch from the repository root.
 
+The hero shows a frosted loading badge above the title while its visualization loads. The badge clears and the introductory divider sweep starts after the first video frame has been drawn. Reduced motion clears the badge after the poster is drawn and keeps the divider manual. Loading follows media readiness without an artificial minimum wait.
+
 ## Visualization appearance
 
 The default viewer uses a white studio, soft environment lighting, and one camera fitted to the complete simulation and human motion. The MANO/Wuji mode shows original human motion on the left and the recorded simulation on the right, with a shared timeline and draggable divider. Simulation meshes retain their GLB materials; human hands use matte light blue.
@@ -35,6 +37,8 @@ The default viewer uses a white studio, soft environment lighting, and one camer
 Gallery videos and the default 3D comparison omit hand and object trajectory lines. Switching the interactive viewer to Simulation reveals its existing layers, with both simulation trajectory paths checked by default and reference paths off. The divider supports dragging, arrow keys, Home, and End.
 
 Per-example crop percentages enlarge both sides of the packed videos and posters equally without changing the camera angle. Each Simulation card gives one uniform left–right–left sweep lasting 3.5 seconds when its whole square preview is visible, as its bottom enters the viewport. This applies independently to all rows, including cards revealed by Expand. The sweep ends continuously at the left to display only Wuji; scrolling away and returning does not replay it. A pending poster waits until the card is ready and fully visible. Dragging or using the slider keys cancels that divider's cue and preserves the user's position. The hero retains its independent 2.5-second introduction: left–right–left–title boundary, with a continuous final movement to the split between Dex and Mimic. The resting position follows the rendered title on resize, while a manually positioned divider stays where the user placed it.
+
+The frosted Play button beside Simulation replays all currently displayed cards in one synchronized 3.5-second left–right–left sweep. Collapsed rows are excluded; after Expand, all 28 cards participate, including rows below the viewport. It also replays manually positioned dividers; dragging or slider keys can interrupt the replay. Explicit playback is available with reduced motion, while automatic cues stay suppressed.
 
 Simulation card handles stay fully inside both preview edges. At rest, the circle's left edge touches the preview boundary and the divider is inset by the circle's radius; the image still shows the complete Wuji render. Interior divider positions follow the comparison cut directly. The hero and 3D handles keep their existing edge limits.
 

@@ -36,6 +36,16 @@
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
+.teaser-loading {
+  position: absolute;
+  bottom: calc(100% + 46px);
+  left: 50%;
+  max-width: 100%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+.teaser-loading[hidden] { display: none; }
+.teaser[aria-busy="true"] .curtain-divider { visibility: hidden; }
 .teaser h1 {
   margin: 0 0 22px;
   color: #fff;
