@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="static/css/curtain-previews.css?v=20261011-replay">
   <link rel="stylesheet" href="static/css/teaser.css?v=20261012-loading">
   <script src="static/js/results.js?v=20261011-review" type="module"></script>
-  <script src="static/js/player.js" defer></script>
   <script src="static/js/trajectories.js?v=20261011-guided-hero" defer></script>
   <script type="module" src="static/js/curtain-previews.js?v=20261011-expanded-replay"></script>
   <script type="module" src="static/js/teaser.js?v=20261012-loading"></script>
@@ -551,21 +550,6 @@
       <section class="introduction abstract content" id="abstract-title" aria-labelledby="introduction-title">
         <h2 id="introduction-title">Introduction</h2>
         <p>Achieving human-like dexterous manipulation remains a central challenge in robotics. Learning from human hand–object interaction (HOI) datasets offers a promising pathway to diverse dexterous skills, yet existing physics-based approaches train specialist policies for individual trajectories, thereby limiting skill reuse at scale. We introduce <strong><span class="dex">Dex</span><span class="mimic">Mimic</span></strong>, a generalist dexterous hand–object tracking policy jointly trained across diverse HOI trajectories. Efficient joint training requires allocating each rollout to both an undertrained phase and a starting state that supports continued tracking. DexMimic realizes this insight through <strong>Value-Guided Reset Allocation</strong>, which adapts the initialization distribution online to prioritize difficult phases and select reset states with higher expected tracking returns.</p>
-        <div class="video-player" id="overview-player" data-playing="false">
-          <div class="video-stage" id="overview-title">
-            <video id="overview-video" loop playsinline preload="metadata" poster="static/assets/overview_poster.jpg" aria-label="DexMimic narrated project video">
-              <source src="static/assets/overview.mp4" type="video/mp4">
-            </video>
-            <button class="video-start" type="button" aria-label="Play project video"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z"/></svg></button>
-          </div>
-          <div class="video-controls" role="group" aria-label="Video controls">
-            <button class="play-toggle" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="play-icon" d="m8 5 11 7-11 7z"/><path class="pause-icon" d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button>
-            <span class="video-time" id="video-time">0:00 / 2:52</span>
-            <input class="video-progress" type="range" min="0" max="1000" value="0" step="1" aria-label="Seek video" disabled>
-            <button class="mute-toggle" type="button" aria-label="Mute" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3z"/><path class="sound-waves" d="M16 8q5 4 0 8M19 4q9 8 0 16" fill="none" stroke="currentColor" stroke-width="1.6"/><path class="muted-cross" d="m16 9 6 6m0-6-6 6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
-            <button class="fullscreen-toggle" type="button" aria-label="Enter fullscreen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
-          </div>
-        </div>
       </section>
     </div>
   </main>
