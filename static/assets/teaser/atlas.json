@@ -1,127 +1,365 @@
 {
   "schema": "teaser_comparison_atlas_v1",
   "columns": 7,
-  "rows": 4,
+  "rows": 5,
   "tile_size": 384,
   "width": 2688,
-  "height": 3072,
+  "height": 3840,
   "layout": "vertical",
   "human_y": 0,
-  "simulation_y": 1536,
+  "simulation_y": 1920,
   "fps": 24,
   "duration": 18,
   "units": [
     {
       "id": "30dbe@14",
-      "title": "Two-Handed Pour into a Beaker"
-    },
-    {
-      "id": "751fb@16",
-      "title": "Two-Handed Lamp Extinguishing"
-    },
-    {
-      "id": "7a6dd@2",
-      "title": "Two-Handed Whiteboard Writing"
-    },
-    {
-      "id": "86e2a@11",
-      "title": "Two-Handed Stirring"
-    },
-    {
-      "id": "86e2a@9",
-      "title": "Two-Handed Scooping"
-    },
-    {
-      "id": "9a028@8",
-      "title": "Writing on a Whiteboard"
-    },
-    {
-      "id": "fe8dc@0",
-      "title": "Scooping into a Bowl"
-    },
-    {
-      "id": "920f6@6",
-      "title": "Spreading on Bread"
-    },
-    {
-      "id": "78c62@2",
-      "title": "Writing on Paper"
+      "title": "Two-Handed Pour into a Beaker",
+      "crop": [
+        0.050000000000000065,
+        0.281364063319139,
+        0.7984701106391202,
+        0.47592843982758215
+      ]
     },
     {
       "id": "f1029@7",
-      "title": "Using a Computer Mouse"
+      "title": "Using a Computer Mouse",
+      "crop": [
+        0.13237478398512023,
+        0.17159216705522254,
+        0.7668189908677311,
+        0.7784078329447774
+      ]
+    },
+    {
+      "id": "751fb@16",
+      "title": "Two-Handed Lamp Extinguishing",
+      "crop": [
+        0.05000000000000001,
+        0.18979372455375823,
+        0.8402655857460658,
+        0.6047451857931666
+      ]
+    },
+    {
+      "id": "7a6dd@2",
+      "title": "Two-Handed Whiteboard Writing",
+      "crop": [
+        0.12315402449267468,
+        0.12907624089631867,
+        0.7373899041741911,
+        0.8209237591036814
+      ]
+    },
+    {
+      "id": "78c62@2",
+      "title": "Writing on Paper",
+      "crop": [
+        0.09069919928034778,
+        0.07356843790468279,
+        0.8593008007196523,
+        0.852958584427525
+      ]
+    },
+    {
+      "id": "86e2a@11",
+      "title": "Two-Handed Stirring",
+      "crop": [
+        0.049999999999999954,
+        0.1363405875540777,
+        0.888866795107478,
+        0.7551155191407384
+      ]
+    },
+    {
+      "id": "86e2a@9",
+      "title": "Two-Handed Scooping",
+      "crop": [
+        0.12715580256202094,
+        0.22793914028458775,
+        0.8228441974379791,
+        0.6988527382829747
+      ]
+    },
+    {
+      "id": "499f1@0",
+      "title": "Unplugging a USB Device",
+      "crop": [
+        0.12288294709004541,
+        0.05000000000000001,
+        0.7641817795342337,
+        0.8768087407082678
+      ]
+    },
+    {
+      "id": "9cf44@4",
+      "title": "Unplugging a Power Cord",
+      "crop": [
+        0.12419061223949826,
+        0.06999486008031472,
+        0.723725972572742,
+        0.8800051399196853
+      ]
     },
     {
       "id": "5a065@0",
-      "title": "Uncapping a Teapot"
+      "title": "Uncapping a Teapot",
+      "crop": [
+        0.07211761604225173,
+        0.1452713617030136,
+        0.8602798042003544,
+        0.8047286382969865
+      ]
     },
     {
-      "id": "751fb@24",
-      "title": "Shaking a Conical Flask"
+      "id": "9a028@13",
+      "title": "Capping a Pen",
+      "crop": [
+        0.049999999999999954,
+        0.2855400984552998,
+        0.8595896048632966,
+        0.4684133336098626
+      ]
     },
     {
-      "id": "81a95@2",
-      "title": "Lighting an Alcohol Lamp"
+      "id": "1b938@9",
+      "title": "Erasing a Whiteboard",
+      "crop": [
+        0.15807629297068557,
+        0.14216997543576418,
+        0.7771821627493204,
+        0.8078300245642359
+      ]
+    },
+    {
+      "id": "920f6@6",
+      "title": "Spreading on Bread",
+      "crop": [
+        0.049999999999999954,
+        0.14335474052933248,
+        0.8078208573971852,
+        0.7270016759775355
+      ]
+    },
+    {
+      "id": "7a6dd@2-vpsi",
+      "title": "Writing on a Cyan Whiteboard",
+      "crop": [
+        0.1454546276879621,
+        0.12049114752349374,
+        0.6957226092738805,
+        0.8295088524765063
+      ]
     },
     {
       "id": "29266@0",
-      "title": "Moving a Blue Teacup"
+      "title": "Moving a Blue Teacup",
+      "crop": [
+        0.05000000000000001,
+        0.23050833203480306,
+        0.8429165878697534,
+        0.6229627619338605
+      ]
+    },
+    {
+      "id": "a3323@10",
+      "title": "Using a Game Controller",
+      "crop": [
+        0.10797613117790653,
+        0.19560416682306078,
+        0.8420238688220936,
+        0.68958803195467
+      ]
+    },
+    {
+      "id": "79e82@1",
+      "title": "Taking Tape from a Box",
+      "crop": [
+        0.18110044434878078,
+        0.11519701255974782,
+        0.6233444601999814,
+        0.8348029874402523
+      ]
+    },
+    {
+      "id": "29266@7",
+      "title": "Opening a Ceramic Jar",
+      "crop": [
+        0.07665614477797475,
+        0.08159559560649496,
+        0.8733438552220253,
+        0.7966212242578351
+      ]
     },
     {
       "id": "07bb1@3",
-      "title": "Taking Out a Fork"
+      "title": "Taking Out a Fork",
+      "crop": [
+        0.049999999999999954,
+        0.14283187372911296,
+        0.8963630246460141,
+        0.7059641486323281
+      ]
     },
     {
-      "id": "8e5df@11",
-      "title": "Heating a Beaker"
+      "id": "5d49e@3",
+      "title": "Applying Toothpaste",
+      "crop": [
+        0.05000000000000001,
+        0.28097580211921036,
+        0.8579066507004377,
+        0.49179954502039847
+      ]
     },
     {
-      "id": "1be0e@1",
-      "title": "Shaking a Test Tube"
+      "id": "65ef0@1",
+      "title": "Scooping Coffee Powder",
+      "crop": [
+        0.050000000000000065,
+        0.33882113095907695,
+        0.8642712185730465,
+        0.3463432805909562
+      ]
     },
     {
-      "id": "0b3d1@2",
-      "title": "Pressing a Scale Button"
-    },
-    {
-      "id": "b5fa3@15",
-      "title": "Racking a Tube with a Holder"
-    },
-    {
-      "id": "c2f83@3",
-      "title": "Racking a Glass Rod"
-    },
-    {
-      "id": "3b1e6@14",
-      "title": "Removing a Test Tube"
+      "id": "925aa@11",
+      "title": "Stirring in a Cup",
+      "crop": [
+        0.12707016602894236,
+        0.1676108900771058,
+        0.8229298339710577,
+        0.6702789768056922
+      ]
     },
     {
       "id": "9f436@1",
-      "title": "Placing a Donut on a Saucer"
+      "title": "Placing a Donut on a Saucer",
+      "crop": [
+        0.049999999999999954,
+        0.15761333017932663,
+        0.8853309609381159,
+        0.7623406802295905
+      ]
+    },
+    {
+      "id": "75b94@2",
+      "title": "Pouring from a Bowl into a Cup",
+      "crop": [
+        0.050000000000000065,
+        0.1256896856536223,
+        0.862965888150946,
+        0.7838213352106224
+      ]
+    },
+    {
+      "id": "a4cf2@0",
+      "title": "Putting a Toothbrush in a Cup",
+      "crop": [
+        0.05000000000000001,
+        0.2436810917767507,
+        0.810976849568002,
+        0.5595974191686374
+      ]
+    },
+    {
+      "id": "65ef0@2",
+      "title": "Scooping Honey",
+      "crop": [
+        0.26255103034684246,
+        0.1454160783198402,
+        0.468017590552789,
+        0.8045839216801599
+      ]
     },
     {
       "id": "86fb0@1",
-      "title": "Placing a Cup on a Scale"
+      "title": "Placing a Cup on a Scale",
+      "crop": [
+        0.049999999999999954,
+        0.16332490331176783,
+        0.8575817740760183,
+        0.7110169592578321
+      ]
     },
     {
-      "id": "f7d37@15",
-      "title": "Moving a Tripod"
+      "id": "15c29@0",
+      "title": "Spreading with a Fruit Knife",
+      "crop": [
+        0.05000000000000001,
+        0.1382210807081181,
+        0.8588762890365257,
+        0.7883405990249707
+      ]
     },
     {
-      "id": "590d0@3",
-      "title": "Holding a Kitchen Knife"
+      "id": "4f258@0",
+      "title": "Spreading with a Spoon",
+      "crop": [
+        0.14815247464053907,
+        0.16256628635987133,
+        0.801847525359461,
+        0.7755610549180781
+      ]
+    },
+    {
+      "id": "920f6@11",
+      "title": "Taking a Fork and Spoon",
+      "crop": [
+        0.049999999999999954,
+        0.26774331952855923,
+        0.861464536516447,
+        0.4902879129985197
+      ]
     },
     {
       "id": "4b10d@1",
-      "title": "Putting Tape in a Box"
+      "title": "Putting Tape in a Box",
+      "crop": [
+        0.049999999999999954,
+        0.2214256106770511,
+        0.8428380405213953,
+        0.5955053292378362
+      ]
     },
     {
-      "id": "86fb0@8",
-      "title": "Moving a Striped Bottle"
+      "id": "b1494@1",
+      "title": "Rearranging Pear Pieces",
+      "crop": [
+        0.049999999999999954,
+        0.14407283738405116,
+        0.7939099362065167,
+        0.8021124015401608
+      ]
+    },
+    {
+      "id": "7415d@1",
+      "title": "Joining Bread Pieces",
+      "crop": [
+        0.11317204909532116,
+        0.1477424989694168,
+        0.8155059191632439,
+        0.8022575010305831
+      ]
+    },
+    {
+      "id": "b0b13@11",
+      "title": "Capping an Alcohol Lamp",
+      "crop": [
+        0.049999999999999954,
+        0.2911232255363414,
+        0.872383267460335,
+        0.4172845129506365
+      ]
     },
     {
       "id": "f9335@2",
-      "title": "Moving a Toothbrush"
+      "title": "Moving a Toothbrush",
+      "crop": [
+        0.0953718854238472,
+        0.22502935755723383,
+        0.8546281145761528,
+        0.5649861083634693
+      ]
     }
   ]
 }

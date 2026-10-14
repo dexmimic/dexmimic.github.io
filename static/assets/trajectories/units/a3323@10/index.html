@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ManipTrans · Three.js trajectory unit</title>
+    <link rel="stylesheet" href="../../shared/style.css?v=20261011-curtain" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "../../shared/vendor/three.module.js",
+          "three/addons/": "../../shared/vendor/"
+        }
+      }
+    </script>
+  </head>
+  <body data-camera-config="camera.json?v=20261015-bimanual" data-hand-asset="../../shared/hands/acd8dbab7b08e5a99233a5d92b7ea0877ea1505fd7996317bf5f4e291000e85a.glb?v=20261010-white-tips" data-collection-url="../../" data-backdrop="studio">
+    <main class="page">
+      <div class="intro">
+        <span class="eyebrow">MANIPTRANS / INTERACTIVE TRAJECTORY</span>
+        <h1>One trajectory, one scene.</h1>
+        <p>
+          A static Three.js unit built from a successful DexHand evaluation
+          rollout. Click the card to inspect playback, references, paths, and
+          reward.
+        </p>
+      </div>
+
+      <div class="section-label">
+        <span>TRAJECTORY GALLERY</span><span>01 / 04 COLUMN WIDTH</span>
+      </div>
+      <div class="gallery">
+        <button
+          class="trajectory-card"
+          id="trajectory-card"
+          type="button"
+          aria-label="Open 3D trajectory viewer"
+        >
+          <div class="card-stage" id="card-stage">
+            <span>View 3D</span>
+          </div>
+          <div class="card-details">
+            <span class="task-id"
+              >a3323@10 <span class="success-dot"></span> SUCCESS</span
+            >
+            <strong>Use the gamecontroller to control the laptop.</strong>
+            <span class="card-foot"
+              ><span>DEXHAND · 2.5 S</span><span>EXPLORE ↗</span></span
+            >
+          </div>
+        </button>
+      </div>
+    </main>
+
+    <div class="overlay" id="overlay" hidden>
+      <div
+        class="viewer-shell"
+        id="viewer-shell"
+        role="dialog"
+        tabindex="-1"
+        aria-modal="true"
+        aria-label="Trajectory viewer"
+      >
+        <div class="viewer-header">
+          <div>
+            <h2>Using a Game Controller</h2>
+          </div>
+          <div class="header-actions">
+            <button id="size-button" class="text-button" type="button">
+              FULL SCREEN ↗
+            </button>
+            <button
+              id="close-button"
+              class="icon-button"
+              type="button"
+              aria-label="Close viewer"
+            >
+              ×
+            </button>
+          </div>
+        </div>
+        <div class="viewer-body">
+          <div class="viewer-main">
+            <div class="expanded-stage" id="expanded-stage"></div>
+            <div class="playback-bar">
+              <button
+                id="play-button"
+                class="play-button"
+                type="button"
+                aria-label="Pause"
+              >
+                Ⅱ
+              </button>
+              <span class="time-label" id="current-time">0:00</span>
+              <input
+                id="timeline"
+                type="range"
+                min="0"
+                max="1000"
+                value="0"
+                aria-label="Playback position"
+              />
+              <span class="time-label" id="duration">0:00</span>
+              <select id="speed" aria-label="Playback speed">
+                <option value="0.5">0.5×</option>
+                <option value="1" selected>1×</option>
+                <option value="2">2×</option>
+              </select>
+            </div>
+            <div class="reward-panel">
+              <div class="reward-heading">
+                <span>REWARD / FRAME</span><strong id="reward-value">—</strong>
+              </div>
+              <svg
+                id="reward-chart"
+                viewBox="0 0 600 58"
+                preserveAspectRatio="none"
+                aria-label="Reward over time"
+              >
+                <path id="reward-fill"></path>
+                <path id="reward-line"></path>
+                <line id="reward-cursor" x1="0" x2="0" y1="2" y2="56"></line>
+              </svg>
+            </div>
+          </div>
+          <aside class="layers">
+            <span class="eyebrow">SCENE LAYERS</span>
+            <div class="layer-group">
+              <h3>Simulation</h3>
+              <label
+                ><input type="checkbox" data-layer="hand" checked /> DexHand
+                state</label
+              >
+              <label
+                ><input type="checkbox" data-layer="object" checked /> Object
+                state</label
+              >
+              <label
+                ><input type="checkbox" data-layer="handPath" checked /> Hand
+                trajectory</label
+              >
+              <label
+                ><input type="checkbox" data-layer="objectPath" checked /> Object
+                trajectory</label
+              >
+            </div>
+            <div class="layer-group">
+              <h3>Reference</h3>
+              <label
+                ><input type="checkbox" data-layer="referenceHand" /> Hand
+                kinematics</label
+              >
+              <label
+                ><input type="checkbox" data-layer="referenceObject" /> Object
+                pose</label
+              >
+              <label
+                ><input type="checkbox" data-layer="referenceHandPath" /> Hand
+                trajectory</label
+              >
+              <label
+                ><input type="checkbox" data-layer="referenceObjectPath" />
+                Object trajectory</label
+              >
+            </div>
+            <div class="scene-hint">
+              <span class="hint-icon">↻</span
+              ><span>Drag to orbit<br />Scroll to zoom</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="../../shared/launcher.js?v=20261015-bimanual"></script>
+  </body>
+</html>

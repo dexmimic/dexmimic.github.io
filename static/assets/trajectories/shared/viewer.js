@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
-import { motionBounds, frameMotion } from "./framing.js";
+import { motionBounds, frameMotion, frameConfigured } from "./framing.js?v=20261015-bimanual";
 import { createComparison } from "./comparison.js";
 
 const viewport = document.createElement("div");
@@ -20,6 +20,9 @@ const [data, handAsset, objectAsset] = await Promise.all([
   loader.loadAsync(unitAsset(document.body.dataset.handAsset)),
   loader.loadAsync(unitAsset("object.glb")),
 ]);
+
+const cameraConfig = document.body.dataset.cameraConfig
+  ? await fetch(unitAsset(document.body.dataset.cameraConfig)).then((response) => response.json()) : null;
 
 const scene = new THREE.Scene();
 scene.background = studio ? new THREE.Color("#ffffff") : null;
@@ -313,7 +316,10 @@ function resize() {
     renderer.setSize(width, height, false);
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
-    if (studio) frameMotion(camera, controls, bounds);
+    if (studio) {
+      if (cameraConfig) frameConfigured(camera, controls, cameraConfig);
+      else frameMotion(camera, controls, bounds);
+    }
   }
 }
 new ResizeObserver(resize).observe(viewport);

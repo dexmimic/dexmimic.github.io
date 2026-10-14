@@ -70,7 +70,7 @@ async function createPreview(card) {
   const video = preview.querySelector("video");
   const directory = new URL(".", card.href);
   const poster = new Image();
-  poster.src = new URL("comparison-poster.png", directory);
+  poster.src = new URL("comparison-poster.png?v=20261015-bimanual", directory);
   await poster.decode();
   const canvas = document.createElement("canvas");
   canvas.className = "comparison-preview";
@@ -106,7 +106,7 @@ async function createPreview(card) {
     video.requestVideoFrameCallback(paintFrame);
   };
   video.requestVideoFrameCallback(paintFrame);
-  video.dataset.src = new URL("comparison.mp4", directory).href;
+  video.dataset.src = new URL("comparison.mp4?v=20261015-bimanual", directory).href;
   if (video.hasAttribute("src")) video.src = video.dataset.src;
   return curtain;
 }

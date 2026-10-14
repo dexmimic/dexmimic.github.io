@@ -1,7 +1,207 @@
 {
-  "rows": 7,
+  "rows": 12,
   "columns": 4,
   "units": [
+    {
+      "id": "499f1@0",
+      "title": "Unplugging a USB Device",
+      "description": "Both hands remove a USB device from a hub.",
+      "duration": 6.517,
+      "page": "units/499f1@0/index.html",
+      "preview": "units/499f1@0/preview.png",
+      "backdrop": "studio",
+      "hand_count": 2
+    },
+    {
+      "id": "9cf44@4",
+      "title": "Unplugging a Power Cord",
+      "description": "Both hands pull a power plug from a power strip.",
+      "duration": 3.8,
+      "page": "units/9cf44@4/index.html",
+      "preview": "units/9cf44@4/preview.png",
+      "backdrop": "studio",
+      "hand_count": 2
+    },
+    {
+      "id": "9a028@13",
+      "title": "Capping a Pen",
+      "description": "Both hands align and replace a pen cap.",
+      "duration": 3.4,
+      "page": "units/9a028@13/index.html",
+      "preview": "units/9a028@13/preview.png",
+      "backdrop": "studio",
+      "hand_count": 2
+    },
+    {
+      "id": "1b938@9",
+      "title": "Erasing a Whiteboard",
+      "description": "Both hands coordinate to erase a whiteboard.",
+      "duration": 3.967,
+      "page": "units/1b938@9/index.html",
+      "preview": "units/1b938@9/preview.png",
+      "backdrop": "studio",
+      "hand_count": 2
+    },
+    {
+      "id": "7a6dd@2-vpsi",
+      "title": "Writing on a Cyan Whiteboard",
+      "description": "Both hands coordinate to write on a whiteboard with a marker.",
+      "duration": 13.233,
+      "page": "units/7a6dd@2-vpsi/index.html",
+      "preview": "units/7a6dd@2-vpsi/preview.png",
+      "backdrop": "studio",
+      "hand_count": 2
+    },
+    {
+      "id": "a3323@10",
+      "title": "Using a Game Controller",
+      "description": "Both hands manipulate a game controller.",
+      "duration": 2.45,
+      "page": "units/a3323@10/index.html",
+      "preview": "units/a3323@10/preview.png",
+      "backdrop": "studio",
+      "hand_count": 2
+    },
+    {
+      "id": "79e82@1",
+      "title": "Taking Tape from a Box",
+      "description": "Both hands take a roll of tape out of a box.",
+      "duration": 3.517,
+      "page": "units/79e82@1/index.html",
+      "preview": "units/79e82@1/preview.png",
+      "backdrop": "studio",
+      "hand_count": 2
+    },
+    {
+      "id": "29266@7",
+      "title": "Opening a Ceramic Jar",
+      "description": "Both hands lift the lid from a ceramic jar.",
+      "duration": 3.5,
+      "page": "units/29266@7/index.html",
+      "preview": "units/29266@7/preview.png",
+      "backdrop": "studio",
+      "hand_count": 2
+    },
+    {
+      "id": "5d49e@3",
+      "title": "Applying Toothpaste",
+      "description": "Both hands bring a toothpaste tube and toothbrush together.",
+      "duration": 4.633,
+      "page": "units/5d49e@3/index.html",
+      "preview": "units/5d49e@3/preview.png",
+      "backdrop": "studio",
+      "hand_count": 2
+    },
+    {
+      "id": "65ef0@1",
+      "title": "Scooping Coffee Powder",
+      "description": "Both hands scoop coffee powder from a container with a spoon.",
+      "duration": 8.233,
+      "page": "units/65ef0@1/index.html",
+      "preview": "units/65ef0@1/preview.png",
+      "backdrop": "studio",
+      "hand_count": 2
+    },
+    {
+      "id": "925aa@11",
+      "title": "Stirring in a Cup",
+      "description": "Both hands stir inside a cup with a spoon.",
+      "duration": 4.1,
+      "page": "units/925aa@11/index.html",
+      "preview": "units/925aa@11/preview.png",
+      "backdrop": "studio",
+      "hand_count": 2
+    },
+    {
+      "id": "75b94@2",
+      "title": "Pouring from a Bowl into a Cup",
+      "description": "Both hands tilt a bowl over a cup.",
+      "duration": 3.717,
+      "page": "units/75b94@2/index.html",
+      "preview": "units/75b94@2/preview.png",
+      "backdrop": "studio",
+      "hand_count": 2
+    },
+    {
+      "id": "a4cf2@0",
+      "title": "Putting a Toothbrush in a Cup",
+      "description": "Both hands place a toothbrush into a cup.",
+      "duration": 4.033,
+      "page": "units/a4cf2@0/index.html",
+      "preview": "units/a4cf2@0/preview.png",
+      "backdrop": "studio",
+      "hand_count": 2
+    },
+    {
+      "id": "65ef0@2",
+      "title": "Scooping Honey",
+      "description": "Both hands scrape honey from a bowl with a spoon.",
+      "duration": 6.233,
+      "page": "units/65ef0@2/index.html",
+      "preview": "units/65ef0@2/preview.png",
+      "backdrop": "studio",
+      "hand_count": 2
+    },
+    {
+      "id": "15c29@0",
+      "title": "Spreading with a Fruit Knife",
+      "description": "Both hands coordinate a spreading motion with a fruit knife.",
+      "duration": 14.133,
+      "page": "units/15c29@0/index.html",
+      "preview": "units/15c29@0/preview.png",
+      "backdrop": "studio",
+      "hand_count": 2
+    },
+    {
+      "id": "4f258@0",
+      "title": "Spreading with a Spoon",
+      "description": "Both hands coordinate a spreading motion with a spoon.",
+      "duration": 13.367,
+      "page": "units/4f258@0/index.html",
+      "preview": "units/4f258@0/preview.png",
+      "backdrop": "studio",
+      "hand_count": 2
+    },
+    {
+      "id": "920f6@11",
+      "title": "Taking a Fork and Spoon",
+      "description": "Both hands retrieve a fork and spoon from a rack.",
+      "duration": 6.517,
+      "page": "units/920f6@11/index.html",
+      "preview": "units/920f6@11/preview.png",
+      "backdrop": "studio",
+      "hand_count": 2
+    },
+    {
+      "id": "b1494@1",
+      "title": "Rearranging Pear Pieces",
+      "description": "Both hands reposition pieces of a pear model.",
+      "duration": 5.8,
+      "page": "units/b1494@1/index.html",
+      "preview": "units/b1494@1/preview.png",
+      "backdrop": "studio",
+      "hand_count": 2
+    },
+    {
+      "id": "7415d@1",
+      "title": "Joining Bread Pieces",
+      "description": "Both hands bring pieces of a bread model together.",
+      "duration": 4.517,
+      "page": "units/7415d@1/index.html",
+      "preview": "units/7415d@1/preview.png",
+      "backdrop": "studio",
+      "hand_count": 2
+    },
+    {
+      "id": "b0b13@11",
+      "title": "Capping an Alcohol Lamp",
+      "description": "Both hands place a cap over an alcohol lamp.",
+      "duration": 3.167,
+      "page": "units/b0b13@11/index.html",
+      "preview": "units/b0b13@11/preview.png",
+      "backdrop": "studio",
+      "hand_count": 2
+    },
     {
       "id": "30dbe@14",
       "title": "Two-Handed Pour into a Beaker",

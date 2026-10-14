@@ -57,3 +57,14 @@ export function frameMotion(camera, controls, bounds) {
   controls.maxDistance = distance * 4;
   controls.update();
 }
+
+export function frameConfigured(camera, controls, config) {
+  const center = new THREE.Vector3(...config.target);
+  const direction = new THREE.Vector3(...config.direction).normalize();
+  const distance = config.distance / Math.min(1, camera.aspect);
+  camera.position.copy(center).addScaledVector(direction, distance);
+  controls.target.copy(center);
+  controls.minDistance = distance * 0.3;
+  controls.maxDistance = distance * 4;
+  controls.update();
+}

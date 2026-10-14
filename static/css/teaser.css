@@ -30,9 +30,9 @@
 .teaser-copy {
   position: absolute;
   z-index: 3;
-  top: 47%;
+  top: 48%;
   left: 50%;
-  width: min(980px, calc(100% - 48px));
+  width: min(760px, calc(100% - 48px));
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
@@ -47,21 +47,21 @@
 .teaser-loading[hidden] { display: none; }
 .teaser[aria-busy="true"] .curtain-divider { visibility: hidden; }
 .teaser h1 {
-  margin: 0 0 22px;
+  margin: 0 0 14px;
   color: #fff;
   font-weight: 650;
   letter-spacing: -0.035em;
 }
 .teaser-name {
   display: block;
-  margin-bottom: 18px;
-  font-size: clamp(60px, 7.4vw, 112px);
+  margin-bottom: 12px;
+  font-size: clamp(60px, 5.6vw, 84px);
   line-height: 1;
   opacity: .82;
 }
 .teaser-subtitle {
   display: block;
-  font-size: clamp(20px, 2.2vw, 29px);
+  font-size: clamp(20px, 1.65vw, 23px);
   font-weight: 450;
   line-height: 1.35;
   letter-spacing: -0.015em;
@@ -153,9 +153,9 @@
   .hero.teaser { margin-bottom: 28px; }
   .teaser-resource-links { top: 18px; right: 18px; gap: 6px; }
   .teaser-resource-links .appendix { padding: 7px 11px; font-size: 12px; }
-  .teaser-copy { width: calc(100% - 36px); top: 45%; }
-  .teaser-name { margin-bottom: 14px; font-size: clamp(50px, 14vw, 70px); }
-  .teaser-subtitle { font-size: 18px; line-height: 1.35; }
+  .teaser-copy { width: calc(100% - 36px); top: 48%; }
+  .teaser-name { margin-bottom: 10px; font-size: clamp(44px, 12vw, 64px); }
+  .teaser-subtitle { font-size: 16px; line-height: 1.3; }
   .teaser h1 { margin-bottom: 16px; }
   .teaser .hero-authors { font-size: 16px; }
   .teaser-review { font-size: 13px; }
