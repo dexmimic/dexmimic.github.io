@@ -30,6 +30,47 @@ Open http://127.0.0.1:8766. The preview server supports byte-range requests for 
 
 The hero shows a frosted loading badge above the title while its visualization loads. The badge clears and the introductory divider sweep starts after the first video frame has been drawn. Reduced motion clears the badge after the poster is drawn and keeps the divider manual. Loading follows media readiness without an artificial minimum wait.
 
+## Search indexing release check
+
+Every deployed HTML page must include `noindex, nofollow` in its static `<head>`. Keep crawling allowed so search engines can read this directive; do not publish a sitemap or add links to an identified project site. Direct access remains available. This directive does not cover PDF or video assets.
+
+Run this check from the repository root before every release, including newly added HTML pages:
+
+```sh
+python3 - <<'PYTHON'
+from html.parser import HTMLParser
+from pathlib import Path
+import subprocess
+
+class HeadRobots(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.in_head = False
+        self.robots = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "head":
+            self.in_head = True
+        attrs = dict(attrs)
+        if self.in_head and tag == "meta" and attrs.get("name", "").lower() == "robots":
+            self.robots.append(attrs.get("content", "").lower())
+
+    def handle_endtag(self, tag):
+        if tag == "head":
+            self.in_head = False
+
+paths = subprocess.check_output(
+    ["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z", "*.html"]
+).decode().split("\0")[:-1]
+assert paths, "No HTML pages found"
+for name in paths:
+    parser = HeadRobots()
+    parser.feed(Path(name).read_text())
+    assert parser.robots == ["noindex, nofollow"], name
+print(f"PASS: {len(paths)} HTML pages have head robots noindex, nofollow")
+PYTHON
+```
+
 ## Visualization appearance
 
 The default viewer uses a white studio, soft environment lighting, and one camera fitted to the complete simulation and human motion. The MANO/Wuji mode shows original human motion on the left and the recorded simulation on the right, with a shared timeline and draggable divider. Simulation meshes retain their GLB materials; human hands use matte light blue.
